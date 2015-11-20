@@ -1,0 +1,66 @@
+/* Style cheats */
+
+.pt0{padding-top:0px}.pb0{padding-bottom:0px}
+.mb10{margin-bottom:10px;}.mb25 {margin-bottom:25px;}.mb32 {margin-bottom:32px;}.mb50 {margin-bottom:50px;}.mb75 {margin-bottom:75px;}.mb100 {margin-bottom:100px;}
+.mt10{margin-top:10px;}.mt25 {margin-top:25px;}.mt50 {margin-top:50px;}.mt75 {margin-top:75px;}.mt100 {margin-top:100px;}
+.pt25 {padding-top:25px;}.pt50 {padding-top:50px;}.pt75 {padding-top:75px;}.pt100 {padding-top:100px;}
+.pb25 {padding-bottom:25px;}.pb50 {padding-bottom:50px;}.pb75 {padding-bottom:75px;}.pb100 {padding-bottom:100px;}
+.p3{padding:3px;} .p10{padding:10} .p15 {padding:15px;} .p25 {padding:25px;}
+.h150 {min-height:150px; font-size:32px;}
+.mh300 {max-height:300px;}
+
+
+
+.mr5{margin-right:5px;}
+.ml5{margin-left:5px;}
+.scroll{overflow-y: auto;}
+.xxx{background-color:red;}
+.hidden{display:none;}  
+.tr{height:20px;}
+.whitegap{border: 1px solid white;} 	/* Used to separate full-width buttons */
+
+.darkgrey{background-color:#333333}
+.lightgrey{background-color:#CCC;}
+
+
+.whitetext {color:white!important;}
+.middle {text-align:center; margin:0px auto;}
+
+.tr{padding:31px;}
+body{font-family: 'Poppins', sans-serif; overflow-y:scroll;}
+th{padding:5px;}
+
+/* Dividers*/
+.title-divider{margin:10px auto; background-color:#CCC; width:100%; height:1px; display:block;}
+
+/* Border radius */
+.fullradius {border-radius: 15px;}
+
+/* IDs */
+#searchbox{
+	background-color: #333333;
+	border-radius:15px;
+	color:white;
+	}
+
+/* Classes */	
+.navbar-default {
+    background-color: #333333;
+    border-color: #e7e7e7;
+}
+
+
+.panel-info > .panel-heading {
+    color: white;
+    background-color: #333333;
+    border-color: #333333;
+}
+
+.panel-info {
+    border-color: #333333;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+}
+
