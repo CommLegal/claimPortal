@@ -10,21 +10,16 @@ date_default_timezone_set('Europe/London');
 
 session_start();
 
-define("_SERVER_ROOT", "http://192.168.3.215/");
-define("_ROOT", "http://192.168.3.215/claimPortal");
+define("_SERVER_ROOT", "https://portal.commercial-legal.co.uk/");
+define("_ROOT", "https://portal.commercial-legal.co.uk");
 define("_SITEROOT", "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
 
-define("_CME_HOSTNAME", "192.168.3.214");
+define("_CME_HOSTNAME", "127.0.0.1");
 define("_CME_USERNAME", "claimPortal");
-define("_CME_PASSWORD", "claimPortal001!");
-define("_CME_DATABASE", "claimPortal_backup");
+define("_CME_PASSWORD", "CLadmin001!");
+define("_CME_DATABASE", "claimPortal");
 
 //define("_PWD_SALT", "'RDYOVKL5CTRLYANJTXKVZ9OHPW98ES'");
-
-define("_EMAIL_SERVER", "192.168.2.150");
-define("_EMAIL_USER", "noreply");
-define("_EMAIL_PASSWORD", "direct987*");
-define("_EMAIL_ADDRESS", "noreply@commercial-legal.co.uk");
 
 define("_SALT", "rE!wec#PpcnDK7*&5S#V87kRc69G2zVe");
 
