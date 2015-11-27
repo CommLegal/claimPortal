@@ -132,7 +132,7 @@ $("#submit_form_ass").click(function(e) {
 		}
 	  );
 	
-	window.location.replace("https://portal.commercial-legal.co.uk/index.php?displayPage=success");
+	//window.location.replace("https://portal.commercial-legal.co.uk/index.php?displayPage=success");
 });
 
 $("#submit_form_unass").click(function(e) {
@@ -148,7 +148,7 @@ $("#submit_form_unass").click(function(e) {
 		}
 	  );
 	
-	window.location.replace("https://portal.commercial-legal.co.uk/index.php?displayPage=success");
+	//window.location.replace("https://portal.commercial-legal.co.uk/index.php?displayPage=success");
 	
 });
 
@@ -214,7 +214,6 @@ $("#createNewClaim").click(function(e) {
 	   'pages/accident_recovery_upload.php',
 		data,
 		function(data){
-			alert(data);
 		  $(".hiddenClaimType").html(data);
 		  $('#createNewClaim').hide();
 		  $(".firstStep").show();
