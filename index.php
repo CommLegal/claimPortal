@@ -56,17 +56,6 @@ require('pages/nav.php');
 				break;
 			case "breakdown_assistance":
 				echo "<h3>Breakdown</h3><div class=\"title-divider\"></div>";
-				?>
-                <div class="well">
-                    <h4>For more information regarding our policies or terms and conditions please download and inspect the documents below.</h4>
-                    <div class="btn-group" role="group">
-                      <a href="<?php echo _ROOT ?>/pdf-docs/breakdown-terms-of-business-agreement.pdf" target="_blank"><button type="button" class="btn btn-default">Breakdown Terms of Business Agreement</button></a>
-                      <a href="<?php echo _ROOT ?>/pdf-docs/one-call-insurance-services-breakdown.pdf" target="_blank"><button type="button" class="btn btn-default">OneCall Insurance Breakdown Services</button></a>
-                      <a href="<?php echo _ROOT ?>/pdf-docs/frequently-asked-questions-breakdown.pdf" target="_blank"><button type="button" class="btn btn-default">Frequently Asked Questions</button></a>
-                    </div>
-                    <div style="clear: both;"</div>
-                </div>
-                <?php
 				$bgcolor = "#f0AD4E";
 				$fontcolor = "#333";
 				$breakcolor = "#333";
