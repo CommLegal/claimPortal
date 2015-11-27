@@ -5,10 +5,10 @@
     
     <div class="well">
     	<h4>For more information regarding our policies or terms and conditions please download and inspect the documents below.</h4>
-        <div class="btn-group" role="group" aria-label="...">
-          <a href="<?php echo _ROOT ?>/pdf-docs/breakdown-terms-of-business-agreement.pdf" target="_blank"><button type="button" class="btn btn-default">Breakdown Terms of Business Agreement&nsbp;<span class="glyphicon glyphicon-save"></span></button></a>
-          <a href="<?php echo _ROOT ?>/pdf-docs/one-call-insurance-services-breakdown.pdf" target="_blank"><button type="button" class="btn btn-default">OneCall Insurance Breakdown Services&nsbp;<span class="glyphicon glyphicon-save"></span></button></a>
-          <a href="<?php echo _ROOT ?>/pdf-docs/frequently-asked-questions-breakdown.pdf" target="_blank"><button type="button" class="btn btn-default">Frequently Asked Questions&nsbp;<span class="glyphicon glyphicon-save"></span></button></a>
+        <div class="btn-group" role="group">
+          <a href="<?php echo _ROOT ?>/pdf-docs/breakdown-terms-of-business-agreement.pdf" target="_blank"><button type="button" class="btn btn-default">Breakdown Terms of Business Agreement</button></a>
+          <a href="<?php echo _ROOT ?>/pdf-docs/one-call-insurance-services-breakdown.pdf" target="_blank"><button type="button" class="btn btn-default">OneCall Insurance Breakdown Services</button></a>
+          <a href="<?php echo _ROOT ?>/pdf-docs/frequently-asked-questions-breakdown.pdf" target="_blank"><button type="button" class="btn btn-default">Frequently Asked Questions</button></a>
         </div>
         <div style="clear: both;"</div>
     </div>
