@@ -12,7 +12,7 @@
     <div class="col-md-10 mb25"><p>Please select an action.</p></div>
     	<?php 
 		if($_SESSION['permissions']['accident_recovery'] == "Y") {
-        	echo "<a href=\"". _ROOT . "/index.php?displayPage=accident_recovery\"><button type=\"button\" 
+        	echo "<a href=\"". _ROOT . "/index.php?displayPage=incident_recovery\"><button type=\"button\" 
 			class=\"w100 btn btn-purp navbar-btn btn-lg mr5 p25 h150 col-md-12\">Incident Recovery</button></a><br>";
          } 
 		 if($_SESSION['permissions']['breakdown'] == "Y") { 

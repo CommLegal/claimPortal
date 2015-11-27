@@ -48,7 +48,7 @@ require('pages/nav.php');
 <div class="container">   
 	<?php 
 		switch($_REQUEST['displayPage']) {
-			case "accident_recovery":
+			case "incident_recovery":
 				echo "<h3>Incident Recovery</h3><div class=\"title-divider\"></div>";
 				$bgcolor = "#863A84";
 				$fontcolor = "white";
@@ -79,7 +79,7 @@ require('pages/nav.php');
 		elseif($_REQUEST['displayPage'] == "lobby") {
 			require("pages/lobby.php");
 		}
-		elseif($_REQUEST['displayPage'] == "accident_recovery") {
+		elseif($_REQUEST['displayPage'] == "incident_recovery") {
 
 			?>
 				<script src="<?php echo _ROOT ?>/js/jquery.jeditable.js"></script>
