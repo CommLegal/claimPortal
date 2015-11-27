@@ -65,7 +65,7 @@ $('#btn-login').click(function(e) {
       data,
       function(data) {
         $(".panel-body").html(data);
-		//window.location.reload();
+		window.location.reload();
         //window.location.replace("http://192.168.3.215/claimPortal/index.php");
       }
     );
