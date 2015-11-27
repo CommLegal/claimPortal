@@ -25,6 +25,7 @@ define("_SALT", "rE!wec#PpcnDK7*&5S#V87kRc69G2zVe");
 
 $allowed = 0;
 $allowed_ips = array("OneCall" => "212.250.30.242");
+var_dump($allowed_ips);
 foreach($allowed_ips as $company => $ip) {
 	if($_SERVER['REMOTE_ADDR'] == $ip) {
 		$allowed = 1;
