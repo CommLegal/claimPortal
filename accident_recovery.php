@@ -103,13 +103,13 @@
                 
 				<div class="col-md-6">
                     <h4>Previous Claims</h4><div class="title-divider"></div>
-                        <div class="scroll mh300">
+                        <div class="scroll mh">
                         	
                             <table width="450" border="0";>
                               <tr>
                                 <th scope="row"><b>Date</b></th>
                                 <td>Ref No.</td>
-                                <td></td>
+                                <td>&nbsp;</td>
                               </tr>
                               <tr>
                               <tr>
@@ -123,13 +123,23 @@
                                 <td><button class = "btn btn-default">View</button></td>
                               </tr>
                               <tr>
-                                <th scope="row"><b>27-07-2005:</b></th>
-                                <td>#77314</td>
+                                <th scope="row"><b>02-03-2006:</b></th>
+                                <td>#62147</td>
                                 <td><button class = "btn btn-default">View</button></td>
                               </tr>
                               <tr>
-                                <th scope="row"><b>31-02-2000:</b></th>
-                                <td>#77314</td>
+                                <th scope="row"><b>02-03-2006:</b></th>
+                                <td>#62147</td>
+                                <td><button class = "btn btn-default">View</button></td>
+                              </tr>
+                              <tr>
+                                <th scope="row"><b>02-03-2006:</b></th>
+                                <td>#62147</td>
+                                <td><button class = "btn btn-default">View</button></td>
+                              </tr>
+                              <tr>
+                                <th scope="row"><b>02-03-2006:</b></th>
+                                <td>#62147</td>
                                 <td><button class = "btn btn-default">View</button></td>
                               </tr>
                             </table>
@@ -140,6 +150,8 @@
 				
 			
 	</div><!-- /.DETAILS -->
+    
+    <!-- TEMPORARY BUTTONS UNTIL PHP DETECTS IF INSURER IS OIL OR NOT -->
     <label class="mt25">These buttons represent the automatic detection of the insurer (if it's OIL or not) click accordingly</label><br />
     	<button type="button" class="btn btn-primary navbar-btn btn-lg mr5 col-md-3 assist-btn" id="OIL">OIL&nbsp; <i class="fa fa-lg fa-arrow-right"></i></button>
         <button type="button" class="btn btn-primary navbar-btn btn-lg mr5 col-md-3 unassist-btn" id="nonOIL">Non-OIL <i class="fa fa-lg fa-arrow-right"></i></button>
@@ -199,7 +211,6 @@
 						<th scope="row"><b>Level of Cover:</b></th>
 						<td>First Class</td>				
 					  </tr>
-
 					</table>
 					
 					<!-- 
@@ -212,13 +223,10 @@
 		</div>
 	</div><!-- /DPA -->
     
-    
-    
-
 	<div class = "fnol-ass" style="display:none"><!-- FNOL ASSISTED -->		
 		<div class="col-md-12">
 			<h3>FNOL - Assisted</h3>
-            <p>If the insurer is OIL and we choose ASSISTED after searching, this div will show.</p>
+            <p>If the insurer is OIL and we choose ASSISTED after searching, this div will show.</p><!-- remove this p after implementation -->
 			<div class="title-divider"></div>
 		</div>
 		
@@ -231,22 +239,22 @@
 		<form>
 				
 				<label>Policy Number:</label>
-				<input disabled type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1">
+				<input disabled type="text" class="form-control mb10" placeholder=""  >
 				
 				<label>Driver Name:</label>
-				<input required type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1">
+				<input required type="text" class="form-control mb10" placeholder=""   >
 				
 				<label>Vehicle Registration:</label>
-				<input disabled type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1">
+				<input disabled type="text" class="form-control mb10" placeholder=""   >
 				
 				<label>Date of Incident:</label>
-				<input required type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1">
+				<input required type="text" class="form-control mb10" placeholder=""   >
                 
 				<label>Vehicle(s) in Storage:</label>
-				<input type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1">
+				<input type="text" class="form-control mb10" placeholder=""   >
 				
 				<label>Location if Stored:</label>
-				<input type="text" class="form-control mb25" placeholder="" aria-describedby="basic-addon1">
+				<input type="text" class="form-control mb25" placeholder=""   >
                 
                 
 					
@@ -282,24 +290,23 @@
 				<!-- Leftbox Circ-->
 				<div class = "col-md-6">
                     <label>Vehicles Involved:</label>
-                            <input type="number" class="form-control mb10" placeholder="" aria-describedby="basic-addon1">
+                            <input type="number" class="form-control mb10" placeholder=""   >
                             
                     <label>Number of Injured Parties:</label>	
-                            <input type="number" class="form-control mb10" placeholder="" aria-describedby="basic-addon1">
+                            <input type="number" class="form-control mb10" placeholder=""   >
 				</div>
                 
 				<!-- /.Leftbox Circ-->
                 
-                
                 <div class = "col-md-12">
                     <label>Circumstance Details:</label>
-                    <input type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1" />
+                    <input type="text" class="form-control mb10" placeholder=""  />
     
                     <label>Injury Details (if applicable):</label>
-                    <input type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1" />
+                    <input type="text" class="form-control mb10" placeholder=""  />
                     
                     <label>Other Info:</label>
-                    <input type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1" />
+                    <input type="text" class="form-control mb10" placeholder=""  />
 				</div>
 		
 			</div><!-- /.Mid Col -->	
@@ -317,19 +324,19 @@
 			<div class="col-md-4">
 				
 					<label>Name:</label>
-					<input required type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1" />
+					<input required type="text" class="form-control mb10" placeholder=""  />
 					
 					<label>Registration:</label>
-					<input required type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1" />
+					<input required type="text" class="form-control mb10" placeholder=""  />
 					
 					<label>Make & Model:</label>
-					<input required type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1" />
+					<input required type="text" class="form-control mb10" placeholder=""  />
                     
                     <label>Contact Number:</label>
-                    <input required type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1">
+                    <input required type="text" class="form-control mb10" placeholder="" />
                     
                     <label>Alternative Number:</label>
-                    <input required type="text" class="form-control mb25" placeholder="" aria-describedby="basic-addon1">
+                    <input required type="text" class="form-control mb25" placeholder="" />
 
 			</div>
 			
@@ -343,7 +350,7 @@
 		<div class = "col-md-12">
 			<div class="well">
 				<!-- If Insurer is not OIL -->
-				<b>Non-OIL Insurer Script:</b> <br><br>
+				<b>Non-OIL Insurer Script:</b> <br><br> 
 				 <p>I see you are insured with XXX. I will need to give you a contact number for them as they are your insurer and will deal with your claim or recovery.</p>
 				 <button class="btn btn-default">View Numbers <i class="fa fa-lg fa-phone-square"></i></a>
 			</div>	
@@ -357,7 +364,7 @@
 	<div class = "fnol-unass" style="display:none"><!-- FNOL UNASSISTED -->		
 		<div class="col-md-12">
 			<h3>FNOL - Unassisted</h3>
-            <p>If the insurer is OIL and we choose UNASSISTED after searching, this div will show.</p>
+            <p>If the insurer is OIL and we choose UNASSISTED after searching, this div will show.</p> <!-- remove this p after implementation -->
 			<div class="title-divider"></div>
 		</div>
 		
@@ -368,22 +375,22 @@
 			<div class="col-md-4">
 			<form>
 				<label>Policy Number:</label>
-				<input disabled type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1">
+				<input disabled type="text" class="form-control mb10" placeholder=""   >
 				
 				<label>Driver Name:</label>
-				<input required type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1">
+				<input required type="text" class="form-control mb10" placeholder=""   >
 				
 				<label>Vehicle Registration:</label>
-				<input disabled type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1">
+				<input disabled type="text" class="form-control mb10" placeholder=""   >
 				
 				<label>Date of Incident:</label>
-				<input required type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1">
+				<input required type="text" class="form-control mb10" placeholder=""   >
                 
 				<label>Vehicle(s) in Storage:</label>
-				<input type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1">
+				<input type="text" class="form-control mb10" placeholder=""   >
 				
 				<label>Location if Stored:</label>
-				<input type="text" class="form-control mb25" placeholder="" aria-describedby="basic-addon1">
+				<input type="text" class="form-control mb25" placeholder=""   >
 					
 					
 			</div><!-- /.Left Col -->
@@ -417,23 +424,23 @@
 				<!-- Leftbox Circ-->
 				<div class = "col-md-6">
                     <label>Vehicles Involved:</label>
-                            <input type="number" class="form-control mb10" placeholder="" aria-describedby="basic-addon1">
+                            <input type="number" class="form-control mb10" placeholder=""   >
                             
                     <label>Number of Injured Parties:</label>	
-                            <input type="number" class="form-control mb10" placeholder="" aria-describedby="basic-addon1">
+                            <input type="number" class="form-control mb10" placeholder=""   >
 				</div>
                 
 				<!-- /.Leftbox Circ-->
 
                 <div class = "col-md-12">
                     <label>Circumstance Details:</label>
-                    <input type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1" />
+                    <input type="text" class="form-control mb10" placeholder=""  />
     
                     <label>Injury Details (if applicable):</label>
-                    <input type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1" />
+                    <input type="text" class="form-control mb10" placeholder=""  />
                     
                     <label>Other Info:</label>
-                    <input type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1" />
+                    <input type="text" class="form-control mb10" placeholder=""   />
 				</div>
 		
 			</div><!-- /.Mid Col -->	
@@ -451,19 +458,19 @@
 			<div class="col-md-4">
 				
 					<label>Name:</label>
-					<input required type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1" />
+					<input required type="text" class="form-control mb10" placeholder=""  />
 					
 					<label>Registration:</label>
-					<input required type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1" />
+					<input required type="text" class="form-control mb10" placeholder=""  />
 					
 					<label>Make & Model:</label>
-					<input required type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1" />
+					<input required type="text" class="form-control mb10" placeholder=""  />
                     
                     <label>Contact Number:</label>
-                    <input required type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1">
+                    <input required type="text" class="form-control mb10" placeholder="" />
                     
                     <label>Alternative Number:</label>
-                    <input required type="text" class="form-control mb25" placeholder="" aria-describedby="basic-addon1">
+                    <input required type="text" class="form-control mb25" placeholder="" />
 
 			</div>
 			
@@ -476,7 +483,7 @@
         
 	<div class = "col-lg-12">	
             <label>Reason for unassist:</label>
-				<textarea required type="text" name ="description" rows = "10" cols="70" class="form-control mt10 mb25" placeholder="" aria-describedby="basic-addon1"> </textarea>
+				<textarea required type="text" name ="description" rows = "10" cols="70" class="form-control mt10 mb25" placeholder="" > </textarea>
 				<button class = "btn btn-success mb25">Accept & Save &nbsp;<i class="fa fa-lg fa-floppy-o"></i></button>
 			</div>
         </form>

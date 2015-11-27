@@ -30,10 +30,11 @@
 <div class="container">
 	<!-- SEARCH -->
 	
-	<div class="col-md-12 mb10">              
+	<div class="col-md-12 mb10"> <!-- This will probably just contain the FNOL we have on the other pages -->              
 		<h3>FNOL</h3><div class="title-divider"></div>
         <p>FNOL will go here when we get more details.</p>
 	</div> 
+    
 </div>
 
 

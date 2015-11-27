@@ -11,6 +11,14 @@
     <link href="css/theme.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet' type='text/css'>
+    
+    <!-- JS file-->
+    <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+    <!--JS File--->
+    
+    <!--Main JS Script--->
+    <script type="text/javascript" src="js/script.js"></script>
+    <!--Main JS Script--->
 
 </head>
 
@@ -33,33 +41,35 @@
 		<!-- DETAILS -->
 	<div class="details">
 		<div class="col-md-12">
-				<div class="col-md-4">
+				<div class="col-md-12 mb25" id ="searchbox">
 				<h4>Customer Search</h4><div class="title-divider"></div>
 					
-					<label>Policy holder name:</label>
-							<input type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1">
-					
-					<label>Vehicle registration:</label>
-							<input type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon2">
-						
-					<label>If Insurer = "OIL":</label>
-						<br>
-							<select class="mb25 assbox">
-							  <option value="unass">Unassisted</option>
-							  <option value="ass">Assisted</option>
-							</select>
-						<br>
-
-					<button class = "btn btn-primary">Search &nbsp;<i class="fa fa-lg fa-search"></i></button>
+                    <div class ="col-md-4">
+						<p>Policy holder name:</p><input type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1">
+					</div>
+                    
+                    <div class ="col-md-4">
+						<p>Vehicle registration:</p><input type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon2">
+					</div>	
+                    
+                    <div class ="col-md-4">
+						<p>Policy number:</p><input type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon2">
+					</div>
+                    
+					<button class = "btn btn-success mt10 mb25">Search &nbsp;<i class="fa fa-lg fa-search"></i></button>
 				</div>
 				
 				
-				<div class="col-md-4">
+				<div class="col-md-6">
                     <h4>Search Results</h4><div class="title-divider"></div>
-                        <table width="260" border="0";>
+                        <table width="600" border="0">
                           <tr>
                             <th scope="row"><b>Customer Name:</b></th>
                             <td>Elliot Rushforth</td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><b>Policy Number:</b></th>
+                            <td>UR192383231</td>
                           </tr>
                           <tr>
                             <th scope="row"><b>Insurer:</b></th>
@@ -88,10 +98,11 @@
                         </table>		
 				</div>
                 
-				<div class="col-md-4">
+				<div class="col-md-6">
                     <h4>Previous Claims</h4><div class="title-divider"></div>
                         <div class="scroll mh300">
-                            <table width="260" border="0";>
+                        	
+                            <table width="450" border="0";>
                               <tr>
                                 <th scope="row"><b>Date</b></th>
                                 <td>Ref No.</td>
@@ -121,21 +132,38 @@
                             </table>
                     </div>		
 				</div>
-                
-                
-
 				
 		</div>
 				
 			
-	</div><!-- /.DETAILS -->	
+	</div><!-- /.DETAILS -->
+    <label class="mt25">These buttons represent the automatic detection of the insurer (if it's OIL or not) click accordingly</label><br />
+    	<button type="button" class="btn btn-primary navbar-btn btn-lg mr5 col-md-3 assist-btn" id="OIL">OIL&nbsp; <i class="fa fa-lg fa-arrow-right"></i></button>
+        <button type="button" class="btn btn-primary navbar-btn btn-lg mr5 col-md-3 unassist-btn" id="nonOIL">Non-OIL <i class="fa fa-lg fa-arrow-right"></i></button>
+
+    <div class="col-md-12 mt50">
+    
+			<div class="well" style="display:none">
+				<!-- If Insurer is not OIL -->
+				<b>Non-OIL Insurer Script:</b> <br><br>
+				 <p>I see you are insured with XXX. I will need to give you a contact number for them as they are your insurer and will deal with your claim or recovery.</p>
+				 <button class="btn btn-default">View Numbers <i class="fa fa-lg fa-phone-square"></i></a></button>
+			</div>	
+
+     <div class="ass-unass" style="display:none;">
+    <label>If the insurer is OIL show these buttons and show the FNOL Divs according to the selection.</label><br />
+
+			<button type="button" class="whitegap btn btn-success navbar-btn btn-lg col-md-6" id = "assistedbutt">Assisted</button>
+			<button type="button" class="whitegap btn btn-danger navbar-btn btn-lg col-md-6" id = "unassistedbutt">Unassisted</button>
+
+    </div>
+    </div>	
 	
 	</div>	<!-- /.TOP -->
-
 	
-	<div class = "dpa">	<!-- DPA -->
+	<div class = "dpa hidden">	<!-- DPA -->
 		<div class="col-md-12">
-			<h3>Customer Details</h3><div class="title-divider"></div>
+			<h3>Customer Details (we may not need this)</h3><div class="title-divider"></div>
 			<p>Complete the DPA details below.</p>
 			<div class="col-md-6 mb10 mt10">   
 
@@ -184,9 +212,10 @@
     
     
 
-	<div class = "fnol-ass"><!-- FNOL ASSISTED -->		
+	<div class = "fnol-ass" style="display:none"><!-- FNOL ASSISTED -->		
 		<div class="col-md-12">
 			<h3>FNOL - Assisted</h3>
+            <p>If the insurer is OIL and we choose ASSISTED after searching, this div will show.</p>
 			<div class="title-divider"></div>
 		</div>
 		
@@ -200,7 +229,7 @@
 				<input type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1">
 				
 				<label>Policy Number:</label>
-				<input type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1">
+				<input disabled type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1">
 				
 				<label>Customer Name:</label>
 				<input type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1">
@@ -212,7 +241,7 @@
 				<input type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1">
 				
 				<label>Vehicle Registration:</label>
-				<input type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1">
+				<input disabled type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1">
 				
 				<label>Date of Incident:</label>
 				<input type="text" class="form-control mb25" placeholder="" aria-describedby="basic-addon1">
@@ -318,7 +347,7 @@
 			</div>
 			
 			<div class = "col-md-8">
-				<label>Policy Holder Vehicle Damage:</label>
+				<label>TP Vehicle Damage:</label>
 				<p>Vehicle damage diagram.</p>
 			</div>
 			
@@ -338,9 +367,10 @@
 	<!-- /FNOL ass -->	
 	
 		
-	<div class = "fnol-unass"><!-- FNOL UNASSISTED -->		
+	<div class = "fnol-unass" style="display:none"><!-- FNOL UNASSISTED -->		
 		<div class="col-md-12">
 			<h3>FNOL - Unassisted</h3>
+            <p>If the insurer is OIL and we choose UNASSISTED after searching, this div will show.</p>
 			<div class="title-divider"></div>
 		</div>
 		
@@ -354,7 +384,7 @@
 				<input type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1">
 				
 				<label>Policy Number:</label>
-				<input type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1">
+				<input disabled type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1">
 				
 				<label>Customer Name:</label>
 				<input type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1">
@@ -366,7 +396,7 @@
 				<input type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1">
 				
 				<label>Vehicle Registration:</label>
-				<input type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1">
+				<input disabled type="text" class="form-control mb10" placeholder="" aria-describedby="basic-addon1">
 				
 				<label>Date of Incident:</label>
 				<input type="text" class="form-control mb25" placeholder="" aria-describedby="basic-addon1">
@@ -411,6 +441,7 @@
 				<label>Injuries:</label>
 					<br>
 						<select class="mb25">
+						  <option value="1">0</option>
 						  <option value="1">1</option>
 						  <option value="2">2</option>
 						  <option value="3">3</option>
@@ -423,6 +454,7 @@
 				<label>Number of TP Involved:</label>
 					<br>
 						<select class="mb10">
+						  <option value="1">0</option>
 						  <option value="1">1</option>
 						  <option value="2">2</option>
 						  <option value="3">3</option>
@@ -466,26 +498,23 @@
 					
 					<label>Make & Model:</label>
 					<input type="text" class="form-control mb25" placeholder="" aria-describedby="basic-addon1" />
-					
-				<button class = "btn btn-success mb25">Accept & Save &nbsp;<i class="fa fa-lg fa-floppy-o"></i></button>
-
 			</div>
 			
 			<div class = "col-md-8">
-				<label>Policy Holder Vehicle Damage:</label>
+				<label>TP Vehicle Damage:</label>
 				<p>Vehicle damage diagram.</p>
 			</div>
-			
 
 		</div>
+        
+	<div class = "col-lg-12">	
+            <label>Reason for unassist:</label>
+				<textarea type="text" name ="description" rows = "10" cols="70" class="form-control mt10 mb25" placeholder="" aria-describedby="basic-addon1"> </textarea>
+				<button class = "btn btn-success mb25">Accept & Save &nbsp;<i class="fa fa-lg fa-floppy-o"></i></button>
+			</div>
+        
 	</div>
 	<!-- /FNOL unass -->	
-
-	
-
-
-
-	
 
 </div>
 

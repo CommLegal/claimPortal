@@ -1,3 +1,10 @@
+<!-- dont use -->
+<?php
+
+session_start();
+
+?>
+
 <nav class="navbar navbar-default navbar-static-top">
 
   <div class="container-fluid">
@@ -19,7 +26,7 @@
 	
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
-			<li><a href="#" class="whitetext"><i class="fa fa-automobile"></i>&nbsp;&nbsp;Breakdown Portal</a></li>
+			<li><a href="#" class="whitetext"><img src = "img/minicar.png">&nbsp;&nbsp;Breakdown Portal</a></li>
 			<!-- <li><a href="#">Link</a></li> -->
 			<!-- 
 			<li><button type="button" class="btn btn-danger navbar-btn mr5">Accident Recovery</button></li>
@@ -30,8 +37,8 @@
 		</ul>
 		
 		<ul class="nav navbar-nav navbar-right">
-			<li><a href="#" class="whitetext">Signed in as ER1 - Commercial Legal &nbsp;</a>
-			<li><button type="button" class="btn btn-default navbar-btn mr5">Sign out</button></li>
+			<li><a href="#" class="whitetext">Signed in as <?php echo $_SESSION["userName"] . " - " . $_SESSION['companyTitle'];?></a>
+			<li><button type="button" id="sign-out" class="btn btn-default navbar-btn mr5">Sign out</button></li>
 		</ul>
 		
     </div><!-- /.navbar-collapse -->

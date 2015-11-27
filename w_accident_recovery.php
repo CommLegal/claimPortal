@@ -482,8 +482,8 @@
 			</div>
 			
 		</div>
-		
-			
+		<button type="button" class="btn btn-primary navbar-btn btn-lg mr5 col-md-3 assist-btn" id="assistedbutt">Assisted&nbsp; <i class="fa fa-lg fa-arrow-right"></i></button>
+		<div class="thirdparty">
 		<div class="col-md-12">
 		<h4 class="mb25">Third Party Data</h4>
 			<div class="col-md-4">
@@ -508,6 +508,7 @@
 			
 
 		</div>
+        </div>
         
 <div class = "col-lg-12">	
             <label>Reason for unassist:</label>

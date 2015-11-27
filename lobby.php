@@ -29,9 +29,9 @@
 		<h3>Home</h3><div class="title-divider"></div>
 		<p>Please select an action.</p>
 		
-			<button type="button" class="btn btn-danger navbar-btn btn-lg mr5 p25 h150 col-md-12">Accident Recovery</button><br>
-			<button type="button" class="btn btn-warning navbar-btn btn-lg mr5 p25 h150 col-md-12">Breakdown Assistance</button><br>
-			<button type="button" class="btn btn-primary navbar-btn btn-lg mr5 p25 h150 col-md-12">FNOL</button> 
+			<button type="button" class="w100 btn btn-danger navbar-btn btn-lg mr5 p25 h150 col-md-12">Incident Recovery</button><br>
+			<button type="button" class="w100 btn btn-warning navbar-btn btn-lg mr5 p25 h150 col-md-12">Breakdown Assistance</button><br>
+			<button type="button" class="w100 btn btn-primary navbar-btn btn-lg mr5 p25 h150 col-md-12">FNOL</button> 
 		
 		
 		

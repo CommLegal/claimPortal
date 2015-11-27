@@ -34,9 +34,8 @@ class mysqlwrapper_class {
 	}
 	
 	function __destruct() {
-		global $cme;
-		
-		$cme->close();
+		//global $cme;
+		//mysql_close($cme);
 	}
 	
 	public function lookup($value, $db_field) {
@@ -45,7 +44,6 @@ class mysqlwrapper_class {
 	}
 	
 	private function get_table_structure($table) {
-		// called in the construct to save time and database calls. It builds a snapshot of the table in an array
 		global $cme;
 		$tableArray = array();
 		
@@ -91,7 +89,7 @@ class mysqlwrapper_class {
 	public function execute_sql($dbCallType, $selectArray, $dbCallTable, $whereStatement, $parseString) {
 		global $cme;
 		//$tableFieldArray = $this->returnTableStructure($dbCallTable);
-		//$tableFieldArray = $this->get_table_structure($dbCallTable);
+		//$tableFieldArray = $this->get_table_structure(str_replace("policies.", "", $dbCallTable));
 				
 		$arrayCount = count($selectArray);
 		
@@ -115,8 +113,11 @@ class mysqlwrapper_class {
 			}
 			$query .= " from " . $dbCallTable;
 		}
+		elseif($dbCallType == "delete") {
+			$query .= " from " . $dbCallTable;
+		}
 		elseif($dbCallType == "update") {
-			$tableFieldArray = $this->get_table_structure($dbCallTable);
+			$tableFieldArray = $this->get_table_structure(str_replace("policies.", "", $dbCallTable));
 			$query .= $dbCallTable . " set ";
 			if(!empty($selectArray)) {
 				$i = 0;
@@ -140,7 +141,7 @@ class mysqlwrapper_class {
 					}
 					elseif(($tableFieldArray[$key] == "varchar") || ($tableFieldArray[$key] == "enum") || ($tableFieldArray[$key] == "time") || ($tableFieldArray[$key] == "timestamp") || ($tableFieldArray[$key] == "text") || ($tableFieldArray[$key] == "char") || ($tableFieldArray[$key] == "mediumtext")) {
 						if((!empty($value)) || (($value == "0"))) {
-							$query .= "'" . mysqli_real_escape_string($cme, $value) . "'";
+							$query .= "'" . mysqli_real_escape_string($cme, trim($value)) . "'";
 						}
 						else {
 							$query .= "(null)";	
@@ -172,9 +173,8 @@ class mysqlwrapper_class {
 			}
 		}
 		elseif($dbCallType == "insert") {
-			$tableFieldArray = $this->get_table_structure($dbCallTable);
+			$tableFieldArray = $this->get_table_structure(str_replace("policies.", "", $dbCallTable));
 			$query .= "into " . $dbCallTable . " ";
-			//echo $query;
 			if(!empty($selectArray)) {
 				$i = 0;
 				/* build insert query */
@@ -244,7 +244,7 @@ class mysqlwrapper_class {
 		if(!empty($parseString)) {
 			/* bind parameters for markers */
 			foreach ($parseString as $key => $value) {
-				$parseType .= rtrim($key, '0123456789');
+				@$parseType .= rtrim($key, '0123456789');
 				/* execute query */
 			}
 			$a_params[] = & $parseType;
@@ -262,7 +262,7 @@ class mysqlwrapper_class {
 		if($dbCallType == "select") {
 			/* run query and return the result to the calling page */
 			//echo $query;
-			//$result = $foebis->query($query);
+			//$result = $cme->query($query);
 
 			if($statement->execute()) {
 				$result = $statement->get_result();
@@ -282,9 +282,10 @@ class mysqlwrapper_class {
 		elseif($dbCallType == "update" || $dbCallType == "insert") {
 			/* run query and return the result to the calling page, upon error write to error log */
 			//echo $query . "<br />";
+			
 			//$result = $cme->query($query);
 			if($statement->execute()) {
-				$statement->get_result();
+				$result = $statement->get_result();
 				if($dbCallType == "insert") {
 					return $cme->insert_id;
 				}
@@ -294,8 +295,23 @@ class mysqlwrapper_class {
 			}
 			else {
 				if($cme->error) {
+					//echo $cme->error;
+					//$this->writeErrorLog($cme->error, $query);
+					//return json_encode(array('success'=>'false'));
+				}	
+			}
+		}
+		elseif($dbCallType == "delete") {
+			/* run query and return the result to the calling page, upon error write to error log */
+			//echo $query . "<br />";
+			//$result = $cme->query($query);
+			
+			if($statement->execute()) {
+				return true;	
+			}
+			else {
+				if($cme->error) {
 					$this->writeErrorLog($cme->error, $query);
-					return false;
 					//return json_encode(array('success'=>'false'));
 				}	
 			}
@@ -317,22 +333,22 @@ class mysqlwrapper_class {
 		}
 	}
 	
-	public function saveClaimChanges($table, $pk, $fields, $pkValue) {
+	public function saveClaimChanges($table, $pk, $fields, $pkValue, $tpid, $injuryId) {
 		global $conn;
 		$tableFieldArray = $this->get_table_structure($table);
 		
 		$currentData = $this->execute_sql("select", array('*'), $table, $pk . " = ?", array("i" => $pkValue));
-		
+			
 		foreach($fields as $column => $value) {
 			if($tableFieldArray[$column] == "date") {
-				$value = date("Y-m-d" , strtotime($value));
+				$value = (($value) ? date("Y-m-d" , strtotime($value)) : NULL);
 			}
 			elseif($tableFieldArray[$column] == "datetime") {
-				$value = date("Y-m-d H:i:s" , strtotime($value));
+				$value = (($value) ? date("Y-m-d H:i:s" , strtotime($value)) : NULL);
 			}
 				
-			if($currentData[0][$column] <> $value) {
-				$conn->execute_sql("insert", array("cc_u_id" => $_COOKIE['username'], "cc_db_field" => $table . "." . $column, "cc_changed_from" => $currentData[0][$column], "cc_changed_to" => $value, "cc_changed_date" => date("Y-m-d H:i:s"), 'cc_c_id' => $_SESSION['claimId']), "claims_changes", "", "");
+			if(($currentData[0][$column] !== $value) && (!empty($value))) {
+				$conn->execute_sql("insert", array("cc_u_id" => $_COOKIE['username'], "cc_db_field" => $table . "." . $column, "cc_changed_from" => $currentData[0][$column], "cc_changed_to" => $value, "cc_changed_date" => date("Y-m-d H:i:s"), 'cc_c_id' => $_SESSION['claimId'], 'cc_ctp_id' => (($tpid) ? $tpid : NULL), 'cc_ci_id' => (($injuryId) ? $injuryId : NULL)), "claims_changes", "", "");
 			}
 		}		
 	}
@@ -344,7 +360,7 @@ class mysqlwrapper_class {
 	}
 	
 	private function writeErrorLog($err, $data) {
-		$this->execute_sql("insert", array("e_user" => $_COOKIE['username'], "e_timestamp" => date("d-m-Y H:i:s"), "e_error" => $err, "e_query" => $data, "e_p_id" => $_SESSION['policyId'], "e_c_id" => $_SESSION['claimId'], "e_ip" => $_SERVER['REMOTE_ADDR'], "e_user_agent" => $_SERVER['HTTP_USER_AGENT']), "error_log", "", array(""));
+		//$this->execute_sql("insert", array("e_user" => $_COOKIE['username'], "e_timestamp" => date("d-m-Y H:i:s"), "e_error" => $err, "e_query" => $data, "e_p_id" => $_SESSION['policyId'], "e_c_id" => $_SESSION['claimId'], "e_ip" => $_SERVER['REMOTE_ADDR'], "e_user_agent" => $_SERVER['HTTP_USER_AGENT']), "error_log", "", array(""));
 		
 		/* WRITE TO THE ERROR LOG - JS9 
 		$file = './logs/errors-' . date('Y-m-d') . '.txt';
@@ -359,5 +375,7 @@ class mysqlwrapper_class {
 		END WRITING TO ERROR LOG */
 	}
 	
+
+
 }
 ?>

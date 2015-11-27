@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="nav.php" server="192.168.3.215//var/www/html/claimPortal/" local="130924846124058163" remote="130924845640000000" />
-<file name="mysqlwrapper_class.php" server="192.168.3.215//var/www/html/claimPortal/" local="130924243650000000" remote="130924243650000000" />
-<file name="config.php" server="192.168.3.215//var/www/html/claimPortal/" local="130924305537470004" remote="130924305060000000" />
-<file name="form-upload.php" server="192.168.3.215//var/www/html/claimPortal/" local="130924943630000000" remote="130924974610000000" />
-<file name="search_customer.php" server="192.168.3.215//var/www/html/claimPortal/" local="130924310640000000" remote="130924974610000000" />
+<file name="nav.php" server="192.168.3.215//var/www/html/claimPortal/" local="130930883050132623" remote="130930882590000000" />
+<file name="config.php" server="192.168.3.215//var/www/html/claimPortal/" local="130930053990000000" remote="130930053990000000" />
+<file name="form-upload.php" server="192.168.3.215//var/www/html/claimPortal/" local="130927543980000000" remote="130927543980000000" />
+<file name="search_customer.php" server="192.168.3.215//var/www/html/claimPortal/" local="130924974610000000" remote="130924974610000000" />
+<file name="policy_class.php" server="192.168.3.215//var/www/html/claimPortal/" local="130925136740000000" remote="130925136740000000" />
+<file name="mysqlwrapper_class.php" server="192.168.3.215//var/www/html/claimPortal/" local="130931137290000000" remote="130931137290000000" />
+<file name="end_session.php" server="192.168.3.215//var/www/html/claimPortal/" local="130925083020000000" remote="130925083020000000" />
+<file name="fnol-form-upload.php" server="192.168.3.215//var/www/html/claimPortal/" local="130927553180000000" remote="130927553180000000" />
+<file name="ar-form-upload.php" server="192.168.3.215//var/www/html/claimPortal/" local="130927549330000000" remote="130927549330000000" />
 </dwsync>
