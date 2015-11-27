@@ -30,8 +30,7 @@ foreach($allowed_ips as $company => $ip) {
 		$allowed = 1;
 	}
 }
-echo $allowed;
-if($allowed = 0) {
+if($allowed == 0) {
 	echo "<h3>You are not authorised to view this page</h3>";	
 	break;
 }
