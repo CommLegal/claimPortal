@@ -128,11 +128,11 @@ $("#submit_form_ass").click(function(e) {
 	   'functions/nci_form_send.php',
 		data,
 		function(data){
-		  $(".save-result").html(data);  
+		  $(".save-result").html(data); 
+		  window.location.replace("https://portal.commercial-legal.co.uk/index.php?displayPage=success"); 
 		}
 	  );
 	
-	window.location.replace("https://portal.commercial-legal.co.uk/index.php?displayPage=success");
 });
 
 $("#submit_form_unass").click(function(e) {
@@ -144,12 +144,11 @@ $("#submit_form_unass").click(function(e) {
 	   'pages/formUpload.php',
 		data,
 		function(data){
-		  $(".save-result").html(data);  
+		  $(".save-result").html(data); 
+		  window.location.replace("https://portal.commercial-legal.co.uk/index.php?displayPage=success"); 
 		}
 	  );
-	
-	window.location.replace("https://portal.commercial-legal.co.uk/index.php?displayPage=success");
-	
+
 });
 
 $("#fnol_submit").click(function(e) {
@@ -162,10 +161,11 @@ $("#fnol_submit").click(function(e) {
 		data,
 		function(data){
 		  $(".save-result").html(data);  
+		  window.location.replace("https://portal.commercial-legal.co.uk/index.php?displayPage=success");
 		}
 	  );
 	
-	window.location.replace("https://portal.commercial-legal.co.uk/index.php?displayPage=success");
+	
 	
 });
 
@@ -195,12 +195,10 @@ $("#bd_unassisted_submit").click(function(e) {
 	   'pages/formUpload.php',
 		data,
 		function(data){
-		  $(".save-result").html(data);  
+		  $(".save-result").html(data); 
+		  window.location.replace("https://portal.commercial-legal.co.uk/index.php?displayPage=success"); 
 		}
-	  );
-	
-	window.location.replace("https://portal.commercial-legal.co.uk/index.php?displayPage=success");
-	
+	  );	
 });
 
 // START NEW CLAIM ON CLICK OF "ADD CLAIM" //
