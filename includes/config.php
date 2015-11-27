@@ -14,7 +14,7 @@ define("_SERVER_ROOT", "https://portal.commercial-legal.co.uk/");
 define("_ROOT", "https://portal.commercial-legal.co.uk");
 define("_SITEROOT", "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
 
-define("_CME_HOSTNAME", "localhost");
+define("_CME_HOSTNAME", "5.159.226.131");
 define("_CME_USERNAME", "claimPortal");
 define("_CME_PASSWORD", "CLadmin001!");
 define("_CME_DATABASE", "claimPortal");
