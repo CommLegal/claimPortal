@@ -75,7 +75,7 @@ $('#btn-login').click(function(e) {
 $('.cancel').click(function(e) {
 	e.preventDefault();
 	
-	window.location.replace("http://192.168.3.215/claimPortal/index.php");
+	window.location.replace("https://portal.commercial-legal.co.uk");
 });
 
 $('#submit-form').click(function(e) {
@@ -108,7 +108,7 @@ $('#submit-form').click(function(e) {
 });
 
 $('#sign-out').click(function(e) {
-	window.location.replace("http://192.168.3.215/claimPortal/includes/end_session.php");				  
+	window.location.replace("https://portal.commercial-legal.co.uk/includes/end_session.php");				  
 });
 
 $("#submit_form_ass").click(function(e) {
@@ -132,7 +132,7 @@ $("#submit_form_ass").click(function(e) {
 		}
 	  );
 	
-	window.location.replace("http://192.168.3.215/claimPortal/index.php?displayPage=success");
+	window.location.replace("https://portal.commercial-legal.co.uk/index.php?displayPage=success");
 });
 
 $("#submit_form_unass").click(function(e) {
@@ -148,7 +148,7 @@ $("#submit_form_unass").click(function(e) {
 		}
 	  );
 	
-	window.location.replace("http://192.168.3.215/claimPortal/index.php?displayPage=success");
+	window.location.replace("https://portal.commercial-legal.co.uk/index.php?displayPage=success");
 	
 });
 
@@ -165,7 +165,7 @@ $("#fnol_submit").click(function(e) {
 		}
 	  );
 	
-	window.location.replace("http://192.168.3.215/claimPortal/index.php?displayPage=success");
+	window.location.replace("https://portal.commercial-legal.co.uk/index.php?displayPage=success");
 	
 });
 
@@ -182,7 +182,7 @@ $("#bd_assisted_submit").click(function(e) {
 		}
 	  );
 	
-	window.location.replace("http://192.168.3.215/claimPortal/index.php?displayPage=success");
+	window.location.replace("https://portal.commercial-legal.co.uk/index.php?displayPage=success");
 	
 });
 
@@ -199,7 +199,7 @@ $("#bd_unassisted_submit").click(function(e) {
 		}
 	  );
 	
-	window.location.replace("http://192.168.3.215/claimPortal/index.php?displayPage=success");
+	window.location.replace("https://portal.commercial-legal.co.uk/index.php?displayPage=success");
 	
 });
 
@@ -289,5 +289,5 @@ $("#submitUnassisted").click(function(e) {
 		  $(".save-result").html(data);  
 		}
 	  );
-	window.location.replace("http://192.168.3.215/claimPortal/index.php");
+	window.location.replace("https://portal.commercial-legal.co.uk/index.php");
 });
