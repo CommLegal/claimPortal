@@ -25,15 +25,16 @@ define("_SALT", "rE!wec#PpcnDK7*&5S#V87kRc69G2zVe");
 
 $allowed = 0;
 $allowed_ips = array("OneCall" => "212.250.30.242");
-var_dump($allowed_ips);
 foreach($allowed_ips as $company => $ip) {
 	if($_SERVER['REMOTE_ADDR'] == $ip) {
 		$allowed = 1;
 	}
 }
+echo $allowed;
 if($allowed = 0) {
 	echo "<h3>You are not authorised to view this page</h3>";	
 	break;
 }
+
 
 ?>
