@@ -45,7 +45,7 @@
             <input type="hidden" id="breakdown_assistance--bd_assisted_unassisted" name="breakdown_assistance--bd_assisted_unassisted" value="Unassisted"  />
             
             <button class = "btn btn-lg btn-success mb25 mt50" id ="bd_unassisted_submit">Accept & Save &nbsp;<i class="fa fa-lg fa-floppy-o"></i></button>
-            <button class = "btn btn-lg btn-danger mb25 cancel">Cancel &nbsp;<i class="fa fa-lg fa-times"></i></button>
+            <button class = "btn btn-lg btn-danger mb25 mt50 cancel">Cancel &nbsp;<i class="fa fa-lg fa-times"></i></button>
             
         </form>
     </div>
@@ -62,7 +62,7 @@
             <input type="hidden" id="breakdown_assistance--bd_assisted_unassisted" name="breakdown_assistance--bd_assisted_unassisted" value="Assisted"  />
             
             <button class = "btn btn-lg btn-success mb25 mt50" id = "bd_assisted_submit">Accept & Save &nbsp;<i class="fa fa-lg fa-floppy-o"></i></button>
-            <button class = "btn btn-lg btn-danger mb25 cancel">Cancel &nbsp;<i class="fa fa-lg fa-times"></i></button>
+            <button class = "btn btn-lg btn-danger mb25 mt50 cancel">Cancel &nbsp;<i class="fa fa-lg fa-times"></i></button>
             
         </form>
     </div>
