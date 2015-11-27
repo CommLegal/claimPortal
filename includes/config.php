@@ -24,6 +24,6 @@ define("_CME_DATABASE", "claimPortal");
 define("_SALT", "rE!wec#PpcnDK7*&5S#V87kRc69G2zVe");
 
 $allowed_ips = array("OneCall" => "212.250.30.242");
-var_dump($_SERVER);
+var_dump($_SERVER['REMOTE_ADDR']);
 
 ?>
