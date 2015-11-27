@@ -190,7 +190,7 @@
 				}	
 				?>
 			</div>	
-            <input type="hidden" id="claimType" name="claimType" value="accident_recovery"  />
+            <input type="hidden" id="claimType" name="claimType" value="incident_recovery"  />
             <input type="hidden" id="accident_recovery--ar_assisted_unassisted" name="accident_recovery--ar_assisted_unassisted" value="Assisted"  />
             </div>
             
@@ -335,7 +335,7 @@
                         <textarea type="text" name ="accident_recovery--ar_unassist_desc" rows = "10" cols="70" class="form-control mt10 mb25" placeholder="" > </textarea>
                     </div>
                     
-            	<input type="hidden" id="claimType" name="claimType" value="accident_recovery"  />
+            	<input type="hidden" id="claimType" name="claimType" value="incident_recovery"  />
                 <input type="hidden" id="accident_recovery--ar_assisted_unassisted" name="accident_recovery--ar_assisted_unassisted" value="Unassisted"  />
             
 				<button class="btn btn-lg btn-success mb25" id="submit_form_unass">Accept & Save &nbsp;<i class="fa fa-lg fa-floppy-o"></i></button>

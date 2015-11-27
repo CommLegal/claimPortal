@@ -11,7 +11,7 @@ if($_POST['claim_ref1']) {
 }
 
 $claim_number = trim($_SESSION['claimID']);
-if($_POST['claimType'] == "accident_recovery") {
+if($_POST['claimType'] == "incident_recovery") {
 	$_POST['accident_recovery--ar_c_id'] = $claim_number;
 }
 if($_POST['claimType'] == "breakdown_assistance") {
