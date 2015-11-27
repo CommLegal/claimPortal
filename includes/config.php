@@ -23,7 +23,15 @@ define("_CME_DATABASE", "claimPortal");
 
 define("_SALT", "rE!wec#PpcnDK7*&5S#V87kRc69G2zVe");
 
+$allowed = 0;
 $allowed_ips = array("OneCall" => "212.250.30.242");
-var_dump($_SERVER['REMOTE_ADDR']);
+foreach($allowed_ips as $company => $ip) {
+	if($_SERVER['REMOTE_ADDR'] == $ip) {
+		$allowed = 1;
+	}
+}
+if($allowed = 0) {
+	echo "<h3>You are not authorised to view this page</h3>";	
+}
 
 ?>
