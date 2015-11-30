@@ -60,10 +60,11 @@
 			?>
 			<div class="well faultClaim ntp" style="display: none;">
 				<!-- If Insurer is not OIL -->
+                <?php $brokerNumber = $conn->execute_sql("select", array('ic_number'), "insurer_contacts", "ic_title=?", array("s" => $policyInfo[$header]['p_broker'])); ?>
                 <h3>This claim needs to be referred to the consumers insurance company, please read the following script:</h3>
 				 <h4 style="padding-top: 15px;">"I see you are insured with <?php echo $policyInfo[$header]['p_broker'] ?>. I will need to give you a contact number 
                  for them as they are your insurer and will deal with your claim or recovery.
-				 <br /><br />Please contact your insurer on xxx"</h4>
+				 <br /><br />Please contact your insurer on <b><?php echo $brokerNumber[0]['ic_number'] ?></b>"</h4>
                  <form id="confirmUnassist" method="post" action="">
                  	<input type="hidden" id="accident_recovery--ar_assisted_unassisted" name="accident_recovery--ar_assisted_unassisted" value="Unassisted"/>
                  	<button type="button" id="submitUnassisted" class="btn btn-success navbar-btn btn-lg col-md-5" >OK</button>
