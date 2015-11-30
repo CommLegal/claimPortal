@@ -360,7 +360,7 @@
                 <input type="hidden" id="accident_recovery--ar_assisted_unassisted" name="accident_recovery--ar_assisted_unassisted" value="Unassisted"  />
                 
             
-				<button class="btn btn-lg btn-success mb25" id="submit_form_unass">Accept & Save &nbsp;<i class="fa fa-lg fa-floppy-o"></i></button>
+				<button class="btn btn-lg btn-success mb25" id="submit_form_unassisted">Accept & Save &nbsp;<i class="fa fa-lg fa-floppy-o"></i></button>
                 <button class = "btn btn-lg btn-danger mb25 cancel">Cancel &nbsp;<i class="fa fa-lg fa-times"></i></button>
                 
 			</div>
