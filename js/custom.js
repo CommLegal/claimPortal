@@ -311,6 +311,7 @@ $("#accident_recovery--ar_vehicle_storage").bind('change', function () {
 $("#accident_recovery--ar_vehicle_storage1").bind('change', function () {
 
 	if($('#accident_recovery--ar_vehicle_storage1').is(':checked')) {
+		alert("true")
 		$("#accident_recovery--ar_vehicle_location1").show();
 		$("#location-label1").show();
 	}

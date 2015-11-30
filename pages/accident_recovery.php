@@ -113,8 +113,7 @@
                   <tr>
                     <th scope="row">Vehicle(s) in Storage:</th>
                     <td>
-                    	<input name="accident_recovery--ar_vehicle_storage" id="accident_recovery--ar_vehicle_storage" type="checkbox" 
-                    	name="accident_recovery--ar_vehicle_storage" value="Y" / >
+                    	<input name="accident_recovery--ar_vehicle_storage" id="accident_recovery--ar_vehicle_storage" type="checkbox" value="Y" / >
                     </td>
                   </tr>
                 </table>
