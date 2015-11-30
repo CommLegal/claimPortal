@@ -29,7 +29,7 @@
     <div class = "fnol-unassisted" id = "fnol_data_unassisted" style="display:none"><!-- FNOL UNASSISTED -->	
     	<form method="post" enctype="multipart/form-data" id="bd_unassisted">
             <label>Reason for Unassisted:</label>
-            <select id = "breakdownistance--bd_unassist_reason" name="breakdownistance--bd_unassist_reason">
+            <select id = "breakdown_assistance--bd_unassist_reason" name="breakdown_assistance--bd_unassist_reason">
                 <option value="1">Wrong fuel</option>
                 <option value="2">Tyre related on basic</option>
                 <option value="3">Key related</option>
@@ -42,11 +42,11 @@
         
             <div id="reasonbox">
                 <label>More Details:</label>
-                <textarea type="text" name ="breakdownistance--bd_unassist_desc" rows = "10" cols="70" class="form-control mb25" placeholder="" > </textarea>
+                <textarea type="text" name ="breakdown_assistance--bd_unassist_desc" rows = "10" cols="70" class="form-control mb25" placeholder="" > </textarea>
             </div>
         
         	<input type="hidden" id="claimType" name="claimType" value="breakdown_recovery"  />
-            <input type="hidden" id="breakdownistance--bdisted_unassisted" name="breakdownistance--bdisted_unassisted" value="Unassisted"  />
+            <input type="hidden" id="breakdown_assistance--bd_assisted_unassisted" name="breakdown_assistance--bd_assisted_unassisted" value="Unassisted"  />
             
             <button class = "btn btn-lg btn-success mb25" id ="bd_unassisted_submit">Accept & Save &nbsp;<i class="fa fa-lg fa-floppy-o"></i></button>
             <button class = "btn btn-lg btn-danger mb25 cancel">Cancel &nbsp;<i class="fa fa-lg fa-times"></i></button>
@@ -59,11 +59,11 @@
         
             <div id = "reasonbox">
                 <label>Details of breakdown:</label>
-                <textarea type="text" name ="breakdownistance--bd_further_info" rows = "10" cols="70" class="form-control mb25" placeholder="" > </textarea>
+                <textarea type="text" name ="breakdown_assistance--bd_further_info" rows = "10" cols="70" class="form-control mb25" placeholder="" > </textarea>
             </div>
         
         	<input type="hidden" id="claimType" name="claimType" value="breakdown_recovery"  />
-            <input type="hidden" id="breakdownistance--bdisted_unassisted" name="breakdownistance--bdisted_unassisted" value="Assisted"  />
+            <input type="hidden" id="breakdown_assistance--bd_assisted_unassisted" name="breakdown_assistance--bd_assisted_unassisted" value="Assisted"  />
             
             <button class = "btn btn-lg btn-success mb25" id = "bdisted_submit">Accept & Save &nbsp;<i class="fa fa-lg fa-floppy-o"></i></button>
             <button class = "btn btn-lg btn-danger mb25 cancel">Cancel &nbsp;<i class="fa fa-lg fa-times"></i></button>
