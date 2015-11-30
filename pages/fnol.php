@@ -74,7 +74,7 @@
 	 
 	</div>	<!-- /.TOP -->
     
-	<div class = "fnol-ass" id = "fnol_data_ass" style="display: none;"><!-- FNOL ASSISTED -->		
+	<div class = "fnol-assisted" id = "fnol_data_assisted" style="display: none;"><!-- FNOL ASSISTED -->		
 		<div class="col-md-12">
 			<h3>FNOL</h3>
 			<div class="title-divider"></div>
@@ -103,7 +103,11 @@
                 value="<?php echo $policyInfo[$header]['v_reg'] ?>"   >
 				
 				<label>Date of Incident:</label>
-				<input required type="text" name="fnol--f_incident_date" id="fnol--f_incident_date" class="form-control mb10 datepicker" placeholder="">
+                <div class="input-group mb10">
+					<input required type="text" name="fnol--f_incident_date" id="fnol--f_incident_date" class="form-control mb10 datepicker" placeholder="">
+                    <span class="input-group-addon"><i class = "fa fa-calendar"></i></span>
+                </div>
+                
                 
                 <table width="230" border="0">
                   <tr>
@@ -112,8 +116,8 @@
                   </tr>
                 </table>
 				
-				<label class="mt10">Location if Stored:</label>
-				<input type="text" name="fnol--f_vehicle_location" id="fnol--f_vehicle_location" class="form-control mb25" placeholder="">
+				<label id="location-label" class="mt10" style="display:none;">Vehicle Storage Location:</label>
+				<input type="text" name="fnol--f_vehicle_location" id="fnol--f_vehicle_location" class="form-control mb25" placeholder="" style="display:none;">
                 
                 <input type="hidden" name="claims--c_claim_type" id="claims--c_claim_type" value="<?php echo $_REQUEST['displayPage']; ?>"  />
                 
@@ -129,11 +133,11 @@
 					<table width="230" border="0" class="mb25">
                     	<tr>
 						<th scope="row">Accident:</th>
-						<td><input name="fnol--f_circumstances" id="fnol--f_circumstances" type="checkbox" value="Accident"></td>
+						<td><input name="fnol--f_circumstances" id="fnol--f_circumstances" type="radio" value="Accident"></td>
 					  </tr>
 					  <tr>
 						<th scope="row">Fire:</th>
-						<td><input name="fnol--f_circumstances" id="fnol--f_circumstances" type="checkbox" value="Fire"></td>
+						<td><input name="fnol--f_circumstances" id="fnol--f_circumstances" type="radio" value="Fire"></td>
 					  </tr>
                     </table>
                 </div>
@@ -142,11 +146,11 @@
                     <table width="230" border="0" class="mb25">
                       <tr>
 						<th scope="row">Theft:</th>
-						<td><input name="fnol--f_circumstances" id="fnol--f_circumstances" type="checkbox" value="Theft"></td>
+						<td><input name="fnol--f_circumstances" id="fnol--f_circumstances" type="radio" value="Theft"></td>
 					  </tr>
 					  <tr>
 						<th scope="row">Vandalism:</th>
-						<td><input name="fnol--f_circumstances" id="fnol--f_circumstances" type="checkbox" value="Vandalism"></td>
+						<td><input name="fnol--f_circumstances" id="fnol--f_circumstances" type="radio" value="Vandalism"></td>
 					  </tr>
 					  
 					</table>
@@ -156,13 +160,17 @@
         		<div class = "col-md-12">
                     <div class = "col-md-12">
                         <label>Circumstance Details:</label>
-                        <textarea name="fnol--f_circumstance_details" id="fnol--f_circumstance_details" cols="45" rows="5" class="form-control mb10"></textarea>
+                        <textarea name="fnol--f_circumstance_details" id="fnol--f_circumstance_details" cols="45" rows="3" class="form-control mb10"></textarea>
+                    </div>
+                    <div class = "col-md-12">
+                        <label>Damage Description:</label>
+                        <textarea name="fnol--f_vehicle_damage" id="fnol--f_vehicle_damage" cols="45" rows="3" class="form-control mb10"></textarea>
                     </div>
                    <!-- <label>Injury Details (if applicable):</label>
                     <input type="text" id="fnol--f_injury_details" class="form-control mb10" placeholder=""  /> -->
                     <div class = "col-md-12">
                         <label>Other Info:</label>
-                        <textarea name="fnol--f_other_info" id="fnol--f_other_info" cols="45" rows="5" class="form-control mb10"></textarea>
+                        <textarea name="fnol--f_other_info" id="fnol--f_other_info" cols="45" rows="2" class="form-control mb10"></textarea>
                     </div>
                 </div>
             
@@ -174,8 +182,9 @@
 			
 		<div class="col-md-12">
 		<h4 class="mb25">Third Party Data</h4>
+        <div class="well">
 			<div class="col-md-4">
-            	<a title="Add a new third party" class="show-overlay" id="addTP"><span class = "btn btn-warning col-md-12 mb25">Add TP &nbsp;<i class="fa fa-lg fa-plus"></i></span></a>
+            	<a title="Add a new third party" class="show-overlay" id="addTP"><span class = "btn btn-warning col-md-6 mb25">Add TP &nbsp;<i class="fa fa-lg fa-plus"></i></span></a>
 			</div>
 	
 			<div class = "col-md-4 tpReload">
@@ -186,6 +195,8 @@
 						<span class=\"btn btn-default \" id=\"" . $tps[$header]['tp_id'] . "\">" .$tps[$header]['tp_name'] . "</span></a>";
 					}	
 				?>
+				</div>
+            	<div style="clear:both"></div>
 			</div>	
             <input type="hidden" id="claimType" name="claimType" value="fnol"  />
 

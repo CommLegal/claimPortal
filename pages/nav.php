@@ -22,7 +22,7 @@
 	
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
-		<li><a href="index.php" class="whitetext"><img src = "img/minicar.png">&nbsp;&nbsp;Commercial Legal Portal</a></li>
+		<li><a href="<?php echo _ROOT ?>" class="whitetext"><img src = "img/minicar.png">&nbsp;&nbsp;Commercial Legal Portal</a></li>
 
 
 			<!-- <li><a href="#">Link</a></li> -->
@@ -38,12 +38,13 @@
 		</ul>
 		
 		<ul class="nav navbar-nav navbar-right mt5">
-        <?php
-			if($_SESSION['userName'] != "") { 
-		?>
+        
+        <?php if($_SESSION['userName'] != "") { ?>
 			<li><a href="#" class="whitetext">Signed in as <?php echo $_SESSION["userName"] . " - " . $_SESSION['companyTitle'];?></a>
 			<li><button type="button" id="sign-out" class="btn btn-default navbar-btn mr10">Sign out</button></li>
+            
         <?php } ?>
+        
 		</ul>
 		
     </div><!-- /.navbar-collapse -->

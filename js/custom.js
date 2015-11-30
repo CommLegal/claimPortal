@@ -65,8 +65,8 @@ $('#btn-login').click(function(e) {
       data,
       function(data) {
         $(".panel-body").html(data);
-		window.location.reload();
-        //window.location.replace("http://192.168.3.215/claimPortal/index.php");
+		//window.location.reload();
+        window.location.replace("https://portal.commercial-legal.co.uk");
       }
     );
   }
@@ -111,7 +111,7 @@ $('#sign-out').click(function(e) {
 	window.location.replace("https://portal.commercial-legal.co.uk/includes/end_session.php");				  
 });
 
-$("#submit_form_ass").click(function(e) {
+$("#submit_form_assisted").click(function(e) {
 	e.preventDefault();
 	
 	var data = $("#ar_assisted").serializeArray();
@@ -129,13 +129,13 @@ $("#submit_form_ass").click(function(e) {
 		data,
 		function(data){
 		  $(".save-result").html(data); 
-		  window.location.replace("https://portal.commercial-legal.co.uk/index.php?displayPage=success"); 
+		  window.location.replace("https://portal.commercial-legal.co.uk/?displayPage=success"); 
 		}
 	  );
 	
 });
 
-$("#submit_form_unass").click(function(e) {
+$("#submit_form_unassisted").click(function(e) {
 	e.preventDefault();
 									   
 	var data = $("#ar_unassisted").serializeArray();
@@ -145,7 +145,7 @@ $("#submit_form_unass").click(function(e) {
 		data,
 		function(data){
 		  $(".save-result").html(data); 
-		  window.location.replace("https://portal.commercial-legal.co.uk/index.php?displayPage=success"); 
+		  window.location.replace("https://portal.commercial-legal.co.uk/?displayPage=success"); 
 		}
 	  );
 
@@ -161,7 +161,7 @@ $("#fnol_submit").click(function(e) {
 		data,
 		function(data){
 		  $(".save-result").html(data);  
-		  window.location.replace("https://portal.commercial-legal.co.uk/index.php?displayPage=success");
+		  window.location.replace("https://portal.commercial-legal.co.uk/?displayPage=success");
 		}
 	  );
 	
@@ -179,7 +179,15 @@ $("#bd_assisted_submit").click(function(e) {
 		data,
 		function(data){
 		  $(".save-result").html(data); 
-		  window.location.replace("https://portal.commercial-legal.co.uk/index.php?displayPage=success"); 
+		}
+	  );
+	
+	$.post(
+	   'functions/nci_form_send.php',
+		data,
+		function(data){
+		  $(".save-result").html(data); 
+		  window.location.replace("https://portal.commercial-legal.co.uk/?displayPage=success"); 
 		}
 	  );
 });
@@ -194,7 +202,7 @@ $("#bd_unassisted_submit").click(function(e) {
 		data,
 		function(data){
 		  $(".save-result").html(data); 
-		  window.location.replace("https://portal.commercial-legal.co.uk/index.php?displayPage=success"); 
+		  window.location.replace("https://portal.commercial-legal.co.uk/?displayPage=success"); 
 		}
 	  );	
 });
@@ -213,8 +221,8 @@ $("#createNewClaim").click(function(e) {
 		  $(".hiddenClaimType").html(data);
 		  $('#createNewClaim').hide();
 		  $(".firstStep").show();
-		  //$("#fnol_data_ass").show();
-		  $(".bd-ass-unass").show();
+		  //$("#fnol_data_assisted").show();
+		  $(".bd-assisted-unassisted").show();
 		}
 	  );
 });
@@ -258,16 +266,16 @@ $("#createNewClaim").click(function(e) {
     });
 	
 	$(".faultclaimButton").click(function(e) {
-		$('.ass-unass').hide();
+		$('.assisted-unassisted').hide();
 		$('.faultClaim').show();	
-		$(".fnol-ass").hide();						
-		$(".fnol-unass").hide();
+		$(".fnol-assisted").hide();						
+		$(".fnol-unassisted").hide();
 	});
 	
 	$(".nonfaultclaimButton").click(function(e) {
 		$('.faultClaim').hide();
-		$('.ass-unass').show();
-		$(".fnol-ass").show();
+		$('.assisted-unassisted').show();
+		$(".fnol-assisted").show();
 	});
 });
 
@@ -284,5 +292,31 @@ $("#submitUnassisted").click(function(e) {
 		  $(".save-result").html(data);  
 		}
 	  );
-	window.location.replace("https://portal.commercial-legal.co.uk/index.php");
+	window.location.replace("https://portal.commercial-legal.co.uk");
+});
+
+$("#accident_recovery--ar_vehicle_storage").bind('change', function () {
+
+	if($('#accident_recovery--ar_vehicle_storage').is(':checked')) {
+		$("#accident_recovery--ar_vehicle_location").show();
+		$("#location-label").show();
+	}
+	else {
+		$("#accident_recovery--ar_vehicle_location").hide();
+		$("#location-label").hide();
+	}
+	
+});
+
+$("#fnol--f_vehicle_storage").bind('change', function () {
+
+	if($('#fnol--f_vehicle_storage').is(':checked')) {
+		$("#fnol--f_vehicle_location").show();
+		$("#location-label").show();
+	}
+	else {
+		$("#fnol--f_vehicle_location").hide();
+		$("#location-label").hide();
+	}
+	
 });

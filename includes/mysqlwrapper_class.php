@@ -141,7 +141,7 @@ class mysqlwrapper_class {
 					}
 					elseif(($tableFieldArray[$key] == "varchar") || ($tableFieldArray[$key] == "enum") || ($tableFieldArray[$key] == "time") || ($tableFieldArray[$key] == "timestamp") || ($tableFieldArray[$key] == "text") || ($tableFieldArray[$key] == "char") || ($tableFieldArray[$key] == "mediumtext")) {
 						if((!empty($value)) || (($value == "0"))) {
-							$query .= "'" . mysqli_real_escape_string($cme, trim($value)) . "'";
+							$query .= "'" . mysqli_real_escape_string($cme, trim(strip_tags($value))) . "'";
 						}
 						else {
 							$query .= "(null)";	
@@ -196,7 +196,7 @@ class mysqlwrapper_class {
 					}
 					elseif(($tableFieldArray[$key] == "varchar") || ($tableFieldArray[$key] == "enum") || ($tableFieldArray[$key] == "time") || ($tableFieldArray[$key] == "timestamp") || ($tableFieldArray[$key] == "text") || ($tableFieldArray[$key] == "char") || ($tableFieldArray[$key] == "mediumtext")) {
 						if((!empty($value)) || ($value == "0")) {
-							$valueField .= "'" . mysqli_real_escape_string($cme, trim($value)) . "'";
+							$valueField .= "'" . mysqli_real_escape_string($cme, trim(strip_tags($value))) . "'";
 						}
 						else {
 							$valueField .= "(null)";	

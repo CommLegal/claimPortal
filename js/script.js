@@ -1,28 +1,28 @@
 $(document).ready(function() {
 	$("#OIL").click(function() {
 		$(".well").hide();
-		$(".ass-unass").show();
+		$(".assisted-unassisted").show();
 	});
 	
 	$("#assistedbutt").click(function() {			  
-		$(".fnol-unass").hide();
-		$(".fnol-ass").show();					  
+		$(".fnol-unassisted").hide();
+		$(".fnol-assisted").show();					  
 	});
 	
 	$("#unassistedbutt").click(function() {
-		$(".fnol-ass").hide();						
-		$(".fnol-unass").show();
+		$(".fnol-assisted").hide();						
+		$(".fnol-unassisted").show();
 	});
 		
 	$("#nonOIL").click(function() {
-		$(".ass-unass").hide();
-		$(".fnol-ass").hide();
-		$(".fnol-unass").hide();
+		$(".assisted-unassisted").hide();
+		$(".fnol-assisted").hide();
+		$(".fnol-unassisted").hide();
 		$(".well").show();
 	});
 	
 	$("#OIL1").click(function() {
-	 $(".ass-unass-buttons").show();
+	 $(".assisted-unassisted-buttons").show();
 	 $(".details").show();
 	 });
 });   

@@ -26,7 +26,8 @@ echo $_POST['callValues'];
 <div class="right"><input name="tp_contact_alternative" type="text" id="tp_contact_alternative" size="30" placeholder="" value="<?php echo $insertValues[0]['tp_contact_alternative'] ?>"/></div>
 
 <div class="left"><label>TP Type: &nbsp;</label></div>
-<div class="right"><select name="tp_type" id ="tp_type">
+<div class="right">
+<select name="tp_type" id ="tp_type">
   <option selected="selected">Select</option>
     <option value="Motorist"<?php echo (($insertValues[0]['tp_type'] == "Motorist") ? " selected=selected" : "") ?>>Motorist</option>
     <option value="Motorcyclist"<?php echo (($insertValues[0]['tp_type'] == "Motorcyclist") ? " selected=selected" : "") ?>>Motorcyclist</option>
@@ -35,6 +36,12 @@ echo $_POST['callValues'];
     <option value="Other"<?php echo (($insertValues[0]['tp_type'] == "Other") ? " selected=selected" : "") ?>>Other</option>
 </select>
 </div>
+
+<div class="left"><label>Remove: &nbsp;</label></div>
+<div class="right">
+  <input type="checkbox" name="tp_inactive" id="tp_inactive" value="Y"<?php echo (($insertValues[0]['tp_inactive']) ? " checked=checked" : "") ?> />
+</div>
+
 <input type="hidden" name="tp_c_id" id="tp_c_id" value="<?php echo $_SESSION['claimID'] ?>" />
 <input type="hidden" name="table" id="table" value="third_party" />
 <?php if(empty($_POST['callValues'])) { ?>

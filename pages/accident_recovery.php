@@ -53,10 +53,11 @@
 			?>
 			<div class="well faultClaim ntp" style="display: none;">
 				<!-- If Insurer is not OIL -->
+                <?php $brokerNumber = $conn->execute_sql("select", array('ic_number'), "insurer_contacts", "ic_title=?", array("s" => $policyInfo[$header]['p_broker'])); ?>
                 <h3>This claim needs to be referred to the consumers insurance company, please read the following script:</h3>
 				 <h4 style="padding-top: 15px;">"I see you are insured with <?php echo $policyInfo[$header]['p_broker'] ?>. I will need to give you a contact number 
                  for them as they are your insurer and will deal with your claim or recovery.
-				 <br /><br />Please contact your insurer on xxx"</h4>
+				 <br /><br />Please contact your insurer on <b><?php echo $brokerNumber[0]['ic_number'] ?></b>"</h4>
                  <form id="confirmUnassist" method="post" action="">
                  	<input type="hidden" id="accident_recovery--ar_assisted_unassisted" name="accident_recovery--ar_assisted_unassisted" value="Unassisted"/>
                  	<button type="button" id="submitUnassisted" class="btn btn-success navbar-btn btn-lg col-md-5" >OK</button>
@@ -64,7 +65,7 @@
                  <div style="clear: both;"></div>
 			</div>	
 			
-            <div class="well ass-unass" <?php if($proceed == 0) { echo "style=\"display: none;\""; } ?>>
+            <div class="well assisted-unassisted" <?php if($proceed == 0) { echo "style=\"display: none;\""; } ?>>
                 <button type="button" class="btn btn-success navbar-btn btn-lg col-md-5" id = "assistedbutt">Assisted</button>
                 <div class = "col-md-2"></div>
                 <button type="button" class="btn btn-danger navbar-btn btn-lg col-md-5" id = "unassistedbutt">Unassisted</button>
@@ -75,7 +76,7 @@
 	 
 	</div>	<!-- /.TOP -->
     
-	<div class = "fnol-ass" id = "fnol_data_ass" style="display:none"><!-- FNOL ASSISTED -->		
+	<div class = "fnol-assisted" id = "fnol_data_assisted" style="display:none"><!-- FNOL ASSISTED -->		
 		<div class="col-md-12 mb25">
 			<h3>Incident Recovery - Assisted</h3>
 			<div class="title-divider"></div>
@@ -103,20 +104,23 @@
 				<input disabled type="text" name="accident_recovery--ar_vehicle_reg" id="accident_recovery--ar_vehicle_reg" class="form-control mb10" placeholder="" value="<?php echo $policyInfo[$header]['v_reg'] ?>"   >
 				
 				<label>Date of Incident:</label>
+                <div class="input-group mb10">
 				<input required type="text" name="accident_recovery--ar_incident_date_0" id="accident_recovery--ar_incident_date_0" class="form-control mb10 datepicker" placeholder="" value="<?php date("Y-m-d"); ?>">
+                    <span class="input-group-addon"><i class = "fa fa-calendar"></i></span>
+                </div>
                 
                 <table width="230" border="0">
                   <tr>
                     <th scope="row">Vehicle(s) in Storage:</th>
                     <td>
                     	<input name="accident_recovery--ar_vehicle_storage" id="accident_recovery--ar_vehicle_storage" type="checkbox" 
-                    	name="accident_recovery--ar_vehicle_storage" value="Y" />
+                    	name="accident_recovery--ar_vehicle_storage" value="Y" / >
                     </td>
                   </tr>
                 </table>
 				
-				<label class="mt10">Location if Stored:</label>
-				<input type="text" name="accident_recovery--ar_vehicle_location" id="accident_recovery--ar_vehicle_location" class="form-control mb25" placeholder="">
+				<label id="location-label" class="mt10" style="display:none;">Vehicle Storage Location:</label>
+				<input type="text" name="accident_recovery--ar_vehicle_location" id="accident_recovery--ar_vehicle_location" class="form-control mb25" placeholder="" style="display:none;">
                 
                 <input type="hidden" name="claims--c_claim_type" id="claims--c_claim_type" value="<?php echo $_REQUEST['displayPage']; ?>"  />
                 
@@ -132,11 +136,11 @@
 					<table width="230" border="0" class="mb25">
                     	<tr>
 						<th scope="row">Accident:</th>
-						<td><input name="accident_recovery--ar_circumstances" id="accident_recovery--ar_circumstances" type="checkbox" value="Accident"></td>
+						<td><input name="accident_recovery--ar_circumstances" id="accident_recovery--ar_circumstances" type="radio" value="Accident"></td>
 					  </tr>
 					  <tr>
 						<th scope="row">Fire:</th>
-						<td><input name="accident_recovery--ar_circumstances" id="accident_recovery--ar_circumstances" type="checkbox" value="Fire"></td>
+						<td><input name="accident_recovery--ar_circumstances" id="accident_recovery--ar_circumstances" type="radio" value="Fire"></td>
 					  </tr>
                     </table>
                 </div>
@@ -145,11 +149,11 @@
                     <table width="230" border="0" class="mb25">
                       <tr>
 						<th scope="row">Theft:</th>
-						<td><input name="accident_recovery--ar_circumstances" id="accident_recovery--ar_circumstances" type="checkbox" value="Theft"></td>
+						<td><input name="accident_recovery--ar_circumstances" id="accident_recovery--ar_circumstances" type="radio" value="Theft"></td>
 					  </tr>
 					  <tr>
 						<th scope="row">Vandalism:</th>
-						<td><input name="accident_recovery--ar_circumstances" id="accident_recovery--ar_circumstances" type="checkbox" value="Vandalism"></td>
+						<td><input name="accident_recovery--ar_circumstances" id="accident_recovery--ar_circumstances" type="radio" value="Vandalism"></td>
 					  </tr>
 					  
 					</table>
@@ -159,13 +163,17 @@
         		<div class = "col-md-12">
                     <div class = "col-md-12">
                         <label>Circumstance Details:</label>
-                        <textarea name="accident_recovery--ar_circumstance_details" id="accident_recovery--ar_circumstance_details" cols="45" rows="5" class="form-control mb10"></textarea>
+                        <textarea name="accident_recovery--ar_circumstance_details" id="accident_recovery--ar_circumstance_details" cols="45" rows="3" class="form-control mb10"></textarea>
+                    </div>
+                    <div class = "col-md-12">
+                        <label>Damage Description:</label>
+                        <textarea name="accident_recovery--ar_vehicle_damage" id="accident_recovery--ar_vehicle_damage" cols="45" rows="3" class="form-control mb10"></textarea>
                     </div>
                    <!-- <label>Injury Details (if applicable):</label>
                     <input type="text" id="accident_recovery--ar_injury_details" class="form-control mb10" placeholder=""  /> -->
                     <div class = "col-md-12">
                         <label>Other Info:</label>
-                        <textarea name="accident_recovery--ar_other_info" id="accident_recovery--ar_other_info" cols="45" rows="5" class="form-control mb10"></textarea>
+                        <textarea name="accident_recovery--ar_other_info" id="accident_recovery--ar_other_info" cols="45" rows="3" class="form-control mb10"></textarea>
                     </div>
                 </div>
             
@@ -177,9 +185,10 @@
 			
 		<div class="col-md-12">
 		<h4 class="mb25">Third Party Data</h4>
-        <div class="well mh2">
+        <div class="well">
 			<div class="col-md-4">
-            	<a title="Add a new third party" class="show-overlay" id="addTP"><span class = "btn btn-warning col-md-12 mb25">Add TP &nbsp;<i class="fa fa-lg fa-plus"></i></span></a>
+            	<a title="Add a new third party" class="show-overlay" id="addTP"><span class = "btn btn-warning col-md-6 mb25">Add TP &nbsp;<i class="fa fa-lg fa-plus"></i></span></a>
+                
 			</div>
 	
 			<div class = "col-md-4 tpReload">
@@ -192,11 +201,14 @@
 			</div>	
             <input type="hidden" id="claimType" name="claimType" value="incident_recovery"  />
             <input type="hidden" id="accident_recovery--ar_assisted_unassisted" name="accident_recovery--ar_assisted_unassisted" value="Assisted"  />
+            
+            <div style="clear:both"></div>
+            
             </div>
             
             
 		<div class = "col-md-12">
-			<button class = "btn btn-lg btn-success mb25" id="submit_form_ass">Accept & Save &nbsp;<i class="fa fa-lg fa-floppy-o"></i></button>
+			<button class = "btn btn-lg btn-success mb25" id="submit_form_assisted">Accept & Save &nbsp;<i class="fa fa-lg fa-floppy-o"></i></button>
             <button class = "btn btn-lg btn-danger mb25 cancel">Cancel &nbsp;<i class="fa fa-lg fa-times"></i></button>
 		</div>
         
@@ -206,17 +218,17 @@
 	<!-- /FNOL ass -->	
 	
 		
-	<div class = "fnol-unass" id = "fnol_data_unass" style="display:none"><!-- FNOL UNASSISTED -->		
+	<div class = "fnol-unassisted" id = "fnol_data_unassisted" style="display:none"><!-- FNOL UNASSISTED -->		
 		<div class="col-md-12 mb25">
 			<h3>Incident Recovery - Unassisted</h3>
 			<div class="title-divider"></div>
 		</div>
 		
-		<div class="col-md-12">
+		<div class= "col-md-12">
 	<!--	<h4 class="mb25">Customer Data for <?php echo ucwords(strtolower($policyInfo[$header]['ph_forename'] . " " . $policyInfo[$header]['ph_surname'])) ?></h4> -->
 			<!-- Left Col -->
 		
-			<div class="col-md-4">
+			<div class= "col-md-4">
 			 
 		<form method="post" enctype="multipart/form-data" id="ar_unassisted">
 				
@@ -233,20 +245,26 @@
                 class="form-control mb10" placeholder="" value="<?php echo $policyInfo[$header]['v_reg'] ?>"   >
 				
 				<label>Date of Incident:</label>
+                <div class="input-group mb10">
 				<input required type="text" name="accident_recovery--ar_incident_date_1" id="accident_recovery--ar_incident_date_1" 
                 class="form-control mb10 datepicker" placeholder="" value="<?php date("Y-m-d"); ?>">
+                    <span class="input-group-addon"><i class = "fa fa-calendar"></i></span>
+                </div>
                 
 				<table width="230" border="0">
                   <tr>
                     <th scope="row">Vehicle(s) in Storage:</th>
-                    <td><input name="accident_recovery--ar_vehicle_storage" id="accident_recovery--ar_vehicle_storage" type="checkbox"  name="accident_recovery--ar_vehicle_storage" value="Y"></td>
+                    <td>
+                    	<input name="accident_recovery--ar_vehicle_storage" id="accident_recovery--ar_vehicle_storage" type="checkbox" 
+                    	name="accident_recovery--ar_vehicle_storage" value="Y" / >
+                    </td>
                   </tr>
                 </table>
 				
-				<label class="mt10">Location if Stored:</label>
-				<input type="text" name="accident_recovery--ar_vehicle_location" id="accident_recovery--ar_vehicle_location" class="form-control mb25" placeholder="">
+				<label id="location-label" class="mt10" style="display:none;">Vehicle Storage Location:</label>
+				<input type="text" name="accident_recovery--ar_vehicle_location" id="accident_recovery--ar_vehicle_location" class="form-control mb25" placeholder="" style="display:none;">
                 
-                
+                <input type="hidden" name="claims--c_claim_type" id="claims--c_claim_type" value="<?php echo $_REQUEST['displayPage']; ?>"  />
 					
 			</div><!-- /.Left Col -->
 
@@ -259,11 +277,11 @@
 					<table width="230" border="0" class="mb25">
                     	<tr>
 						<th scope="row">Accident:</th>
-						<td><input name="accident_recovery--ar_circumstances" id="accident_recovery--ar_circumstances" type="checkbox" value="Accident"></td>
+						<td><input name="accident_recovery--ar_circumstances" id="accident_recovery--ar_circumstances" type="radio" value="Accident"></td>
 					  </tr>
 					  <tr>
 						<th scope="row">Fire:</th>
-						<td><input name="accident_recovery--ar_circumstances" id="accident_recovery--ar_circumstances" type="checkbox" value="Fire"></td>
+						<td><input name="accident_recovery--ar_circumstances" id="accident_recovery--ar_circumstances" type="radio" value="Fire"></td>
 					  </tr>
                     </table>
                 </div>
@@ -272,11 +290,11 @@
                     <table width="230" border="0" class="mb25">
                       <tr>
 						<th scope="row">Theft:</th>
-						<td><input name="accident_recovery--ar_circumstances" id="accident_recovery--ar_circumstances" type="checkbox" value="Theft"></td>
+						<td><input name="accident_recovery--ar_circumstances" id="accident_recovery--ar_circumstances" type="radio" value="Theft"></td>
 					  </tr>
 					  <tr>
 						<th scope="row">Vandalism:</th>
-						<td><input name="accident_recovery--ar_circumstances" id="accident_recovery--ar_circumstances" type="checkbox" value="Vandalism"></td>
+						<td><input name="accident_recovery--ar_circumstances" id="accident_recovery--ar_circumstances" type="radio" value="Vandalism"></td>
 					  </tr>
 					  
 					</table>
@@ -286,13 +304,17 @@
         		<div class = "col-md-12">
                     <div class = "col-md-12">
                         <label>Circumstance Details:</label>
-                        <textarea name="accident_recovery--ar_circumstance_details" id="accident_recovery--ar_circumstance_details" cols="45" rows="5" class="form-control mb10"></textarea>
+                        <textarea name="accident_recovery--ar_circumstance_details" id="accident_recovery--ar_circumstance_details" cols="45" rows="3" class="form-control mb10"></textarea>
+                    </div>
+                    <div class = "col-md-12">
+                        <label>Damage Description:</label>
+                        <textarea name="accident_recovery--ar_vehicle_damage" id="accident_recovery--ar_vehicle_damage" cols="45" rows="3" class="form-control mb10"></textarea>
                     </div>
                    <!-- <label>Injury Details (if applicable):</label>
                     <input type="text" id="accident_recovery--ar_injury_details" class="form-control mb10" placeholder=""  /> -->
                     <div class = "col-md-12">
                         <label>Other Info:</label>
-                        <textarea name="accident_recovery--ar_other_info" id="accident_recovery--ar_other_info" cols="45" rows="5" class="form-control mb10"></textarea>
+                        <textarea name="accident_recovery--ar_other_info" id="accident_recovery--ar_other_info" cols="45" rows="2" class="form-control mb10"></textarea>
                     </div>
                 </div>
             
@@ -303,9 +325,9 @@
 			
 		<div class="col-md-12">
 		<h4 class="mb25">Third Party Data</h4>
-        <div class="well mh2">
+        <div class="well">
 			<div class="col-md-4">	
-				<a title="Add a new third party" class="show-overlay" id="addTP"><span class = "btn btn-warning col-md-12 mb25">Add TP &nbsp;<i class="fa fa-lg fa-plus"></i></span></a>
+				<a title="Add a new third party" class="show-overlay" id="addTP"><span class = "btn btn-warning col-md-6 mb25">Add TP &nbsp;<i class="fa fa-lg fa-plus"></i></span></a>
 			</div>	
  			<div class = "col-md-4 tpReload">
 				<?php 
@@ -316,6 +338,7 @@
 				}	
 				?>
 			</div>
+            <div style="clear:both"></div>
 		</div>
  	</div>
 	<div class = "col-lg-12 controls mt25">	
@@ -335,11 +358,13 @@
                         <textarea type="text" name ="accident_recovery--ar_unassist_desc" rows = "10" cols="70" class="form-control mt10 mb25" placeholder="" > </textarea>
                     </div>
                     
-            	<input type="hidden" id="claimType" name="claimType" value="incident_recovery"  />
+            	<input type="hidden" id="claimType" name="claimType" value="incident_recovery" />
                 <input type="hidden" id="accident_recovery--ar_assisted_unassisted" name="accident_recovery--ar_assisted_unassisted" value="Unassisted"  />
+                
             
 				<button class="btn btn-lg btn-success mb25" id="submit_form_unass">Accept & Save &nbsp;<i class="fa fa-lg fa-floppy-o"></i></button>
                 <button class = "btn btn-lg btn-danger mb25 cancel">Cancel &nbsp;<i class="fa fa-lg fa-times"></i></button>
+                
 			</div>
         </form>
 	</div>
