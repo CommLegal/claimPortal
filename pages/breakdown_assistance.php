@@ -55,7 +55,7 @@
     </div>
     
     <div class="fnol-assisted" id="fnol_dataisted" style="display:none"><!-- FNOL UNASSISTED -->	
-		<form method="post" enctype="multipart/form-data" id="bdisted">
+		<form method="post" enctype="multipart/form-data" id="bd_assisted">
         
             <div id = "reasonbox">
                 <label>Details of breakdown:</label>
