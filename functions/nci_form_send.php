@@ -72,9 +72,6 @@ if(!empty($claimInfo)) {
 		foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
 		rtrim($fields_string, '&');
 		
-		$email = new email_class("jonathan.sutton@onecalldirect.co.uk", "NCI form post", $fields_string, "");
-		break;
-		
 		//open connection
 		$ch = curl_init();
 		
