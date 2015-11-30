@@ -255,14 +255,14 @@
                   <tr>
                     <th scope="row">Vehicle(s) in Storage:</th>
                     <td>
-                    	<input name="accident_recovery--ar_vehicle_storage" id="accident_recovery--ar_vehicle_storage" type="checkbox" 
+                    	<input name="accident_recovery--ar_vehicle_storage" id="accident_recovery--ar_vehicle_storage1" type="checkbox" 
                     	name="accident_recovery--ar_vehicle_storage" value="Y" / >
                     </td>
                   </tr>
                 </table>
 				
-				<label id="location-label" class="mt10" style="display:none;">Vehicle Storage Location:</label>
-				<input type="text" name="accident_recovery--ar_vehicle_location" id="accident_recovery--ar_vehicle_location" class="form-control mb25" placeholder="" style="display:none;">
+				<label id="location-label1" class="mt10" style="display:none;">Vehicle Storage Location:</label>
+				<input type="text" name="accident_recovery--ar_vehicle_location" id="accident_recovery--ar_vehicle_location1" class="form-control mb25" placeholder="" style="display:none;">
                 
                 <input type="hidden" name="claims--c_claim_type" id="claims--c_claim_type" value="<?php echo $_REQUEST['displayPage']; ?>"  />
 					

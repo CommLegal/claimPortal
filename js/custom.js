@@ -308,6 +308,19 @@ $("#accident_recovery--ar_vehicle_storage").bind('change', function () {
 	
 });
 
+$("#accident_recovery--ar_vehicle_storage1").bind('change', function () {
+
+	if($('#accident_recovery--ar_vehicle_storage1').is(':checked')) {
+		$("#accident_recovery--ar_vehicle_location1").show();
+		$("#location-label1").show();
+	}
+	else {
+		$("#accident_recovery--ar_vehicle_location1").hide();
+		$("#location-label1").hide();
+	}
+	
+});
+
 $("#fnol--f_vehicle_storage").bind('change', function () {
 
 	if($('#fnol--f_vehicle_storage').is(':checked')) {
