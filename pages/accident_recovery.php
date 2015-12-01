@@ -208,7 +208,7 @@
             
 		<div class = "col-md-12">
 			<button class = "btn btn-lg btn-success mb25" id="submit_form_assisted">Accept & Save &nbsp;<i class="fa fa-lg fa-floppy-o"></i></button>
-            <button class = "btn btn-lg btn-danger mb25 cancel">Cancel &nbsp;<i class="fa fa-lg fa-times"></i></button>
+            <button class = "btn btn-lg btn-danger mb25 cancel pull-right">Cancel &nbsp;<i class="fa fa-lg fa-times"></i></button>
 		</div>
         
         </div>
@@ -361,7 +361,7 @@
                 
             
 				<button class="btn btn-lg btn-success mb25" id="submit_form_unassisted">Accept & Save &nbsp;<i class="fa fa-lg fa-floppy-o"></i></button>
-                <button class = "btn btn-lg btn-danger mb25 cancel">Cancel &nbsp;<i class="fa fa-lg fa-times"></i></button>
+                <button class = "btn btn-lg btn-danger mb25 cancel pull-right">Cancel &nbsp;<i class="fa fa-lg fa-times"></i></button>
                 
 			</div>
         </form>

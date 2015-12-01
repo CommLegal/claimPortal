@@ -203,7 +203,7 @@
 
 		<div class = "col-md-12">
 			<button class = "btn btn-lg btn-success mb25 mt50" id ="fnol_submit">Accept & Save &nbsp;<i class="fa fa-lg fa-floppy-o"></i></button>
-            <button class = "btn btn-lg btn-danger mb25 mt50 cancel">Cancel &nbsp;<i class="fa fa-lg fa-times"></i></button>
+            <button class = "btn btn-lg btn-danger mb25 mt50 cancel pull-right">Cancel &nbsp;<i class="fa fa-lg fa-times"></i></button>
 		</div>
         
         </div>
