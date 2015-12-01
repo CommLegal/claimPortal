@@ -146,7 +146,7 @@
 							  <tr>
 								<td>&nbsp;</td>
 								<td><?php echo date("d/m/Y", strtotime($previousBreakdowns[$header]['c_timestamp'])) ?></th>
-								<td>#<?php echo date("d/m/Y", strtotime($previousBreakdowns[$header]['c_id'])) ?></td>
+								<td>#<?php echo $previousBreakdowns[$header]['c_id'] ?></td>
 								<td><?php echo $previousBreakdowns[$header]['bd_assisted_unassisted'] ?></td>
 							  </tr>
 							  <tr>
