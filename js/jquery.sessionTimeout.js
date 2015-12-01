@@ -57,9 +57,9 @@
     jQuery.sessionTimeout = function (options) {
         var defaults = {
             message: 'Your session is about to expire.',
-            keepAliveUrl: '/keep-alive',
+            keepAliveUrl: '/functions/user_keep_alive.php',
             keepAliveAjaxRequestType: 'POST',
-            redirUrl: '/timed-out',
+            redirUrl: '/includes/end_session.php',
             logoutUrl: '/includes/end_session.php',
             warnAfter: 900000, // 15 minutes
             redirAfter: 1200000, // 20 minutes
