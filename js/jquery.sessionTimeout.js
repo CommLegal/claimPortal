@@ -60,7 +60,7 @@
             keepAliveUrl: '/keep-alive',
             keepAliveAjaxRequestType: 'POST',
             redirUrl: '/timed-out',
-            logoutUrl: '/log-out',
+            logoutUrl: '/includes/end_session.php',
             warnAfter: 900000, // 15 minutes
             redirAfter: 1200000, // 20 minutes
             appendTime: true // appends time stamp to keep alive url to prevent caching

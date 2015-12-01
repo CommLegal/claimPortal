@@ -1,7 +1,7 @@
 // JavaScript Document
 $( document ).ready(function() {
 
-$.sessionTimeout();
+//$.sessionTimeout();
 							 
 $("#existing-venue-add").click(function(e) {
 	//e.preventDefault();
