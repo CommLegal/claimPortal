@@ -72,7 +72,7 @@ if(!empty($policyInfo)) {
 	foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
 	rtrim($fields_string, '&');
 	
-	$postID = $conn->execute_sql("insert", array("np_p_id" => $_POST['p_id'], "np_postValues" => $fields_string, "np_timestamp" => date("Y-m-d H:i:s")), "nci_post", "", "");
+	$postID = $conn->execute_sql("insert", array("np_p_id" => $_POST['p_id'], "np_postValues" => "", "np_timestamp" => date("Y-m-d H:i:s")), "nci_post", "", "");
 	
 	var_dump($postID);
 	break;
