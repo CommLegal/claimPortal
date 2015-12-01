@@ -28,6 +28,12 @@
     
     <div class = "fnol-unassisted" id = "fnol_data_unassisted" style="display:none"><!-- FNOL UNASSISTED -->	
     	<form method="post" enctype="multipart/form-data" id="bd_unassisted">
+        
+        	<div id = "reasonbox">
+                <label>Details of breakdown:</label>
+                <textarea type="text" name ="breakdown_assistance--bd_further_info" rows = "10" cols="70" class="form-control mb25" placeholder="" > </textarea>
+            </div>
+            
             <label>Reason for Unassisted:</label>
             <select id = "breakdown_assistance--bd_unassist_reason" name="breakdown_assistance--bd_unassist_reason">
                 <option value="1">Wrong fuel</option>
