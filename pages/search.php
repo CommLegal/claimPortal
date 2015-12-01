@@ -131,15 +131,14 @@
                     <h4>Previous Breakdowns</h4><div class="title-divider"></div>                              
                         <table width="450" border="0";>
                           <tr>
-                            <th scope="row"><b>Date</b></th>
+                            <th scope="row">Date</th>
                             <td>Ref No.</td>
-                            <td>&nbsp;</td>
+                            <td>Status</td>
                           </tr>
                           <tr>
-                          <tr>
-                            <th scope="row"><b>23-09-2011:</b></th>
+                            <th scope="row">23-09-2011</th>
                             <td>#42096</td>
-                            <td><button class = "btn btn-default">View</button></td>
+                            <td>Assisted</td>
                           </tr>
                         </table>
                         <?php } ?>
