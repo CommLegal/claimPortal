@@ -147,6 +147,7 @@
                           	<th colspan="3">Details:</td>
                           </tr>
                           <tr>
+                          	<td>&nbsp;</td>
                           	<td colspan="3">Test details</td>
                           </tr>
                         </table>
