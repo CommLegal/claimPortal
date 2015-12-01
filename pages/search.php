@@ -132,31 +132,35 @@
                     <h4>Previous Breakdowns</h4><div class="title-divider"></div>  
                     	<?php
 						$previousBreakdowns = $conn->execute_sql("select", array('c_id, c_timestamp, bd_assisted_unassisted, bd_further_info'), "claims JOIN breakdown_assistance ON c_bd_id = bd_id", "bd_assisted_unassisted = 'Assisted' AND c_p_id = ?", array("i" => $policyInfo[0]['p_id']));
-						var_dump($previousBreakdowns);
-						?>
-                        <table width="100%" border="0">
-                          <tr>
-                          	<th width="40">#1</th>
-                            <th>Date</th>
-                            <th>Ref No.</td>
-                            <th>Status</td>
-                          </tr>
-                          <tr>
-                          	<td>&nbsp;</td>
-                            <td>23-09-2011</th>
-                            <td>#42096</td>
-                            <td>Assisted</td>
-                          </tr>
-                          <tr>
-                          	<th width="40">&nbsp;</th>
-                          	<th colspan="3">Details:</td>
-                          </tr>
-                          <tr>
-                          	<td>&nbsp;</td>
-                          	<td colspan="3">Test details</td>
-                          </tr>
-                        </table>
-                        <?php } ?>
+						$i=0;
+						foreach($previousBreakdowns as $header => $record) {
+							$i++;
+							?>
+							<table width="100%" border="0">
+							  <tr>
+								<th width="40">#<?php echo $i ?></th>
+								<th>Date</th>
+								<th>Ref No.</td>
+								<th>Status</td>
+							  </tr>
+							  <tr>
+								<td>&nbsp;</td>
+								<td><?php echo date("d/m/Y", strtotime($previousBreakdowns[$header]['c_timestamp'])) ?></th>
+								<td>#<?php echo date("d/m/Y", strtotime($previousBreakdowns[$header]['c_id'])) ?></td>
+								<td><?php echo $previousBreakdowns[$header]['bd_assisted_unassisted'] ?></td>
+							  </tr>
+							  <tr>
+								<th width="40">&nbsp;</th>
+								<th colspan="3">Details:</td>
+							  </tr>
+							  <tr>
+								<td>&nbsp;</td>
+								<td colspan="3"><?php echo $previousBreakdowns[$header]['bd_further_info'] ?></td>
+							  </tr>
+							</table>
+							<?php 
+							}
+						} ?>
                 </div>
                 
                 <div class="col-md-6">
