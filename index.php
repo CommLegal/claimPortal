@@ -25,6 +25,7 @@ $conn = new mysqlwrapper_class;
 	<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
     <script src="<?php echo _ROOT ?>/js/jquery-2.1.3.min.js"></script>
     <script src="<?php echo _ROOT ?>/js/jquery-ui.js"></script>
+    <script src="<?php echo _ROOT ?>/js/jquery.sessionTimeout.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>

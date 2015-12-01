@@ -1,11 +1,4 @@
-<div class="col-md-12 mb25"> 
-	<?php 
-	if(!empty($_SESSION['claimID'])) {
-		/*$conn->execute_sql("delete", "", "claims", "c_id=?", array("i" => $_SESSION['claimID']));
-		$conn->execute_sql("delete", "", "third_party", "tp_c_id=?", array("i" => $_SESSION['claimID']));
-		unset($_SESSION['claimID']);*/
-	} 
-	?>             
+<div class="col-md-12 mb25">        
     <div class="col-md-2 logobg"></div>
     <div class="col-md-10"><h3>Home</h3><div class="title-divider"></div></div>
     <div class="col-md-2">&nbsp;</div>
