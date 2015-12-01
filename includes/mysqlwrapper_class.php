@@ -282,12 +282,11 @@ class mysqlwrapper_class {
 		}
 		elseif($dbCallType == "update" || $dbCallType == "insert") {
 			/* run query and return the result to the calling page, upon error write to error log */
-			echo $query . "<br />";
+			//echo $query . "<br />";
 			
 			//$result = $cme->query($query);
 			if($statement->execute()) {
 				$result = $statement->get_result();
-				$statement->close();
 				if($dbCallType == "insert") {
 					return $cme->insert_id;
 				}
