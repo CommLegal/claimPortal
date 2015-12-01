@@ -136,9 +136,15 @@
                             <td>Status</td>
                           </tr>
                           <tr>
+                          	<td colspan="3">Details</td>
+                          </tr>
+                          <tr>
                             <th scope="row">23-09-2011</th>
                             <td>#42096</td>
                             <td>Assisted</td>
+                          </tr>
+                          <tr>
+                          	<td colspan="3">Test details</td>
                           </tr>
                         </table>
                         <?php } ?>
