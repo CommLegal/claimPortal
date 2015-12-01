@@ -89,7 +89,7 @@ if(!empty($policyInfo)) {
 	
 	if(curl_errno($ch))
 	{
-		$conn->execute_sql("update", array("np_status" => "ERROR", "np_c_error" => curl_error($c)), "nci_post", "np_id=?", array("i" => $postID));
+		$conn->execute_sql("update", array("np_status" => "ERROR", "np_c_error" => curl_error($ch)), "nci_post", "np_id=?", array("i" => $postID));
 	}
 	else {
 		$conn->execute_sql("update", array("np_status" => "SUCCESS"), "nci_post", "np_id=?", array("i" => $postID));
