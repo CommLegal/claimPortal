@@ -4,6 +4,9 @@ $conn = new mysqlwrapper_class;
 
 require("../includes/email_class.php");
 
+var_dump($_POST);
+break;
+
 $claimInfo = $conn->execute_sql("select", array("*"), "claims", "c_id=?", array("i" => $_SESSION['claimID']));
 if(!empty($claimInfo)) {
 	if($claimInfo[0]['c_claim_type'] !== "fnol") {
