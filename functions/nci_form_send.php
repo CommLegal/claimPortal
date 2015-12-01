@@ -50,7 +50,8 @@ if(!empty($claimInfo)) {
 		
 		//extract data from the post
 		//set POST variables
-		$url = 'https://activejobs.ncigroup.local/onecall/index.aspx';
+		//$url = 'https://activejobs.ncigroup.local/onecall/index.aspx';
+		$url = "http://activejobs.ncigroup.local/onecall/index.aspx";
 		$fields = array(
 			'CustomerTitle' => urlencode($policyholderInfo[0]['ph_title']),
 			'CustomerForename' => urlencode(ucwords(strtolower($policyholderInfo[0]['ph_forename']))),
@@ -85,6 +86,14 @@ if(!empty($claimInfo)) {
 		//execute post
 		$result = curl_exec($ch);
 		
+		if(curl_errno($ch))
+		{
+			$conn->execute_sql("insert", array("np_c_id" => $_SESSION['claimID'], "np_status" => "ERROR", "np_c_error" => curl_error($c), "np_timestamp" => date("Y-m-d H:i:s")), "nci_post", "", "");
+		}
+		else {
+			$conn->execute_sql("insert", array("np_c_id" => $_SESSION['claimID'], "np_status" => "SUCCESS", "np_c_error" => curl_error($c), "np_timestamp" => date("Y-m-d H:i:s")), "nci_post", "", "");	
+		}
+				
 		//close connection
 		curl_close($ch);		
 	}
