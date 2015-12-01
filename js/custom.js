@@ -223,16 +223,13 @@ $("#createNewClaim").click(function(e) {
 $("#passToNCI").click(function(e) {
 	e.preventDefault();
 							
-	var data = $(this).attr("PID");
-	
-	$.post(
-	   'functions/nci_form_send.php',
-		data,
-		function(data){
-		  $(".nci_message").html(data); 
-		  //window.location.replace("https://portal.commercial-legal.co.uk/?displayPage=success"); 
-		}
-	  );
+	$.post( "functions/nci_form_send.php", { 
+		p_id: $(this).attr("PID")
+	})
+	.done(function( data ) {
+		$(".nci_message").html(data);
+	});
+		
 });
 
 // END NEW CLAIM ADD FUNCTION //
