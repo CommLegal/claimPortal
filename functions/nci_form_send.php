@@ -5,8 +5,6 @@ $conn = new mysqlwrapper_class;
 require("../includes/email_class.php");
 
 $policyInfo = $conn->execute_sql("select", array("*"), "policy", "p_id=?", array("i" => $_POST['p_id']));
-var_dump($policyInfo);
-break;
 
 if(!empty($policyInfo)) {
 	$policyholderInfo = $conn->execute_sql("select", array("*"), "policy_holders", "ph_p_id=?", array("i" => $_POST['p_id']));
@@ -69,6 +67,9 @@ if(!empty($policyInfo)) {
 		'VehicleFuelType' => urlencode($fuel),
 		'VehicleTransmission' => urlencode($transmission)
 	);
+	
+	var_dump($fields);
+	break;
 	
 	//url-ify the data for the POST
 	foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
