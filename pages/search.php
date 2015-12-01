@@ -143,6 +143,7 @@
                             <td>Assisted</td>
                           </tr>
                           <tr>
+                          	<th>&nbsp;</th>
                           	<th colspan="3">Details:</td>
                           </tr>
                           <tr>
