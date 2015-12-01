@@ -158,6 +158,7 @@
 								<td colspan="3"><?php echo $previousBreakdowns[$header]['bd_further_info'] ?></td>
 							  </tr>
 							</table>
+                            <div class="title-divider"></div>
                             <div style="margin-bottom: 20px;"></div>
 							<?php 
 							}
