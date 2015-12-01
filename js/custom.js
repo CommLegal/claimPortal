@@ -125,16 +125,6 @@ $("#submit_form_assisted").click(function(e) {
 		  $(".save-result").html(data);  
 		}
 	  );
-	
-	$.post(
-	   'functions/nci_form_send.php',
-		data,
-		function(data){
-		  $(".save-result").html(data); 
-		  window.location.replace("https://portal.commercial-legal.co.uk/?displayPage=success"); 
-		}
-	  );
-	
 });
 
 $("#submit_form_unassisted").click(function(e) {
