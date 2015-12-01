@@ -265,6 +265,7 @@ $("#createNewClaim").click(function(e) {
       	dateFormat: 'yy-mm-dd', 
 		changeMonth: true,
 		changeYear: true,
+		minDate: "-2Y",
 		maxDate: 0
     });
 	
