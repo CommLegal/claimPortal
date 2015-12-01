@@ -125,66 +125,63 @@
                           </tr>
                         </table>
                 </div>
-                
-                <div class="col-md-12">
                 	
-                    <div class="col-md-6">
-                    	<?php if($_REQUEST['displayPage'] == "breakdown_assistance") { ?>
-                        <h4>Previous Breakdowns</h4><div class="title-divider"></div>                              
-                            <table width="450" border="0";>
-                              <tr>
-                                <th scope="row"><b>Date</b></th>
-                                <td>Ref No.</td>
-                                <td>&nbsp;</td>
-                              </tr>
-                              <tr>
-                              <tr>
-                                <th scope="row"><b>23-09-2011:</b></th>
-                                <td>#42096</td>
-                                <td><button class = "btn btn-default">View</button></td>
-                              </tr>
-                              <tr>
-                                <th scope="row"><b>02-03-2006:</b></th>
-                                <td>#62147</td>
-                                <td><button class = "btn btn-default">View</button></td>
-                              </tr>
-                              <tr>
-                                <th scope="row"><b>02-03-2006:</b></th>
-                                <td>#62147</td>
-                                <td><button class = "btn btn-default">View</button></td>
-                              </tr>
-                              <tr>
-                                <th scope="row"><b>02-03-2006:</b></th>
-                                <td>#62147</td>
-                                <td><button class = "btn btn-default">View</button></td>
-                              </tr>
-                              <tr>
-                                <th scope="row"><b>02-03-2006:</b></th>
-                                <td>#62147</td>
-                                <td><button class = "btn btn-default">View</button></td>
-                              </tr>
-                              <tr>
-                                <th scope="row"><b>02-03-2006:</b></th>
-                                <td>#62147</td>
-                                <td><button class = "btn btn-default">View</button></td>
-                              </tr>
-                            </table>
-                            <?php } ?>
-                    </div>
-                    
-                    <div class="col-md-6">
-                        <form id="hiddenClaimType" method="post" action="pages/accident_recovery_upload.php">
-                            <input id="claims--c_claim_type" name="claimType" type="hidden" value="<?php echo $_REQUEST['displayPage']; ?>" />
-                            <input id="claims--c_timestamp" name="claimTimestamp" type="hidden" value="<?php echo date("Y-m-d H:i:s"); ?>" />
-                            <input id="claims--c_p_id" name="policyId" type="hidden" value="<?php echo $policyInfo[$header]['p_id'] ?>" />
-                            <input id="claims--c_ph_id" name="policyHolderId" type="hidden" value="<?php echo $policyInfo[$header]['p_ph_id'] ?>" />
-                            
-                            <button id="createNewClaim" class = "btn btn-success w100 mt25">Add Claim &nbsp;<i class="fa fa-lg fa-plus-circle"></i></button>	
-                            
-                        </form>	
-                        <div class="hiddenClaimType" style="display: none;"><?php echo ((!empty($_SESSION['claimID'])) ? trim($_SESSION['claimID']) : "") ?></div>
-                    </div>
-				</div>
+                <div class="col-md-12">
+                    <?php if($_REQUEST['displayPage'] == "breakdown_assistance") { ?>
+                    <h4>Previous Breakdowns</h4><div class="title-divider"></div>                              
+                        <table width="450" border="0";>
+                          <tr>
+                            <th scope="row"><b>Date</b></th>
+                            <td>Ref No.</td>
+                            <td>&nbsp;</td>
+                          </tr>
+                          <tr>
+                          <tr>
+                            <th scope="row"><b>23-09-2011:</b></th>
+                            <td>#42096</td>
+                            <td><button class = "btn btn-default">View</button></td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><b>02-03-2006:</b></th>
+                            <td>#62147</td>
+                            <td><button class = "btn btn-default">View</button></td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><b>02-03-2006:</b></th>
+                            <td>#62147</td>
+                            <td><button class = "btn btn-default">View</button></td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><b>02-03-2006:</b></th>
+                            <td>#62147</td>
+                            <td><button class = "btn btn-default">View</button></td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><b>02-03-2006:</b></th>
+                            <td>#62147</td>
+                            <td><button class = "btn btn-default">View</button></td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><b>02-03-2006:</b></th>
+                            <td>#62147</td>
+                            <td><button class = "btn btn-default">View</button></td>
+                          </tr>
+                        </table>
+                        <?php } ?>
+                </div>
+                
+                <div class="col-md-6 pull-right">
+                    <form id="hiddenClaimType" method="post" action="pages/accident_recovery_upload.php">
+                        <input id="claims--c_claim_type" name="claimType" type="hidden" value="<?php echo $_REQUEST['displayPage']; ?>" />
+                        <input id="claims--c_timestamp" name="claimTimestamp" type="hidden" value="<?php echo date("Y-m-d H:i:s"); ?>" />
+                        <input id="claims--c_p_id" name="policyId" type="hidden" value="<?php echo $policyInfo[$header]['p_id'] ?>" />
+                        <input id="claims--c_ph_id" name="policyHolderId" type="hidden" value="<?php echo $policyInfo[$header]['p_ph_id'] ?>" />
+                        
+                        <button id="createNewClaim" class = "btn btn-success w100 mt25">Add Claim &nbsp;<i class="fa fa-lg fa-plus-circle"></i></button>	
+                        
+                    </form>	
+                    <div class="hiddenClaimType" style="display: none;"><?php echo ((!empty($_SESSION['claimID'])) ? trim($_SESSION['claimID']) : "") ?></div>
+                </div>
                 
 				<?php 
 					} 
