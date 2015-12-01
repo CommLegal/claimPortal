@@ -131,7 +131,8 @@
                     <?php if($_REQUEST['displayPage'] == "breakdown_assistance") { ?>
                     <h4>Previous Breakdowns</h4><div class="title-divider"></div>  
                     	<?php
-						$previousBreakdowns = $conn->execute_sql("select", array('*'), "breakdown_assistance join claims on", "a_addon_type=? and a_policy_number=? and (a_cancel_date IS NULL OR a_cancel_date = '0000-00-00') and a_renewal_date >= '" . date('Y-m-d') . "'", array("i" => $policyInfo[0]['p_id']));
+						$previousBreakdowns = $conn->execute_sql("select", array('c_id, c_timestamp, bd_assisted_unassisted, bd_further_info'), "breakdown_assistance ON c_bd_id = bd_id", "bd_assisted_unassisted = 'Assisted' AND c_p_id = ?", array("i" => $policyInfo[0]['p_id']));
+						var_dump($previousBreakdowns);
 						?>
                         <table width="100%" border="0">
                           <tr>
