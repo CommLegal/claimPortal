@@ -131,11 +131,13 @@
                     <h4>Previous Breakdowns</h4><div class="title-divider"></div>                              
                         <table width="450" border="0";>
                           <tr>
+                          	<th>#</th>
                             <th>Date</th>
                             <th>Ref No.</td>
                             <th>Status</td>
                           </tr>
                           <tr>
+                          	<td>1</td>
                             <td>23-09-2011</th>
                             <td>#42096</td>
                             <td>Assisted</td>
