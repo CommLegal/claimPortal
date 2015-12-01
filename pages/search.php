@@ -159,7 +159,6 @@
 							  </tr>
 							</table>
                             <div class="title-divider"></div>
-                            <div style="margin-bottom: 20px;"></div>
 							<?php 
 							}
 						} ?>
