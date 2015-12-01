@@ -264,10 +264,8 @@ $("#createNewClaim").click(function(e) {
 	$( ".datepicker" ).datepicker({
       	dateFormat: 'yy-mm-dd', 
 		changeMonth: true,
-		changeYear: true,
-		minDate: "-2Y",
-		maxDate: 0
-    });
+		changeYear: true
+	});
 	
 	$(".faultclaimButton").click(function(e) {
 		$('.assisted-unassisted').hide();
