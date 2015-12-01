@@ -287,6 +287,7 @@ class mysqlwrapper_class {
 			//$result = $cme->query($query);
 			if($statement->execute()) {
 				$result = $statement->get_result();
+				$statement->close();
 				if($dbCallType == "insert") {
 					return $cme->insert_id;
 				}
@@ -296,7 +297,7 @@ class mysqlwrapper_class {
 			}
 			else {
 				if($cme->error) {
-					//echo $cme->error;
+					echo $cme->error;
 					//$this->writeErrorLog($cme->error, $query);
 					//return json_encode(array('success'=>'false'));
 				}	
