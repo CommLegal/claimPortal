@@ -129,7 +129,7 @@
                 <div class="col-md-6">
                     <?php if($_REQUEST['displayPage'] !== "fnol") { ?>
                     <h4>Previous Breakdowns</h4><div class="title-divider"></div>                              
-                        <table width="450" border="0";>
+                        <table width="100%" border="0";>
                           <tr>
                           	<th>#1</th>
                             <th>Date</th>
