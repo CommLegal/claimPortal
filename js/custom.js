@@ -183,15 +183,6 @@ $("#bd_assisted_submit").click(function(e) {
 		  $(".save-result").html(data); 
 		}
 	  );
-	
-	$.post(
-	   'functions/nci_form_send.php',
-		data,
-		function(data){
-		  $(".save-result").html(data); 
-		  window.location.replace("https://portal.commercial-legal.co.uk/?displayPage=success"); 
-		}
-	  );
 });
 
 $("#bd_unassisted_submit").click(function(e) {
@@ -225,6 +216,24 @@ $("#createNewClaim").click(function(e) {
 		  $(".firstStep").show();
 		  //$("#fnol_data_assisted").show();
 		  $(".bd-assisted-unassisted").show();
+		}
+	  );
+});
+
+$("#passToNCI").click(function(e) {
+	e.preventDefault();
+							
+	
+	alert($(this).attr("PID"));
+	return false;
+	var data = $("#hiddenClaimType").serializeArray();
+	
+	$.post(
+	   'functions/nci_form_send.php',
+		data,
+		function(data){
+		  $(".save-result").html(data); 
+		  //window.location.replace("https://portal.commercial-legal.co.uk/?displayPage=success"); 
 		}
 	  );
 });
