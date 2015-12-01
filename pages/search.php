@@ -131,9 +131,9 @@
                     <h4>Previous Breakdowns</h4><div class="title-divider"></div>                              
                         <table width="450" border="0";>
                           <tr>
-                            <td>Date</th>
-                            <td>Ref No.</td>
-                            <td>Status</td>
+                            <th>Date</th>
+                            <th>Ref No.</td>
+                            <th>Status</td>
                           </tr>
                           <tr>
                             <td>23-09-2011</th>
@@ -141,7 +141,7 @@
                             <td>Assisted</td>
                           </tr>
                           <tr>
-                          	<td colspan="3">Details:</td>
+                          	<th colspan="3">Details:</td>
                           </tr>
                           <tr>
                           	<td colspan="3">Test details</td>
