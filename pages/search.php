@@ -139,9 +139,9 @@
                 
                 
                 
-                <?php if($_REQUEST['displayPage'] == "breakdown") { ?>
-				<div class="col-md-6">
-                    <h4>Previous Claims</h4><div class="title-divider"></div>
+                <?php if($_REQUEST['displayPage'] == "breakdown-assistance") { ?>
+				<div class="col-md-12">
+                    <h4>Previous Breakdowns</h4><div class="title-divider"></div>
                         <div class="scroll mh">
                         	
                             <table width="450" border="0";>
