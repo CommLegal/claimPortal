@@ -45,7 +45,8 @@
 						if(!empty($policyInfo[0])) {
 							$policyInfo = $conn->execute_sql("select", array('*'), "policy JOIN policy_holders ON p_id = ph_p_id join vehicles on v_p_id = p_id", "p_id=? and (p_cancel_date IS NULL OR p_cancel_date = '0000-00-00') and p_renewal_date >= '" . date('Y-m-d') . "'", array("i" => $policyInfo[0]['ph_p_id']));
 						}
-					}			
+					}
+					//$p_id = $policyInfo[0]['p_id'];
 					
 					if(empty($policyInfo)) {
 						echo "<div class=\"col-md-12\"><h4>No policies found...</h4></div>";
@@ -127,11 +128,14 @@
                 </div>
                 	
                 <div class="col-md-6">
-                    <?php if($_REQUEST['displayPage'] !== "fnol") { ?>
-                    <h4>Previous Breakdowns</h4><div class="title-divider"></div>                              
-                        <table width="100%" border="0";>
+                    <?php if($_REQUEST['displayPage'] == "breakdown_assistance") { ?>
+                    <h4>Previous Breakdowns</h4><div class="title-divider"></div>  
+                    	<?php
+						$previousBreakdowns = $conn->execute_sql("select", array('*'), "breakdown_assistance join claims on", "a_addon_type=? and a_policy_number=? and (a_cancel_date IS NULL OR a_cancel_date = '0000-00-00') and a_renewal_date >= '" . date('Y-m-d') . "'", array("i" => $policyInfo[0]['p_id']));
+						?>
+                        <table width="100%" border="0">
                           <tr>
-                          	<th width="30">#1</th>
+                          	<th width="40">#1</th>
                             <th>Date</th>
                             <th>Ref No.</td>
                             <th>Status</td>
@@ -143,7 +147,7 @@
                             <td>Assisted</td>
                           </tr>
                           <tr>
-                          	<th width="30">&nbsp;</th>
+                          	<th width="40">&nbsp;</th>
                           	<th colspan="3">Details:</td>
                           </tr>
                           <tr>
