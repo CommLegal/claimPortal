@@ -126,8 +126,8 @@
                         </table>
                 </div>
                 	
-                <div class="col-md-12">
-                    <?php if($_REQUEST['displayPage'] == "breakdown_assistance") { ?>
+                <div class="col-md-6">
+                    <?php if($_REQUEST['displayPage'] !== "fnol") { ?>
                     <h4>Previous Breakdowns</h4><div class="title-divider"></div>                              
                         <table width="450" border="0";>
                           <tr>
@@ -141,36 +141,11 @@
                             <td>#42096</td>
                             <td><button class = "btn btn-default">View</button></td>
                           </tr>
-                          <tr>
-                            <th scope="row"><b>02-03-2006:</b></th>
-                            <td>#62147</td>
-                            <td><button class = "btn btn-default">View</button></td>
-                          </tr>
-                          <tr>
-                            <th scope="row"><b>02-03-2006:</b></th>
-                            <td>#62147</td>
-                            <td><button class = "btn btn-default">View</button></td>
-                          </tr>
-                          <tr>
-                            <th scope="row"><b>02-03-2006:</b></th>
-                            <td>#62147</td>
-                            <td><button class = "btn btn-default">View</button></td>
-                          </tr>
-                          <tr>
-                            <th scope="row"><b>02-03-2006:</b></th>
-                            <td>#62147</td>
-                            <td><button class = "btn btn-default">View</button></td>
-                          </tr>
-                          <tr>
-                            <th scope="row"><b>02-03-2006:</b></th>
-                            <td>#62147</td>
-                            <td><button class = "btn btn-default">View</button></td>
-                          </tr>
                         </table>
                         <?php } ?>
                 </div>
                 
-                <div class="col-md-6 pull-right">
+                <div class="col-md-6">
                     <form id="hiddenClaimType" method="post" action="pages/accident_recovery_upload.php">
                         <input id="claims--c_claim_type" name="claimType" type="hidden" value="<?php echo $_REQUEST['displayPage']; ?>" />
                         <input id="claims--c_timestamp" name="claimTimestamp" type="hidden" value="<?php echo date("Y-m-d H:i:s"); ?>" />
