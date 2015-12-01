@@ -139,7 +139,7 @@
                 
                 
                 
-                <?php if($_REQUEST['displayPage'] == "breakdown-assistance") { ?>
+                <?php if($_REQUEST['displayPage'] == "breakdown_assistance") { ?>
 				<div class="col-md-12">
                     <h4>Previous Breakdowns</h4><div class="title-divider"></div>
                         <div class="scroll mh">
