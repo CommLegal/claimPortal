@@ -131,17 +131,17 @@
                     <h4>Previous Breakdowns</h4><div class="title-divider"></div>                              
                         <table width="450" border="0";>
                           <tr>
-                            <th scope="row">Date</th>
+                            <td>Date</th>
                             <td>Ref No.</td>
                             <td>Status</td>
                           </tr>
                           <tr>
-                            <th scope="row">23-09-2011</th>
+                            <td>23-09-2011</th>
                             <td>#42096</td>
                             <td>Assisted</td>
                           </tr>
                           <tr>
-                          	<td scope="row" colspan="3">Details:</td>
+                          	<td colspan="3">Details:</td>
                           </tr>
                           <tr>
                           	<td colspan="3">Test details</td>
