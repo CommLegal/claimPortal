@@ -266,6 +266,7 @@ class mysqlwrapper_class {
 
 			if($statement->execute()) {
 				$result = $statement->get_result();
+				$statement->close();
 				$array = array();
 				while($row = $result->fetch_assoc()){
 					$array[] = $row;
@@ -286,6 +287,7 @@ class mysqlwrapper_class {
 			//$result = $cme->query($query);
 			if($statement->execute()) {
 				$result = $statement->get_result();
+				$statement->close();
 				if($dbCallType == "insert") {
 					return $cme->insert_id;
 				}
@@ -307,6 +309,7 @@ class mysqlwrapper_class {
 			//$result = $cme->query($query);
 			
 			if($statement->execute()) {
+				$statement->close();
 				return true;	
 			}
 			else {
