@@ -49,6 +49,7 @@ require('pages/nav.php');
 ?>    
 <div class="container">   
 	<?php 
+	if($_SESSION["userName"]) {
 		switch($_REQUEST['displayPage']) {
 			case "incident_recovery":
 				echo "<h3>Incident Recovery</h3><div class=\"title-divider\"></div>";
@@ -119,6 +120,10 @@ require('pages/nav.php');
 			unset($_SESSION['claimID']);
 			require("pages/lobby.php");	
 		}
+	}
+	else {
+		require('pages/login.php');
+	}
 		
 	?>
 	
