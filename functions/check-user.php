@@ -17,12 +17,7 @@ if(!empty($userLogin)) {
 	
 	session_start();
 	
-	$_SESSION['userName'] = $_POST['username'];
-	$_SESSION['userID'] = $userLogin[0]['ul_id'];
-	$_SESSION['companyTitle'] = $userLogin[0]['ul_company_title'];
-	$_SESSION['permissions']['breakdown'] = $userLogin[0]['ul_breakdown'];
-	$_SESSION['permissions']['accident_recovery'] = $userLogin[0]['ul_accident_recovery'];
-	$_SESSION['permissions']['fnol'] = $userLogin[0]['ul_fnol'];
+	setcookie("userID",$userLogin[0]['ul_id'], strtotime('today 08:00'));
 }
 else {
 	echo "There has been a problem logging you in ";	
