@@ -211,6 +211,19 @@ $("#createNewClaim").click(function(e) {
 });
 
 $("#passToNCI").click(function(e) {
+	//e.preventDefault();
+							
+	$.post( "functions/nci_form_log.php", { 
+		p_id: $(this).attr("PID"),
+		href: $(this).attr("href")
+	})
+	.done(function( data ) {
+		//$(".nci_message").html(data);
+	});
+		
+});
+
+/*$("#passToNCI").click(function(e) {
 	e.preventDefault();
 							
 	$.post( "functions/nci_form_send.php", { 
@@ -220,7 +233,7 @@ $("#passToNCI").click(function(e) {
 		$(".nci_message").html(data);
 	});
 		
-});
+});*/
 
 // END NEW CLAIM ADD FUNCTION //
 
