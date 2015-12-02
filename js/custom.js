@@ -210,7 +210,7 @@ $("#createNewClaim").click(function(e) {
 	  );
 });
 
-$("#passToNCI").click(function(e) {
+$("#passFormToNCI").click(function(e) {
 	//e.preventDefault();
 							
 	$.post( "functions/nci_form_log.php", { 
