@@ -66,6 +66,51 @@
 						else {
 							$cover = "Basic Breakdown";	
 						}
+						
+						switch($policyInfo[0]['v_transmission']) {
+							case "M":
+								$transmission = "Manual";
+								break;
+							case "A":
+								$transmission = "Automatic";
+								break;
+						}
+						
+						switch($policyInfo[0]['v_fuel_type']) {
+							case "P":
+								$fuel = "Petrol";
+								break;
+							case "D":
+								$fuel = "Diesel";
+								break;
+							case "E":
+								$fuel = "Hybrid";
+								break;
+							default:
+								$fuel = "Unknown";
+						}
+						
+						$url = "http://activejobs.ncigroup.local/onecall/index.aspx";
+						$fields = array(
+							'CustomerTitle' => urlencode($policyInfo[0]['ph_title']),
+							'CustomerForename' => urlencode(ucwords(strtolower($policyInfo[0]['ph_forename']))),
+							'CustomerSurname' => urlencode(ucwords(strtolower($policyInfo[0]['ph_surname']))),
+							'Postcode' => urlencode($policyInfo[0]['ph_postcode']),
+							'TelephoneNumber' => urlencode($policyInfo[0]['ph_telephone']),
+							'LandlineNumber' => urlencode($policyInfo[0]['ph_telephone_other']),
+							'PolicyNumber' => urlencode($policyInfo[0]['p_policy_number']),
+							'InceptionDate' => urlencode(date("d/m/Y", strtotime($policyInfo[0]['p_inception_date']))),
+							'Cover' => urlencode($cover),
+							'VehicleReg' => urlencode($policyInfo[0]['v_reg']),
+							'VehicleMake' => urlencode($policyInfo[0]['v_make']),
+							'VehicleModel' => urlencode($policyInfo[0]['v_model']),
+							'VehicleFuelType' => urlencode($fuel),
+							'VehicleTransmission' => urlencode($transmission)
+						);
+						
+						//url-ify the data for the POST
+						foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
+						rtrim($fields_string, '&');
 						// get previous claims
 				?>
                 
@@ -171,7 +216,7 @@
                         <input id="claims--c_p_id" name="policyId" type="hidden" value="<?php echo $policyInfo[$header]['p_id'] ?>" />
                         <input id="claims--c_ph_id" name="policyHolderId" type="hidden" value="<?php echo $policyInfo[$header]['p_ph_id'] ?>" />
                         
-                        <button id="passToNCI" class = "btn btn-default w100 mt25" PID="<?php echo $policyInfo[0]['p_id'] ?>">Pass to NCI &nbsp;<i class="fa fa-lg fa-plus-circle"></i></button>
+                        <a class = "btn btn-default w100 mt25" PID="<?php echo $policyInfo[0]['p_id'] ?>" href="<?php echo $url . "?" . $fields_string ?>">Pass to NCI &nbsp;<i class="fa fa-lg fa-plus-circle"></i></button>
                         <div class="nci_message"></div>
                         <button id="createNewClaim" class = "btn btn-success w100 mt25">Add Claim &nbsp;<i class="fa fa-lg fa-plus-circle"></i></button>	
                         
