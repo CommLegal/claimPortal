@@ -216,7 +216,7 @@
                         <input id="claims--c_p_id" name="policyId" type="hidden" value="<?php echo $policyInfo[$header]['p_id'] ?>" />
                         <input id="claims--c_ph_id" name="policyHolderId" type="hidden" value="<?php echo $policyInfo[$header]['p_ph_id'] ?>" />
                         
-                        <a class = "btn btn-default w100 mt25" PID="<?php echo $policyInfo[0]['p_id'] ?>" href="<?php echo $url . "?" . $fields_string ?>">Pass to NCI &nbsp;<i class="fa fa-lg fa-plus-circle"></i></a>
+                        <a class = "btn btn-default w100 mt25" PID="<?php echo $policyInfo[0]['p_id'] ?>" href="<?php echo $url . "?" . $fields_string ?>" target="_blank">Pass to NCI &nbsp;<i class="fa fa-lg fa-plus-circle"></i></a>
                         <div class="nci_message"></div>
                         <button id="createNewClaim" class = "btn btn-success w100 mt25">Add Claim &nbsp;<i class="fa fa-lg fa-plus-circle"></i></button>	
                         
