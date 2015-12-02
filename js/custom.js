@@ -218,7 +218,7 @@ $("#passFormToNCI").click(function(e) {
 		href: $(this).attr("href")
 	})
 	.done(function( data ) {
-		//$(".nci_message").html(data);
+		$(".nci_message").html(data);
 	});
 		
 });
