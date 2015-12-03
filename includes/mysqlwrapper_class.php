@@ -282,10 +282,10 @@ class mysqlwrapper_class {
 		}
 		elseif($dbCallType == "update" || $dbCallType == "insert") {
 			/* run query and return the result to the calling page, upon error write to error log */
-			echo $query . "<br />";
+			//echo $query . "<br />";
 			
 			//$result = $cme->query($query);
-			/*if($statement->execute()) {
+			if($statement->execute()) {
 				$result = $statement->get_result();
 				$statement->close();
 				if($dbCallType == "insert") {
@@ -301,7 +301,7 @@ class mysqlwrapper_class {
 					//$this->writeErrorLog($cme->error, $query);
 					//return json_encode(array('success'=>'false'));
 				}	
-			}*/
+			}
 		}
 		elseif($dbCallType == "delete") {
 			/* run query and return the result to the calling page, upon error write to error log */
