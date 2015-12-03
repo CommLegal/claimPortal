@@ -59,7 +59,7 @@
 							$term = "policies";
 						}
 						echo "<div class=\"col-md-12\"><h4>" . count($policyInfo) . " " . $term . " found...</h4></div>
-						<div class=\"col-md-12 mb25\" style=\"height: 20px; background-color:#EBEBEB;\"></div>";
+						<div class=\"col-md-12 mb25\" style=\"height: 10px; background-color:#EBEBEB;\"></div>";
 					}
 				
 					foreach($policyInfo as $header => $value) {
