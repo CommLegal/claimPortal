@@ -47,11 +47,8 @@ if($_POST['buttonClicked'] == "save") {
 		if($callType == "update") {
 			$bd_id = $_POST['bd_id'];
 			unset($_POST['bd_id']);
-			var_dump($_POST);
 			
-			echo $bd_id;
-			
-			//$conn->execute_sql("update", $_POST, $table, "bd_id=?", array("i" => $bd_id));	
+			$conn->execute_sql("update", $_POST, $table, "bd_id=?", array("i" => $bd_id));	
 		}
 		echo "Record has been saved";
 	}

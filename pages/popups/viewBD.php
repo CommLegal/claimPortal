@@ -6,8 +6,6 @@ if(!empty($_POST['callValues'])) {
 	
 	$insertValues = $conn->execute_sql("select", array("*"), "breakdown_assistance", "bd_id=?", array("i" => $_POST['callValues']));
 }
-
-echo $_POST['callValues'];
 ?>
 <form action="" method="post" enctype="multipart/form-data" name="viewBD" id="viewBD">
     <div class="left"><label>Details of breakdown:</label></div>
