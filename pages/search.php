@@ -35,7 +35,7 @@
 						$policyInfo = $conn->execute_sql("select", array('*'), "policy JOIN policy_holders ON p_id = ph_p_id join vehicles on v_p_id = p_id", "p_ph_forename=LOWER(?) AND p_ph_surname=LOWER(?) and (p_cancel_date IS NULL OR p_cancel_date = '0000-00-00') and p_renewal_date >= '" . date('Y-m-d') . "'", array("s1" => strtolower($nameSplit[0]), "s2" => strtolower($nameSplit[1])));
 					}*/
 					if(!empty($_POST['reg'])) {
-						$policyInfo = $conn->execute_sql("select", array('v_p_id, v_id'), "vehicles", "v_reg=?", array("s" => $_POST['reg']));
+						$policyInfo = $conn->execute_sql("select", array('v_p_id, v_id'), "vehicles", "REPLACE(v_reg, ' ', '')=?", array("s" => str_replace(" ", "", $_POST['reg'])));
 						if(!empty($policyInfo[0])) {
 							$policyInfo = $conn->execute_sql("select", array('*'), "policy JOIN policy_holders ON p_id = ph_p_id join vehicles on v_p_id = p_id", "p_id=? and (p_cancel_date IS NULL OR p_cancel_date = '0000-00-00') and p_renewal_date >= '" . date('Y-m-d') . "'", array("i" => $policyInfo[0]['v_p_id']));
 						}
