@@ -15,7 +15,7 @@
 							echo "<div class=\"well\"><h3>Within Normal Operating Hours</h3>Please inform the customer that they need to contact their insurance company 'Commercial Legal' and they will assist.<h3>Please call 0203 738 7300</h3></div>";
 						}
 						else {
-							echo "<div class=\"well\"><h3>Within Normal Operating Hours</h3>Please assist recovery and inform the customer that they need to contact their insurance company 'One Insurance Limited' on <h3>0203 738 7301</h3> to process their claim</div>";
+							echo "<div class=\"well\"><h3>Within Normal Operating Hours</h3>Please inform the customer that they need to contact their insurance company 'One Insurance Limited' on <h3>0203 738 7301</h3> to process their claim</div>";
 						}
 						$proceed = 0; 
 					}
@@ -44,7 +44,7 @@
 							echo "<div class=\"well\"><h3>Within Normal Operating Hours</h3>Please inform the customer that they need to contact their insurance company 'Commercial Legal' and they will assist.<h3>Please call 0203 738 7300</h3></div>";
 						}
 						else {
-							echo "<div class=\"well\"><h3>Within Normal Operating Hours</h3>Please assist recovery and inform the customer that they need to contact their insurance company 'One Insurance Limited' on <br /><h3>0203 738 7301</h3> to process their claim</div>";
+							echo "<div class=\"well\"><h3>Within Normal Operating Hours</h3>Please inform the customer that they need to contact their insurance company 'One Insurance Limited' on <br /><h3>0203 738 7301</h3> to process their claim</div>";
 						}
 						$proceed = 0;
 					}
