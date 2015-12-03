@@ -201,7 +201,7 @@
 						foreach($previousBreakdowns as $header => $record) {
 							$i++;
 							?>
-							<a title="Edit third party" class="show-overlay" id="addTP" style="color: #999; text-decoration:none;"><table width="100%" border="0">
+							<a title="Edit third party" class="show-overlay" id="addTP" style="color: #333; text-decoration:none;"><table width="100%" border="0">
 							  <tr>
 								<th width="40">#<?php echo $i ?></th>
 								<th>Date</th>
@@ -223,7 +223,7 @@
 								<td colspan="3"><?php echo $previousBreakdowns[$header]['bd_further_info'] ?></td>
 							  </tr>
 							</table></a>
-                            <div class="title-divider"></div>
+        <div class="title-divider"></div>
 							<?php 
 							}
 						} ?>
