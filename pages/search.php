@@ -201,7 +201,7 @@
 						foreach($previousBreakdowns as $header => $record) {
 							$i++;
 							?>
-							<a title="Edit Breakdown" <?php if($previousBreakdowns[$header]['c_ul_id'] == $_SESSION['userID']) { echo "class=\"show-overlay\" id=\"addTP\" " } ?>style="color: #333; text-decoration:none;"><table width="100%" border="0">
+							<a title="Edit Breakdown" <?php if($previousBreakdowns[$header]['c_ul_id'] == $_SESSION['userID']) { echo "class=\"show-overlay\" id=\"addTP\" "; } ?>style="color: #333; text-decoration:none;"><table width="100%" border="0">
 							  <tr>
 								<th width="40">#<?php echo $i ?></th>
 								<th>Date</th>
