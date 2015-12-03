@@ -195,7 +195,7 @@
                     <?php if($_REQUEST['displayPage'] == "breakdown_assistance") { ?>
                     <h4>Previous Breakdowns</h4><div class="title-divider"></div>  
                     	<?php
-						$previousBreakdowns = $conn->execute_sql("select", array('c_id, c_timestamp, bd_assisted_unassisted, bd_further_info, c_ul_id'), "claims JOIN breakdown_assistance ON c_bd_id = bd_id", "c_p_id = ?", array("i" => $policyDetail[0]['p_id']));
+						$previousBreakdowns = $conn->execute_sql("select", array('c_id, c_timestamp, bd_assisted_unassisted, bd_further_info, c_ul_id', 'bd_id'), "claims JOIN breakdown_assistance ON c_bd_id = bd_id", "c_p_id = ?", array("i" => $policyDetail[0]['p_id']));
 						//echo $policyInfo[$header]['p_id'];
 						$i=0;
 						foreach($previousBreakdowns as $header => $record) {
