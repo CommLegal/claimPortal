@@ -203,7 +203,6 @@
 						//echo $policyInfo[$header]['p_id'];
 						$i=0;
 						foreach($previousBreakdowns as $header => $record) {
-							echo (int)$last_week . " " . (int)date("Ymd", strtotime($previousBreakdowns[$header]['c_timestamp']));
 							$i++;
 							?>
 							<a title="View Breakdown" <?php if(($previousBreakdowns[$header]['c_ul_id'] == $_SESSION['userID']) && ((int)date("dmY", strtotime($previousBreakdowns[$header]['c_timestamp'])) > (int)$last_week)) {  ?> class="show-overlay" id="viewBD:<?php echo $previousBreakdowns[$header]['bd_id'] ?>" <?php } ?>style="color: #333; text-decoration:none;"><table width="100%" border="0">
