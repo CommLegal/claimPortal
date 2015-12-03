@@ -192,21 +192,20 @@
                 </div>
                 	
                 <div class="col-md-6 mt25">
-                <?php
-				$date = new DateTime(date("Y-m-d"));
-				$date->sub(new DateInterval('P7D'));
-				echo $date->format('Y-m-d') . "\n";
-				?>
                     <?php if($_REQUEST['displayPage'] == "breakdown_assistance") { ?>
                     <h4>Previous Breakdowns</h4><div class="title-divider"></div>  
                     	<?php
+						$date = new DateTime(date("Y-m-d"));
+						$date->sub(new DateInterval('P7D'));
+						$last_week = $date->format('Y-m-d');
+				
 						$previousBreakdowns = $conn->execute_sql("select", array('c_id, c_timestamp, bd_assisted_unassisted, bd_further_info, c_ul_id', 'bd_id'), "claims JOIN breakdown_assistance ON c_bd_id = bd_id", "c_p_id = ?", array("i" => $policyDetail[0]['p_id']));
 						//echo $policyInfo[$header]['p_id'];
 						$i=0;
 						foreach($previousBreakdowns as $header => $record) {
 							$i++;
 							?>
-							<a title="View Breakdown" <?php if($previousBreakdowns[$header]['c_ul_id'] == $_SESSION['userID']) {  ?> class="show-overlay" id="viewBD:<?php echo $previousBreakdowns[$header]['bd_id'] ?>" <?php } ?>style="color: #333; text-decoration:none;"><table width="100%" border="0">
+							<a title="View Breakdown" <?php if(($previousBreakdowns[$header]['c_ul_id'] == $_SESSION['userID']) && date("Y-m-d", strtotime($previousBreakdowns[$header]['c_timestamp'])) > $last_week) {  ?> class="show-overlay" id="viewBD:<?php echo $previousBreakdowns[$header]['bd_id'] ?>" <?php } ?>style="color: #333; text-decoration:none;"><table width="100%" border="0">
 							  <tr>
 								<th width="40">#<?php echo $i ?></th>
 								<th>Date</th>
