@@ -36,15 +36,15 @@
 					}*/
 					if(!empty($_POST['reg'])) {
 						$policyInfo = $conn->execute_sql("select", array('v_p_id, v_id'), "vehicles", "REPLACE(v_reg, ' ', '')=?", array("s" => str_replace(" ", "", $_POST['reg'])));
-						if(!empty($policyInfo[0])) {
+						/*if(!empty($policyInfo[0])) {
 							$policyInfo = $conn->execute_sql("select", array('*'), "policy JOIN policy_holders ON p_id = ph_p_id join vehicles on v_p_id = p_id", "p_id=? and (p_cancel_date IS NULL OR p_cancel_date = '0000-00-00') and p_renewal_date >= '" . date('Y-m-d') . "'", array("i" => $policyInfo[0]['v_p_id']));
-						}
+						}*/
 					}
 					elseif(!empty($_POST['postcode'])) {
-						$policyInfo = $conn->execute_sql("select", array('ph_id, ph_p_id'), "policy_holders", "ph_postcode=?", array("s" => $_POST['postcode']));
-						if(!empty($policyInfo[0])) {
+						$policyInfo = $conn->execute_sql("select", array('ph_id, ph_p_id'), "policy_holders", "REPLACE(ph_postcode, ' ', '')=?", array("s" => str_replace(" ", "", $_POST['postcode'])));
+						/*if(!empty($policyInfo[0])) {
 							$policyInfo = $conn->execute_sql("select", array('*'), "policy JOIN policy_holders ON p_id = ph_p_id join vehicles on v_p_id = p_id", "p_id=? and (p_cancel_date IS NULL OR p_cancel_date = '0000-00-00') and p_renewal_date >= '" . date('Y-m-d') . "'", array("i" => $policyInfo[0]['ph_p_id']));
-						}
+						}*/
 					}
 					//$p_id = $policyInfo[0]['p_id'];
 					
@@ -53,6 +53,13 @@
 					}
 				
 					foreach($policyInfo as $header => $value) {
+						if(!empty($_POST['reg'])) {
+							$policyInfo = $conn->execute_sql("select", array('*'), "policy JOIN policy_holders ON p_id = ph_p_id join vehicles on v_p_id = p_id", "p_id=? and (p_cancel_date IS NULL OR p_cancel_date = '0000-00-00') and p_renewal_date >= '" . date('Y-m-d') . "'", array("i" => $policyInfo[$header]['v_p_id']));
+						}
+						elseif(!empty($_POST['postcode'])) {
+							$policyInfo = $conn->execute_sql("select", array('*'), "policy JOIN policy_holders ON p_id = ph_p_id join vehicles on v_p_id = p_id", "p_id=? and (p_cancel_date IS NULL OR p_cancel_date = '0000-00-00') and p_renewal_date >= '" . date('Y-m-d') . "'", array("i" => $policyInfo[$header]['ph_p_id']));
+						}
+						
 						$breakdownInfo = $conn->execute_sql("select", array('a_scheme', 'a_description'), "addons", "a_addon_type=? and a_policy_number=? and (a_cancel_date IS NULL OR a_cancel_date = '0000-00-00') and a_renewal_date >= '" . date('Y-m-d') . "'", array("s1" => "CBA", "s2" => $policyInfo[$header]['p_policy_number']));
 						if(!empty($breakdownInfo)) {
 							switch($breakdownInfo[0]['a_description']) {
