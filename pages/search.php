@@ -92,19 +92,19 @@
 						
 						$url = "http://activejobs.ncigroup.local/onecall/index.aspx";
 						$fields = array(
-							'CustomerTitle' => urlencode($policyInfo[0]['ph_title']),
-							'CustomerForename' => urlencode(ucwords(strtolower($policyInfo[0]['ph_forename']))),
-							'CustomerSurname' => urlencode(ucwords(strtolower($policyInfo[0]['ph_surname']))),
-							'AddressLine1' => urlencode($policyInfo[0]['ph_address1']),
-							'Postcode' => urlencode($policyInfo[0]['ph_postcode']),
-							'TelephoneNumber' => urlencode($policyInfo[0]['ph_telephone']),
-							'LandlineNumber' => urlencode($policyInfo[0]['ph_telephone_other']),
-							'PolicyNumber' => urlencode($policyInfo[0]['p_policy_number']),
-							'InceptionDate' => urlencode(date("d/m/Y", strtotime($policyInfo[0]['p_inception_date']))),
+							'CustomerTitle' => urlencode($policyInfo[$header]['ph_title']),
+							'CustomerForename' => urlencode(ucwords(strtolower($policyInfo[$header]['ph_forename']))),
+							'CustomerSurname' => urlencode(ucwords(strtolower($policyInfo[$header]['ph_surname']))),
+							'AddressLine1' => urlencode($policyInfo[$header]['ph_address1']),
+							'Postcode' => urlencode($policyInfo[$header]['ph_postcode']),
+							'TelephoneNumber' => urlencode($policyInfo[$header]['ph_telephone']),
+							'LandlineNumber' => urlencode($policyInfo[$header]['ph_telephone_other']),
+							'PolicyNumber' => urlencode($policyInfo[$header]['p_policy_number']),
+							'InceptionDate' => urlencode(date("d/m/Y", strtotime($policyInfo[$header]['p_inception_date']))),
 							'Cover' => urlencode($cover),
-							'VehicleReg' => urlencode($policyInfo[0]['v_reg']),
-							'VehicleMake' => urlencode($policyInfo[0]['v_make']),
-							'VehicleModel' => urlencode($policyInfo[0]['v_model']),
+							'VehicleReg' => urlencode($policyInfo[$header]['v_reg']),
+							'VehicleMake' => urlencode($policyInfo[$header]['v_make']),
+							'VehicleModel' => urlencode($policyInfo[$header]['v_model']),
 							'VehicleFuelType' => urlencode($fuel),
 							'VehicleTransmission' => urlencode($transmission)
 						);
@@ -177,7 +177,7 @@
                     <?php if($_REQUEST['displayPage'] == "breakdown_assistance") { ?>
                     <h4>Previous Breakdowns</h4><div class="title-divider"></div>  
                     	<?php
-						$previousBreakdowns = $conn->execute_sql("select", array('c_id, c_timestamp, bd_assisted_unassisted, bd_further_info'), "claims JOIN breakdown_assistance ON c_bd_id = bd_id", "c_p_id = ?", array("i" => $policyInfo[0]['p_id']));
+						$previousBreakdowns = $conn->execute_sql("select", array('c_id, c_timestamp, bd_assisted_unassisted, bd_further_info'), "claims JOIN breakdown_assistance ON c_bd_id = bd_id", "c_p_id = ?", array("i" => $policyInfo[$header]['p_id']));
 						$i=0;
 						foreach($previousBreakdowns as $header => $record) {
 							$i++;
