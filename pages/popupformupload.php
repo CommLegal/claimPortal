@@ -48,10 +48,9 @@ if($_POST['buttonClicked'] == "save") {
 			$bd_id = $_POST['bd_id'];
 			unset($_POST['bd_id']);
 			
-			$conn->execute_sql("update", $_POST, $table, "bd_id=?", array("i" => $bd_id));	
-		}
-		else {
-			$conn->execute_sql("insert", $_POST, $table, "", array());
+			echo $bd_id;
+			
+			//$conn->execute_sql("update", $_POST, $table, "bd_id=?", array("i" => $bd_id));	
 		}
 		echo "Record has been saved";
 	}
