@@ -178,6 +178,7 @@
                     <h4>Previous Breakdowns</h4><div class="title-divider"></div>  
                     	<?php
 						$previousBreakdowns = $conn->execute_sql("select", array('c_id, c_timestamp, bd_assisted_unassisted, bd_further_info'), "claims JOIN breakdown_assistance ON c_bd_id = bd_id", "c_p_id = ?", array("i" => $policyInfo[$header]['p_id']));
+						var_dump($previousBreakdowns);
 						$i=0;
 						foreach($previousBreakdowns as $header => $record) {
 							$i++;
@@ -217,7 +218,7 @@
                         <input id="claims--c_p_id" name="policyId" type="hidden" value="<?php echo $policyInfo[$header]['p_id'] ?>" />
                         <input id="claims--c_ph_id" name="policyHolderId" type="hidden" value="<?php echo $policyInfo[$header]['p_ph_id'] ?>" />
                         
-                        <a id="passFormToNCI" class = "btn btn-default w100 mt25" PID="<?php echo $policyInfo[0]['p_id'] ?>" href="<?php echo $url . "?" . $fields_string ?>" target="_blank">Pass to NCI &nbsp;<i class="fa fa-lg fa-plus-circle"></i></a>
+                        <a id="passFormToNCI" class = "btn btn-default w100 mt25" PID="<?php echo $policyInfo[$header]['p_id'] ?>" href="<?php echo $url . "?" . $fields_string ?>" target="_blank">Pass to NCI &nbsp;<i class="fa fa-lg fa-plus-circle"></i></a>
                         <div class="nci_message"></div>
                         <button id="createNewClaim" class = "btn btn-success w100 mt25">Add Claim &nbsp;<i class="fa fa-lg fa-plus-circle"></i></button>	
                         
