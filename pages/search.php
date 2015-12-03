@@ -76,7 +76,7 @@
 						}
 						else {
 						
-						if(!empty($policyDetail[0]['p_fleet'])) {
+						if(!empty($policyDetail[0]['v_fleet'])) {
 							$cover = "Fleet Cover";
 						}
 						else {
