@@ -52,7 +52,8 @@
 						echo "<div class=\"col-md-12\"><h4>No policies found...</h4></div>";
 					}
 					else {
-						echo "<div class=\"col-md-12\"><h4>" . count($policyInfo) . " policies found...</h4></div>";
+						echo "<div class=\"col-md-12\"><h4>" . count($policyInfo) . " policies found...</h4></div>
+						<div class=\"col-md-12 mb25\" style=\"height: 20px; background-color:#EBEBEB;\"></div>";
 					}
 				
 					foreach($policyInfo as $header => $value) {
