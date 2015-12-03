@@ -39,7 +39,7 @@ echo $_POST['callValues'];
 <input type="hidden" name="bd_id" id="bd_id" value="<?php echo $_POST['callValues'] ?>" />
 <input type="hidden" name="db_callType" id="db_callType" value="update" />
 <?php } ?>
-<div class="left">&nbsp;</div><div class="right"><input type="submit" class = "btn btn-primary" name="save" id="save" value = "Save" /></div>
+<div class="left">&nbsp;</div><div class="right"><input type="submit" class = "btn btn-primary" name="save" id="save" value = "Update" /></div>
 <div class="left">&nbsp;</div><div class="right"><div id="popup-results"></div></div>
 </form>
 <script src="<?php echo _ROOT ?>/js/popups.js"></script>

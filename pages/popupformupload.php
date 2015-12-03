@@ -43,6 +43,18 @@ if($_POST['buttonClicked'] == "save") {
 		}
 		echo "Record has been saved";
 	}
+	elseif($table == "breakdown_assistance") {
+		if($callType == "update") {
+			$bd_id = $_POST['bd_id'];
+			unset($_POST['bd_id']);
+			
+			$conn->execute_sql("update", $_POST, $table, "bd_id=?", array("i" => $bp_id));	
+		}
+		else {
+			$conn->execute_sql("insert", $_POST, $table, "", array());
+		}
+		echo "Record has been saved";
+	}
 }
 
 elseif($_POST['buttonClicked'] == "complete") {
