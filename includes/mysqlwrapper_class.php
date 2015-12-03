@@ -4,7 +4,7 @@ require_once('config.php');
 //connect to mysql database
 @$cme = new mysqli(_CME_HOSTNAME, _CME_USERNAME, _CME_PASSWORD, _CME_DATABASE);
 if(mysqli_connect_errno()) {
-	echo "Error connecting DB, please try again later HERE. Tried connecting to " . _CME_HOSTNAME . " " . _CME_USERNAME . " " . _CME_PASSWORD . " " . _CME_DATABASE;
+	echo "Error connecting DB, please try again later HERE.";
 	exit;
 }
 $cme->select_db(_CME_DATABASE);
