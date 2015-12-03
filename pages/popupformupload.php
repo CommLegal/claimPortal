@@ -47,6 +47,7 @@ if($_POST['buttonClicked'] == "save") {
 		if($callType == "update") {
 			$bd_id = $_POST['bd_id'];
 			unset($_POST['bd_id']);
+			var_dump($_POST);
 			
 			echo $bd_id;
 			
