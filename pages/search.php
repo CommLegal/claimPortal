@@ -72,7 +72,7 @@
 						}
 						
 						if(empty($policyDetail[0])) {
-							"<h3>Policy is no longer valid...</h3>";				
+							echo "<h3>Policy is no longer valid...</h3>";				
 						}
 						else {
 						
