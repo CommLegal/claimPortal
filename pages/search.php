@@ -234,7 +234,7 @@
                     <div class="hiddenClaimType" style="display: none;"><?php echo ((!empty($_SESSION['claimID'])) ? trim($_SESSION['claimID']) : "") ?></div>
                 </div>
                 
-                <div class="col-md-12 mb25">&nsbp;</div>
+                <div class="col-md-12 mb25" style="height: 20px; background-color:#CCC;"></div>
                 
 				<?php 
 					} 
