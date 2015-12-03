@@ -51,6 +51,9 @@
 					if(empty($policyInfo)) {
 						echo "<div class=\"col-md-12\"><h4>No policies found...</h4></div>";
 					}
+					else {
+						echo "<div class=\"col-md-12\"><h4>" . count($policyInfo) . " policies found...</h4></div>";
+					}
 				
 					foreach($policyInfo as $header => $value) {
 						if(!empty($_POST['reg'])) {
