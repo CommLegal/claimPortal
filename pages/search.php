@@ -191,7 +191,7 @@
                         </table>
                 </div>
                 	
-                <div class="col-md-6">
+                <div class="col-md-6 mt25">
                     <?php if($_REQUEST['displayPage'] == "breakdown_assistance") { ?>
                     <h4>Previous Breakdowns</h4><div class="title-divider"></div>  
                     	<?php
