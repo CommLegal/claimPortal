@@ -54,13 +54,13 @@
 				
 					foreach($policyInfo as $header => $value) {
 						if(!empty($_POST['reg'])) {
-							$policyInfo = $conn->execute_sql("select", array('*'), "policy JOIN policy_holders ON p_id = ph_p_id join vehicles on v_p_id = p_id", "p_id=? and (p_cancel_date IS NULL OR p_cancel_date = '0000-00-00') and p_renewal_date >= '" . date('Y-m-d') . "'", array("i" => $policyInfo[$header]['v_p_id']));
+							$policyDetail = $conn->execute_sql("select", array('*'), "policy JOIN policy_holders ON p_id = ph_p_id join vehicles on v_p_id = p_id", "p_id=? and (p_cancel_date IS NULL OR p_cancel_date = '0000-00-00') and p_renewal_date >= '" . date('Y-m-d') . "'", array("i" => $policyInfo[$header]['v_p_id']));
 						}
 						elseif(!empty($_POST['postcode'])) {
-							$policyInfo = $conn->execute_sql("select", array('*'), "policy JOIN policy_holders ON p_id = ph_p_id join vehicles on v_p_id = p_id", "p_id=? and (p_cancel_date IS NULL OR p_cancel_date = '0000-00-00') and p_renewal_date >= '" . date('Y-m-d') . "'", array("i" => $policyInfo[$header]['ph_p_id']));
+							$$policyDetail = $conn->execute_sql("select", array('*'), "policy JOIN policy_holders ON p_id = ph_p_id join vehicles on v_p_id = p_id", "p_id=? and (p_cancel_date IS NULL OR p_cancel_date = '0000-00-00') and p_renewal_date >= '" . date('Y-m-d') . "'", array("i" => $policyInfo[$header]['ph_p_id']));
 						}
 						
-						$breakdownInfo = $conn->execute_sql("select", array('a_scheme', 'a_description'), "addons", "a_addon_type=? and a_policy_number=? and (a_cancel_date IS NULL OR a_cancel_date = '0000-00-00') and a_renewal_date >= '" . date('Y-m-d') . "'", array("s1" => "CBA", "s2" => $policyInfo[$header]['p_policy_number']));
+						$breakdownInfo = $conn->execute_sql("select", array('a_scheme', 'a_description'), "addons", "a_addon_type=? and a_policy_number=? and (a_cancel_date IS NULL OR a_cancel_date = '0000-00-00') and a_renewal_date >= '" . date('Y-m-d') . "'", array("s1" => "CBA", "s2" => $policyDetail[0]['p_policy_number']));
 						if(!empty($breakdownInfo)) {
 							switch($breakdownInfo[0]['a_description']) {
 								case "RAC EU Breakdown":
@@ -74,7 +74,7 @@
 							$cover = "Basic Breakdown";	
 						}
 						
-						switch($policyInfo[0]['v_transmission']) {
+						switch($policyDetail[0]['v_transmission']) {
 							case "M":
 								$transmission = "Manual";
 								break;
@@ -83,7 +83,7 @@
 								break;
 						}
 						
-						switch($policyInfo[0]['v_fuel_type']) {
+						switch($policyDetail[0]['v_fuel_type']) {
 							case "P":
 								$fuel = "Petrol";
 								break;
@@ -99,19 +99,19 @@
 						
 						$url = "http://activejobs.ncigroup.local/onecall/index.aspx";
 						$fields = array(
-							'CustomerTitle' => urlencode($policyInfo[$header]['ph_title']),
-							'CustomerForename' => urlencode(ucwords(strtolower($policyInfo[$header]['ph_forename']))),
-							'CustomerSurname' => urlencode(ucwords(strtolower($policyInfo[$header]['ph_surname']))),
-							'AddressLine1' => urlencode($policyInfo[$header]['ph_address1']),
-							'Postcode' => urlencode($policyInfo[$header]['ph_postcode']),
-							'TelephoneNumber' => urlencode($policyInfo[$header]['ph_telephone']),
-							'LandlineNumber' => urlencode($policyInfo[$header]['ph_telephone_other']),
-							'PolicyNumber' => urlencode($policyInfo[$header]['p_policy_number']),
-							'InceptionDate' => urlencode(date("d/m/Y", strtotime($policyInfo[$header]['p_inception_date']))),
+							'CustomerTitle' => urlencode($policyDetail[0]['ph_title']),
+							'CustomerForename' => urlencode(ucwords(strtolower($policyDetail[0]['ph_forename']))),
+							'CustomerSurname' => urlencode(ucwords(strtolower($policyDetail[0]['ph_surname']))),
+							'AddressLine1' => urlencode($policyDetail[0]['ph_address1']),
+							'Postcode' => urlencode($policyDetail[0]['ph_postcode']),
+							'TelephoneNumber' => urlencode($policyDetail[0]['ph_telephone']),
+							'LandlineNumber' => urlencode($policyDetail[0]['ph_telephone_other']),
+							'PolicyNumber' => urlencode($policyDetail[0]['p_policy_number']),
+							'InceptionDate' => urlencode(date("d/m/Y", strtotime($policyDetail[0]['p_inception_date']))),
 							'Cover' => urlencode($cover),
-							'VehicleReg' => urlencode($policyInfo[$header]['v_reg']),
-							'VehicleMake' => urlencode($policyInfo[$header]['v_make']),
-							'VehicleModel' => urlencode($policyInfo[$header]['v_model']),
+							'VehicleReg' => urlencode($policyDetail[0]['v_reg']),
+							'VehicleMake' => urlencode($policyDetail[0]['v_make']),
+							'VehicleModel' => urlencode($policyDetail[0]['v_model']),
 							'VehicleFuelType' => urlencode($fuel),
 							'VehicleTransmission' => urlencode($transmission)
 						);
@@ -129,11 +129,11 @@
                         <table width="600" border="0">
                           <tr>
                             <th scope="row"><b>Policy Number:</b></th>
-                            <td><?php echo $policyInfo[$header]['p_policy_number'] ?></td>
+                            <td><?php echo $policyDetail[0]['p_policy_number'] ?></td>
                           </tr>
                           <tr>
                             <th scope="row"><b>Insurer:</b></th>
-                            <td><?php echo $policyInfo[$header]['p_broker'] ?></td>
+                            <td><?php echo $policyDetail[0]['p_broker'] ?></td>
                           </tr>
                           <?php if($_REQUEST['displayPage'] !== "fnol") { ?>
                           <tr>
@@ -143,11 +143,11 @@
                           <?php } ?>
                           <tr>
                             <th scope="row"><b>Vehicle Reg:</b></th>
-                            <td><?php echo $policyInfo[$header]['v_reg'] ?></td>
+                            <td><?php echo $policyDetail[0]['v_reg'] ?></td>
                           </tr>
                           <tr>
                             <th scope="row"><b>Vehicle Details:</b></th>
-                            <td><?php echo $policyInfo[$header]['v_make'] . " " . $policyInfo[$header]['v_model'] ?></td>
+                            <td><?php echo $policyDetail[0]['v_make'] . " " . $policyDetail[0]['v_model'] ?></td>
                           </tr>
                         </table>		
 				</div>
@@ -159,23 +159,23 @@
                         <table width="600" border="0">
                           <tr>
                             <th scope="row"><b>Customer Name:</b></th>
-                            <td><?php echo ucwords(strtolower($policyInfo[$header]['ph_forename'] . " " . $policyInfo[$header]['ph_surname'])) ?></td>
+                            <td><?php echo ucwords(strtolower($policyDetail[0]['ph_forename'] . " " . $policyDetail[0]['ph_surname'])) ?></td>
                           </tr>
                           <tr>
                             <th scope="row"><b>Address:</b></th>
-                            <td><?php echo $policyInfo[$header]['ph_address1'] ?></td>
+                            <td><?php echo $policyDetail[0]['ph_address1'] ?></td>
                           </tr>
                           <tr>
                             <th scope="row"><b>Postcode:</b></th>
-                            <td><?php echo $policyInfo[$header]['ph_postcode'] ?></td>
+                            <td><?php echo $policyDetail[0]['ph_postcode'] ?></td>
                           </tr>
                           <tr>
                             <th scope="row"><b>Telephone Number:</b></th>
-                            <td><?php echo $policyInfo[$header]['ph_telephone'] ?></td>
+                            <td><?php echo $policyDetail[0]['ph_telephone'] ?></td>
                           </tr>
                           <tr>
                             <th scope="row"><b>Landline Number:</b></th>
-                            <td><?php echo $policyInfo[$header]['ph_telephone_other'] ?></td>
+                            <td><?php echo $policyDetail[0]['ph_telephone_other'] ?></td>
                           </tr>
                         </table>
                 </div>
@@ -184,7 +184,7 @@
                     <?php if($_REQUEST['displayPage'] == "breakdown_assistance") { ?>
                     <h4>Previous Breakdowns</h4><div class="title-divider"></div>  
                     	<?php
-						$previousBreakdowns = $conn->execute_sql("select", array('c_id, c_timestamp, bd_assisted_unassisted, bd_further_info'), "claims JOIN breakdown_assistance ON c_bd_id = bd_id", "c_p_id = ?", array("i" => $policyInfo[$header]['p_id']));
+						$previousBreakdowns = $conn->execute_sql("select", array('c_id, c_timestamp, bd_assisted_unassisted, bd_further_info'), "claims JOIN breakdown_assistance ON c_bd_id = bd_id", "c_p_id = ?", array("i" => $policyDetail[0]['p_id']));
 						//echo $policyInfo[$header]['p_id'];
 						//var_dump($previousBreakdowns);
 						$i=0;
@@ -223,10 +223,10 @@
                     <form id="hiddenClaimType" method="post" action="pages/accident_recovery_upload.php">
                         <input id="claims--c_claim_type" name="claimType" type="hidden" value="<?php echo $_REQUEST['displayPage']; ?>" />
                         <input id="claims--c_timestamp" name="claimTimestamp" type="hidden" value="<?php echo date("Y-m-d H:i:s"); ?>" />
-                        <input id="claims--c_p_id" name="policyId" type="hidden" value="<?php echo $policyInfo[$header]['p_id'] ?>" />
-                        <input id="claims--c_ph_id" name="policyHolderId" type="hidden" value="<?php echo $policyInfo[$header]['p_ph_id'] ?>" />
+                        <input id="claims--c_p_id" name="policyId" type="hidden" value="<?php echo $policyDetail[0]['p_id'] ?>" />
+                        <input id="claims--c_ph_id" name="policyHolderId" type="hidden" value="<?php echo $policyDetail[0]['p_ph_id'] ?>" />
                         
-                        <a id="passFormToNCI" class = "btn btn-default w100 mt25" PID="<?php echo $policyInfo[$header]['p_id'] ?>" href="<?php echo $url . "?" . $fields_string ?>" target="_blank">Pass to NCI &nbsp;<i class="fa fa-lg fa-plus-circle"></i></a>
+                        <a id="passFormToNCI" class = "btn btn-default w100 mt25" PID="<?php echo $policyDetail[0]['p_id'] ?>" href="<?php echo $url . "?" . $fields_string ?>" target="_blank">Pass to NCI &nbsp;<i class="fa fa-lg fa-plus-circle"></i></a>
                         <div class="nci_message"></div>
                         <button id="createNewClaim" class = "btn btn-success w100 mt25">Add Claim &nbsp;<i class="fa fa-lg fa-plus-circle"></i></button>	
                         
