@@ -13,7 +13,7 @@ session_start();
 if($_SERVER['SERVER_ADDR'] == "192.168.3.215") {
 	define("_SERVER_ROOT", "http://192.168.3.215/claimPortal/");
 	define("_ROOT", "http://192.168.3.215/claimPortal");
-	define("_CME_HOSTNAME", "192.168.3.214");
+	define("_CME_HOSTNAME", "5.159.226.131");
 	define("_CME_USERNAME", "claimPortal");
 	define("_CME_PASSWORD", "CLadmin001!");
 	define("_CME_DATABASE", "claimPortal");
