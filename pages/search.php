@@ -95,6 +95,7 @@
 							'CustomerTitle' => urlencode($policyInfo[0]['ph_title']),
 							'CustomerForename' => urlencode(ucwords(strtolower($policyInfo[0]['ph_forename']))),
 							'CustomerSurname' => urlencode(ucwords(strtolower($policyInfo[0]['ph_surname']))),
+							'AddressLine1' => urlencode($policyInfo[0]['ph_address1']),
 							'Postcode' => urlencode($policyInfo[0]['ph_postcode']),
 							'TelephoneNumber' => urlencode($policyInfo[0]['ph_telephone']),
 							'LandlineNumber' => urlencode($policyInfo[0]['ph_telephone_other']),
