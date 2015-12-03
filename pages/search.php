@@ -237,7 +237,7 @@
                         <input id="claims--c_p_id" name="policyId" type="hidden" value="<?php echo $policyDetail[0]['p_id'] ?>" />
                         <input id="claims--c_ph_id" name="policyHolderId" type="hidden" value="<?php echo $policyDetail[0]['p_ph_id'] ?>" />
                         
-                        <?php if($_SESSION['userID'] == 2 || ($_SESSION['userID'] == 3)) { ?>
+                        <?php if(($_SESSION['userID'] == 3)) { ?>
                         <a id="passFormToNCI" class = "btn btn-default w100 mt25" PID="<?php echo $policyDetail[0]['p_id'] ?>" href="<?php echo $url . "?" . $fields_string ?>" target="_blank">Pass to NCI &nbsp;<i class="fa fa-lg fa-plus-circle"></i></a>
                         <div class="nci_message"></div>
                         <?php } ?>
