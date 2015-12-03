@@ -197,7 +197,7 @@
                     	<?php
 						$previousBreakdowns = $conn->execute_sql("select", array('c_id, c_timestamp, bd_assisted_unassisted, bd_further_info'), "claims JOIN breakdown_assistance ON c_bd_id = bd_id", "c_p_id = ?", array("i" => $policyDetail[0]['p_id']));
 						//echo $policyInfo[$header]['p_id'];
-						//var_dump($previousBreakdowns);
+						var_dump($previousBreakdowns);
 						$i=0;
 						foreach($previousBreakdowns as $header => $record) {
 							$i++;
