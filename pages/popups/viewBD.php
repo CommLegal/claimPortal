@@ -32,7 +32,7 @@ echo $_POST['callValues'];
     </select></div>
     
     <div class="left"><label>More Details:</label></div>
-    <div class="right"><textarea type="text" name ="breakdown_assistance--bd_unassist_desc" rows = "3" cols="70" class="form-control mb25" placeholder="" ><?php echo $insertValues[0]['bd_unassist_desc'] ?></textarea></div>
+    <div class="right"><textarea type="text" name ="breakdown_assistance--bd_unassist_desc" rows = "5" cols="70" class="form-control mb25" placeholder="" ><?php echo $insertValues[0]['bd_unassist_desc'] ?></textarea></div>
 
 <input type="hidden" name="table" id="table" value="breakdown_assistance" />
 <?php if(!empty($_POST['callValues'])) { ?>
