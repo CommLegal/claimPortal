@@ -17,7 +17,7 @@ echo $_POST['callValues'];
     <div class="right"><select id = "breakdown_assistance--bd_assisted_unassisted" name="breakdown_assistance--bd_assisted_unassisted">
         <option value=""<?php echo ((empty($insertValues[0]['bd_assisted_unassisted'])) ? " selected=selected" : "") ?>>Select</option>
         <option value="Assisted"<?php echo (($insertValues[0]['bd_assisted_unassisted'] == "Assisted") ? " selected=selected" : "") ?>>Assisted</option>
-        <option value="Unassisted"<?php echo (($insertValues[0]['bd_assisted_unassisted'] == "Assisted") ? " selected=selected" : "") ?>>Unassisted</option>
+        <option value="Unassisted"<?php echo (($insertValues[0]['bd_assisted_unassisted'] == "Unassisted") ? " selected=selected" : "") ?>>Unassisted</option>
     </select></div>
     
     <div class="left"><label>Reason for Unassisted (if applicable):</label></div>
