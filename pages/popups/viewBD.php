@@ -28,7 +28,7 @@ echo $_POST['callValues'];
         <option value="3"<?php echo (($insertValues[0]['bd_unassist_reason'] == "3") ? " selected=selected" : "") ?>>Key related</option>
         <option value="4"<?php echo (($insertValues[0]['bd_unassist_reason'] == "4") ? " selected=selected" : "") ?>>Cancelled</option>
         <option value="5"<?php echo (($insertValues[0]['bd_unassist_reason'] == "5") ? " selected=selected" : "") ?>>Same breakdown fault as previous</option>
-        <option value="Other"<?php echo (($insertValues[0]['bd_unassist_reason'] == "Other") ? " selected=selected" : "") ?>>Other</option>
+        <option value="Other"<?php echo (($insertValues[0]['bd_unassist_reason'] == "O") ? " selected=selected" : "") ?>>Other</option>
     </select></div>
     
     <div class="left"><label>More Details:</label></div>
