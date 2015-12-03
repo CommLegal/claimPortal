@@ -65,7 +65,7 @@
 					foreach($policyInfo as $header => $value) {
 						$fields_string = NULL;
 						if(!empty($_POST['reg'])) {
-							$policyDetail = $conn->execute_sql("select", array('*'), "policy JOIN policy_holders ON p_id = ph_p_id join vehicles on v_p_id = p_id", "p_id=? and REPLACE(v_reg, ' ', '')=?(p_cancel_date IS NULL OR p_cancel_date = '0000-00-00') and p_renewal_date >= '" . date('Y-m-d') . "'", array("i" => $policyInfo[$header]['v_p_id'], "s" => str_replace(" ", "", $_POST['reg'])));
+							$policyDetail = $conn->execute_sql("select", array('*'), "policy JOIN policy_holders ON p_id = ph_p_id join vehicles on v_p_id = p_id", "v_id=? and (p_cancel_date IS NULL OR p_cancel_date = '0000-00-00') and p_renewal_date >= '" . date('Y-m-d') . "'", array("i" => $policyInfo[$header]['v_id']));
 						}
 						elseif(!empty($_POST['postcode'])) {
 							$policyDetail = $conn->execute_sql("select", array('*'), "policy JOIN policy_holders ON p_id = ph_p_id join vehicles on v_p_id = p_id", "p_id=? and (p_cancel_date IS NULL OR p_cancel_date = '0000-00-00') and p_renewal_date >= '" . date('Y-m-d') . "'", array("i" => $policyInfo[$header]['ph_p_id']));
@@ -76,71 +76,71 @@
 						}
 						else {
 						
-							if(!empty($policyDetail[0]['v_fleet'])) {
-								$cover = "Fleet Cover";
+						if(!empty($policyDetail[0]['v_fleet'])) {
+							$cover = "Fleet Cover";
+						}
+						else {
+							$breakdownInfo = $conn->execute_sql("select", array('a_scheme', 'a_description'), "addons", "a_addon_type=? and a_policy_number=? and (a_cancel_date IS NULL OR a_cancel_date = '0000-00-00') and a_renewal_date >= '" . date('Y-m-d') . "'", array("s1" => "CBA", "s2" => $policyDetail[0]['p_policy_number']));
+							if(!empty($breakdownInfo)) {
+								switch($breakdownInfo[0]['a_description']) {
+									case "RAC EU Breakdown":
+										$cover = "<span style=\"color: #f00; font-weight: bold;\">Please Refer to RAC</span>";
+										break;
+									default:
+										$cover = "Gold Breakdown";
+								}
 							}
 							else {
-								$breakdownInfo = $conn->execute_sql("select", array('a_scheme', 'a_description'), "addons", "a_addon_type=? and a_policy_number=? and (a_cancel_date IS NULL OR a_cancel_date = '0000-00-00') and a_renewal_date >= '" . date('Y-m-d') . "'", array("s1" => "CBA", "s2" => $policyDetail[0]['p_policy_number']));
-								if(!empty($breakdownInfo)) {
-									switch($breakdownInfo[0]['a_description']) {
-										case "RAC EU Breakdown":
-											$cover = "<span style=\"color: #f00; font-weight: bold;\">Please Refer to RAC</span>";
-											break;
-										default:
-											$cover = "Gold Breakdown";
-									}
-								}
-								else {
-									$cover = "Basic Breakdown";	
-								}
+								$cover = "Basic Breakdown";	
 							}
-							
-							switch($policyDetail[0]['v_transmission']) {
-								case "M":
-									$transmission = "Manual";
-									break;
-								case "A":
-									$transmission = "Automatic";
-									break;
-							}
-							
-							switch($policyDetail[0]['v_fuel_type']) {
-								case "P":
-									$fuel = "Petrol";
-									break;
-								case "D":
-									$fuel = "Diesel";
-									break;
-								case "E":
-									$fuel = "Hybrid";
-									break;
-								default:
-									$fuel = "Unknown";
-							}
-							
-							$url = "http://activejobs.ncigroup.local/onecall/index.aspx";
-							$fields = array(
-								'CustomerTitle' => urlencode($policyDetail[0]['ph_title']),
-								'CustomerForename' => urlencode(ucwords(strtolower($policyDetail[0]['ph_forename']))),
-								'CustomerSurname' => urlencode(ucwords(strtolower($policyDetail[0]['ph_surname']))),
-								'AddressLine1' => urlencode($policyDetail[0]['ph_address1']),
-								'Postcode' => urlencode($policyDetail[0]['ph_postcode']),
-								'TelephoneNumber' => urlencode($policyDetail[0]['ph_telephone']),
-								'LandlineNumber' => urlencode($policyDetail[0]['ph_telephone_other']),
-								'PolicyNumber' => urlencode($policyDetail[0]['p_policy_number']),
-								'InceptionDate' => urlencode(date("d/m/Y", strtotime($policyDetail[0]['p_inception_date']))),
-								'Cover' => urlencode($cover),
-								'VehicleReg' => urlencode($policyDetail[0]['v_reg']),
-								'VehicleMake' => urlencode($policyDetail[0]['v_make']),
-								'VehicleModel' => urlencode($policyDetail[0]['v_model']),
-								'VehicleFuelType' => urlencode($fuel),
-								'VehicleTransmission' => urlencode($transmission)
-							);
-							
-							//url-ify the data for the POST
-							foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
-							rtrim($fields_string, '&');
-							// get previous claims
+						}
+						
+						switch($policyDetail[0]['v_transmission']) {
+							case "M":
+								$transmission = "Manual";
+								break;
+							case "A":
+								$transmission = "Automatic";
+								break;
+						}
+						
+						switch($policyDetail[0]['v_fuel_type']) {
+							case "P":
+								$fuel = "Petrol";
+								break;
+							case "D":
+								$fuel = "Diesel";
+								break;
+							case "E":
+								$fuel = "Hybrid";
+								break;
+							default:
+								$fuel = "Unknown";
+						}
+						
+						$url = "http://activejobs.ncigroup.local/onecall/index.aspx";
+						$fields = array(
+							'CustomerTitle' => urlencode($policyDetail[0]['ph_title']),
+							'CustomerForename' => urlencode(ucwords(strtolower($policyDetail[0]['ph_forename']))),
+							'CustomerSurname' => urlencode(ucwords(strtolower($policyDetail[0]['ph_surname']))),
+							'AddressLine1' => urlencode($policyDetail[0]['ph_address1']),
+							'Postcode' => urlencode($policyDetail[0]['ph_postcode']),
+							'TelephoneNumber' => urlencode($policyDetail[0]['ph_telephone']),
+							'LandlineNumber' => urlencode($policyDetail[0]['ph_telephone_other']),
+							'PolicyNumber' => urlencode($policyDetail[0]['p_policy_number']),
+							'InceptionDate' => urlencode(date("d/m/Y", strtotime($policyDetail[0]['p_inception_date']))),
+							'Cover' => urlencode($cover),
+							'VehicleReg' => urlencode($policyDetail[0]['v_reg']),
+							'VehicleMake' => urlencode($policyDetail[0]['v_make']),
+							'VehicleModel' => urlencode($policyDetail[0]['v_model']),
+							'VehicleFuelType' => urlencode($fuel),
+							'VehicleTransmission' => urlencode($transmission)
+						);
+						
+						//url-ify the data for the POST
+						foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
+						rtrim($fields_string, '&');
+						// get previous claims
 				?>
                 
                 <!-- OS90101589193 -->
