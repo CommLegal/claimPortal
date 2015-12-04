@@ -17,6 +17,7 @@
     </div> 
     
     <div class = "fnol-unassisted" id = "fnol_data_unassisted" style="display:none"><!-- FNOL UNASSISTED -->	
+     
     	<form method="post" enctype="multipart/form-data" id="ws_unassisted">
         
         	<div id = "reasonbox">

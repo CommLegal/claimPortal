@@ -210,7 +210,7 @@ $("#ws_assisted_submit").click(function(e) {
 $("#ws_unassisted_submit").click(function(e) {
 	e.preventDefault();
 								 
-	var data = $("#bd_unassisted").serializeArray();
+	var data = $("#ws_unassisted").serializeArray();
 
 	$.post(
 	   'pages/formUpload.php',
