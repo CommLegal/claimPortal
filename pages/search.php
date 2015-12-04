@@ -30,23 +30,12 @@
                 <?php 
 				if(!empty($_POST['reg']) || !empty($_POST['postcode'])) { 
 					
-					/*if(!empty($_POST['name'])) {
-						$nameSplit = explode(" ", $_POST['name']);
-						$policyInfo = $conn->execute_sql("select", array('*'), "policy JOIN policy_holders ON p_id = ph_p_id join vehicles on v_p_id = p_id", "p_ph_forename=LOWER(?) AND p_ph_surname=LOWER(?) and (p_cancel_date IS NULL OR p_cancel_date = '0000-00-00') and p_renewal_date >= '" . date('Y-m-d') . "'", array("s1" => strtolower($nameSplit[0]), "s2" => strtolower($nameSplit[1])));
-					}*/
 					if(!empty($_POST['reg'])) {
 						$policyInfo = $conn->execute_sql("select", array('v_p_id, v_id'), "vehicles", "REPLACE(v_reg, ' ', '')=?", array("s" => str_replace(" ", "", $_POST['reg'])));
-						/*if(!empty($policyInfo[0])) {
-							$policyInfo = $conn->execute_sql("select", array('*'), "policy JOIN policy_holders ON p_id = ph_p_id join vehicles on v_p_id = p_id", "p_id=? and (p_cancel_date IS NULL OR p_cancel_date = '0000-00-00') and p_renewal_date >= '" . date('Y-m-d') . "'", array("i" => $policyInfo[0]['v_p_id']));
-						}*/
 					}
 					elseif(!empty($_POST['postcode'])) {
 						$policyInfo = $conn->execute_sql("select", array('ph_id, ph_p_id'), "policy_holders", "REPLACE(ph_postcode, ' ', '')=?", array("s" => str_replace(" ", "", $_POST['postcode'])));
-						/*if(!empty($policyInfo[0])) {
-							$policyInfo = $conn->execute_sql("select", array('*'), "policy JOIN policy_holders ON p_id = ph_p_id join vehicles on v_p_id = p_id", "p_id=? and (p_cancel_date IS NULL OR p_cancel_date = '0000-00-00') and p_renewal_date >= '" . date('Y-m-d') . "'", array("i" => $policyInfo[0]['ph_p_id']));
-						}*/
 					}
-					//$p_id = $policyInfo[0]['p_id'];
 					
 					if(empty($policyInfo)) {
 						echo "<div class=\"col-md-12\"><h4>No policies found...</h4></div>";
@@ -76,23 +65,29 @@
 						}
 						else {
 						
-						if(!empty($policyDetail[0]['v_fleet'])) {
-							$cover = "Fleet Cover";
-						}
-						else {
-							$breakdownInfo = $conn->execute_sql("select", array('a_scheme', 'a_description'), "addons", "a_addon_type=? and a_policy_number=? and (a_cancel_date IS NULL OR a_cancel_date = '0000-00-00') and a_renewal_date >= '" . date('Y-m-d') . "'", array("s1" => "CBA", "s2" => $policyDetail[0]['p_policy_number']));
-							if(!empty($breakdownInfo)) {
-								switch($breakdownInfo[0]['a_description']) {
-									case "RAC EU Breakdown":
-										$cover = "<span style=\"color: #f00; font-weight: bold;\">Please Refer to RAC</span>";
-										break;
-									default:
-										$cover = "Gold Breakdown";
-								}
+						if($_REQUEST['displayPage'] !== "fnol" && $_REQUEST['displayPage'] !== "windscreen") {
+							if(!empty($policyDetail[0]['v_fleet'])) {
+								$cover = "Fleet Cover";
 							}
 							else {
-								$cover = "Basic Breakdown";	
+								$breakdownInfo = $conn->execute_sql("select", array('a_scheme', 'a_description'), "addons", "a_addon_type=? and a_policy_number=? and (a_cancel_date IS NULL OR a_cancel_date = '0000-00-00') and a_renewal_date >= '" . date('Y-m-d') . "'", array("s1" => "CBA", "s2" => $policyDetail[0]['p_policy_number']));
+								if(!empty($breakdownInfo)) {
+									switch($breakdownInfo[0]['a_description']) {
+										case "RAC EU Breakdown":
+											$cover = "<span style=\"color: #f00; font-weight: bold;\">Please Refer to RAC</span>";
+											break;
+										default:
+											$cover = "Gold Breakdown";
+									}
+								}
+								else {
+									$cover = "Basic Breakdown";	
+								}
 							}
+						}
+						
+						if($_REQUEST['displayPage'] == "windscreen") {
+							$wsexcessInfo = $conn->execute_sql("select", array('ic_windscreen_replace_xs', 'ic_windscreen_repair_xs'), "insurer_contacts", "ic_title=? ", array("s" => $policyDetail[0]['p_broker']));
 						}
 						
 						switch($policyDetail[0]['v_transmission']) {
@@ -160,6 +155,12 @@
                           <tr>
                             <th scope="row"><b>Cover:</b></th>
                             <td><?php echo $cover ?></td>
+                          </tr>
+                          <?php } ?>
+                          <?php if($_REQUEST['displayPage'] == "windscreen") { ?>
+                          <tr>
+                            <th scope="row"><b>Windscreen excess:</b></th>
+                            <td><?php echo "Replace: " . $wsexcessInfo[0]['ic_windscreen_replace_xs'] . " / Repair: " . $wsexcessInfo[0]['ic_windscreen_repair_xs'] ?></td>
                           </tr>
                           <?php } ?>
                           <tr>
