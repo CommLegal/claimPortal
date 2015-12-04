@@ -5,6 +5,7 @@ require("includes/mysqlwrapper_class.php");
 $conn = new mysqlwrapper_class;
 
 $userLogin = $conn->execute_sql("select", array("ul_forename", "ul_surname", "ul_company_title", "ul_breakdown", "ul_accident_recovery", "ul_fnol", "ul_windscreen"), "user_login", "ul_username=LOWER(?)", array("s" => strtolower($_SESSION['username'])));
+var_dump($userLogin);
 
 ?>
 
