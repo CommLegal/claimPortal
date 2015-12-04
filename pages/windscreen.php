@@ -38,6 +38,7 @@
             
             <label>Reason for Unassisted:</label>
             <select id = "windscreen--w_unassist_reason" name="windscreen--w_unassist_reason">
+            	<option value="">Select</option>
                 <option value="1">Vandalism damage</option>
                 <option value="2">Sunroof damage</option>
                 <option value="3">Customer inflicted damage</option>
