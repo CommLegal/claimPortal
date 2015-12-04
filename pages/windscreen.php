@@ -17,7 +17,7 @@
     </div> 
     
     <div class = "fnol-unassisted" id = "fnol_data_unassisted" style="display:none"><!-- FNOL UNASSISTED -->	
-    	<form method="post" enctype="multipart/form-data" id="w_unassisted">
+    	<form method="post" enctype="multipart/form-data" id="ws_unassisted">
         
         	<div id = "reasonbox">
                 <label>Claim details:</label>
@@ -57,7 +57,7 @@
     </div>
     
     <div class="fnol-assisted" id="fnol_dataisted" style="display:none"><!-- FNOL UNASSISTED -->	
-		<form method="post" enctype="multipart/form-data" id="w_assisted">
+		<form method="post" enctype="multipart/form-data" id="ws_assisted">
                 
             <div id = "reasonbox">
                 <label>Claim details:</label>
