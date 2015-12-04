@@ -193,7 +193,6 @@ $("#bd_unassisted_submit").click(function(e) {
 
 $("#ws_assisted_submit").click(function(e) {
 	e.preventDefault();
-	alert("true");
 								 
 	var data = $("#ws_assisted").serializeArray();
 
