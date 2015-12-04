@@ -60,7 +60,7 @@
         	<input type="hidden" id="claimType" name="claimType" value="windscreen"  />
             <input type="hidden" id="windscreen--w_assisted_unassisted" name="windscreen--w_assisted_unassisted" value="Unassisted"  />
             
-            <button class = "btn btn-lg btn-success mb25" id ="w_unassisted_submit">Accept & Save &nbsp;<i class="fa fa-lg fa-floppy-o"></i></button>
+            <button class = "btn btn-lg btn-success mb25" id ="ws_unassisted_submit">Accept & Save &nbsp;<i class="fa fa-lg fa-floppy-o"></i></button>
             <button class = "btn btn-lg btn-danger mb25 cancel pull-right">Cancel &nbsp;<i class="fa fa-lg fa-times"></i></button>
             
         </form>
@@ -88,7 +88,7 @@
         	<input type="hidden" id="claimType" name="claimType" value="windscreen"  />
             <input type="hidden" id="windscreen--w_assisted_unassisted" name="windscreen--w_assisted_unassisted" value="Assisted"  />
             
-            <button class = "btn btn-lg btn-success mb25" id = "w_assisted_submit">Accept & Save &nbsp;<i class="fa fa-lg fa-floppy-o"></i></button>
+            <button class = "btn btn-lg btn-success mb25" id = "ws_assisted_submit">Accept & Save &nbsp;<i class="fa fa-lg fa-floppy-o"></i></button>
             <button class = "btn btn-lg btn-danger mb25 cancel pull-right">Cancel &nbsp;<i class="fa fa-lg fa-times"></i></button>
             
         </form>

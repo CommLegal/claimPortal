@@ -191,7 +191,7 @@ $("#bd_unassisted_submit").click(function(e) {
 	  );	
 });
 
-$("#w_assisted_submit").click(function(e) {
+$("#ws_assisted_submit").click(function(e) {
 	e.preventDefault();
 	alert("true");
 	return false;
@@ -208,7 +208,7 @@ $("#w_assisted_submit").click(function(e) {
 	  );
 });
 
-$("#w_unassisted_submit").click(function(e) {
+$("#ws_unassisted_submit").click(function(e) {
 	e.preventDefault();
 	
 	alert("true");
