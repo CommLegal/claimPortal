@@ -151,7 +151,7 @@
                             <th scope="row"><b>Insurer:</b></th>
                             <td><?php echo $policyDetail[0]['p_broker'] ?></td>
                           </tr>
-                          <?php if($_REQUEST['displayPage'] !== "fnol") { ?>
+                          <?php if($_REQUEST['displayPage'] !== "fnol" && $_REQUEST['displayPage'] !== "windscreen") { ?>
                           <tr>
                             <th scope="row"><b>Cover:</b></th>
                             <td><?php echo $cover ?></td>
