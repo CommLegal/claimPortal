@@ -29,8 +29,8 @@
             <label>Repair/Replace:</label>
             <select id = "windscreen--w_repair_replace" name="windscreen--w_repair_replace">
                 <option value="">Select</option>
-                <option value="1">Repair</option>
-                <option value="2">Replace</option>
+                <option value="Repair">Repair</option>
+                <option value="Replace">Replace</option>
             </select>
             
             <br /><br />
@@ -69,8 +69,8 @@
             <label>Repair/Replace:</label>
             <select id = "windscreen--w_repair_replace" name="windscreen--w_repair_replace">
                 <option value="">Select</option>
-                <option value="1">Repair</option>
-                <option value="2">Replace</option>
+                <option value="Repair">Repair</option>
+                <option value="Replace">Replace</option>
             </select>
             
             <br /><br />
