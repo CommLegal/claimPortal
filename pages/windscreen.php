@@ -2,6 +2,14 @@
 
 <div class="col-md-12 mb10">              
     <h3>Windscreen</h3><div class="title-divider"></div>
+    
+    <div class="well">
+    	<h4>For more information regarding our policies or terms and conditions please visit the following webpage.</h4>
+        <div class="btn-group" role="group">
+          <a href="http://www.onecalldirect.co.uk/existingCustomers/policy-downloads.php" target="_blank"><button type="button" class="btn btn-default">Policy Booklet</button></a>
+        </div>
+        <div style="clear: both;"</div>
+    </div>
 </div> 
 
 <div class="col-md-12 mb25"> <!-- TOP--> 
