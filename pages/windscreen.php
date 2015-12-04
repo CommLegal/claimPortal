@@ -34,7 +34,7 @@
                 <textarea type="text" name ="windscreen--w_further_info" rows = "10" cols="70" class="form-control mb25" placeholder="" > </textarea>
             </div>
             
-            <br /><br />
+            <br />
             
             <label>Repair/Replace:</label>
             <select id = "windscreen--w_repair_replace" name="windscreen--w_repair_replace">
@@ -81,7 +81,7 @@
                 <textarea type="text" name ="windscreen--w_further_info" rows = "10" cols="70" class="form-control mb25" placeholder="" > </textarea>
             </div>
             
-            <br /><br />
+            <br />
             
             <label>Repair/Replace:</label>
             <select id = "windscreen--w_repair_replace" name="windscreen--w_repair_replace">
