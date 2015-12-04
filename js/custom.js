@@ -194,8 +194,7 @@ $("#bd_unassisted_submit").click(function(e) {
 $("#ws_assisted_submit").click(function(e) {
 	e.preventDefault();
 	alert("true");
-	return false;
-								 
+	/*
 	var data = $("#w_assisted").serializeArray();
 
 	$.post(
@@ -205,25 +204,24 @@ $("#ws_assisted_submit").click(function(e) {
 		  $(".save-result").html(data); 
 		  //window.location.replace("https://portal.commercial-legal.co.uk/?displayPage=success");
 		}
-	  );
+	  );*/
 });
 
 $("#ws_unassisted_submit").click(function(e) {
 	e.preventDefault();
 	
 	alert("true");
-	return false;
-		
-	var data = $("#w_unassisted").serializeArray();
+	/*
+	var data = $("#w_assisted").serializeArray();
 
 	$.post(
 	   'pages/formUpload.php',
 		data,
 		function(data){
 		  $(".save-result").html(data); 
-		  //window.location.replace("https://portal.commercial-legal.co.uk/?displayPage=success"); 
+		  //window.location.replace("https://portal.commercial-legal.co.uk/?displayPage=success");
 		}
-	  );	
+	  );*/	
 });
 
 // START NEW CLAIM ON CLICK OF "ADD CLAIM" //
