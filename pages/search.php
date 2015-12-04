@@ -160,7 +160,7 @@
                           <?php if($_REQUEST['displayPage'] == "windscreen") { ?>
                           <tr>
                             <th scope="row"><b>Windscreen excess:</b></th>
-                            <td><?php echo "Replace: " . $wsexcessInfo[0]['ic_windscreen_replace_xs'] . " / Repair: " . $wsexcessInfo[0]['ic_windscreen_repair_xs'] ?></td>
+                            <td><?php echo "Replace: &pound;" . $wsexcessInfo[0]['ic_windscreen_replace_xs'] . " / Repair: &pound;" . $wsexcessInfo[0]['ic_windscreen_repair_xs'] ?></td>
                           </tr>
                           <?php } ?>
                           <tr>
