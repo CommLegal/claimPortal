@@ -43,7 +43,10 @@
                 <option value="2">Sunroof damage</option>
                 <option value="3">Customer inflicted damage</option>
                 <option value="4">Customer unwilling to pay excess</option>
-                <option value="5">Other</option>
+                <option value="5">Manufacturers glass</option>
+                <option value="6">Policy exclusion</option>
+                <option value="7">Other</option>
+
             </select>
             
             <br /><br />
