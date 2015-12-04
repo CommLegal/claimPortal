@@ -34,6 +34,8 @@
                 <textarea type="text" name ="windscreen--w_further_info" rows = "10" cols="70" class="form-control mb25" placeholder="" > </textarea>
             </div>
             
+            <br /><br />
+            
             <label>Repair/Replace:</label>
             <select id = "windscreen--w_repair_replace" name="windscreen--w_repair_replace">
                 <option value="">Select</option>
@@ -79,12 +81,16 @@
                 <textarea type="text" name ="windscreen--w_further_info" rows = "10" cols="70" class="form-control mb25" placeholder="" > </textarea>
             </div>
             
+            <br /><br />
+            
             <label>Repair/Replace:</label>
             <select id = "windscreen--w_repair_replace" name="windscreen--w_repair_replace">
                 <option value="">Select</option>
                 <option value="1">Repair</option>
                 <option value="2">Replace</option>
             </select>
+            
+            <br /><br />
         
         	<input type="hidden" id="claimType" name="claimType" value="windscreen"  />
             <input type="hidden" id="windscreen--w_assisted_unassisted" name="windscreen--w_assisted_unassisted" value="Assisted"  />
