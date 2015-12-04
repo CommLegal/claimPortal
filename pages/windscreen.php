@@ -38,12 +38,10 @@
             
             <label>Reason for Unassisted:</label>
             <select id = "windscreen--w_unassist_reason" name="windscreen--w_unassist_reason">
-                <option value="1">Wrong fuel</option>
-                <option value="2">Tyre related on basic</option>
-                <option value="3">Key related</option>
-                <option value="4">Cancelled</option>
-                <option value="5">Same breakdown fault as previous</option>
-                <option value="O">Other</option>
+                <option value="1">Vandalism damage</option>
+                <option value="2">Sunroof damage</option>
+                <option value="3">Customer has caused damage</option>
+                <option value="4">Other</option>
             </select>
             
             <br /><br />
