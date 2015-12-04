@@ -18,7 +18,7 @@
         }
 		if($userLogin[0]['ul_windscreen'] == "Y") { 
 			echo "<a href=\"". _ROOT . "/?displayPage=windscreen\"><button type=\"button\" 
-			class=\"w100 btn btn-primary navbar-btn btn-lg mr5 p25 h150 col-md-12\">Windscreen</button></a><br>";
+			class=\"w100 btn btn-success navbar-btn btn-lg mr5 p25 h150 col-md-12\">Windscreen</button></a><br>";
         }
 		?>
 </div> 
