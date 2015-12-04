@@ -40,8 +40,9 @@
             <select id = "windscreen--w_unassist_reason" name="windscreen--w_unassist_reason">
                 <option value="1">Vandalism damage</option>
                 <option value="2">Sunroof damage</option>
-                <option value="3">Customer has caused damage</option>
-                <option value="4">Other</option>
+                <option value="3">Customer inflicted damage</option>
+                <option value="4">Customer unwilling to pay excess</option>
+                <option value="5">Other</option>
             </select>
             
             <br /><br />
