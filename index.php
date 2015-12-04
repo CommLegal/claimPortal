@@ -4,9 +4,7 @@ require("includes/config.php");
 require("includes/mysqlwrapper_class.php");
 $conn = new mysqlwrapper_class;
 
-$userLogin = $conn->execute_sql("select", array("ul_forename", "ul_surname", "ul_company_title", "ul_breakdown", "ul_accident_recovery", "ul_fnol", "ul_windscreen"), "user_login", "ul_username=LOWER(?)", array("s" => strtolower($_SESSION['username'])));
-var_dump($userLogin);
-echo $_SESSION['username'];
+$userLogin = $conn->execute_sql("select", array("ul_forename", "ul_surname", "ul_company_title", "ul_breakdown", "ul_accident_recovery", "ul_fnol", "ul_windscreen"), "user_login", "ul_username=LOWER(?)", array("s" => strtolower($_SESSION['userName'])));
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
