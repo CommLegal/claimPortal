@@ -178,6 +178,35 @@ $("#bd_assisted_submit").click(function(e) {
 $("#bd_unassisted_submit").click(function(e) {
 	e.preventDefault();
 								 
+	var data = $("#ws_unassisted").serializeArray();
+
+	$.post(
+	   'pages/formUpload.php',
+		data,
+		function(data){
+		  $(".save-result").html(data); 
+		  //window.location.replace("https://portal.commercial-legal.co.uk/?displayPage=success"); 
+		}
+	  );	
+});
+
+$("#ws_assisted_submit").click(function(e) {
+	e.preventDefault();
+								 
+	var data = $("#ws_assisted").serializeArray();
+
+	$.post(
+	   'pages/formUpload.php',
+		data,
+		function(data){
+		  $(".save-result").html(data); 
+		}
+	  );
+});
+
+$("#ws_unassisted_submit").click(function(e) {
+	e.preventDefault();
+								 
 	var data = $("#bd_unassisted").serializeArray();
 
 	$.post(
