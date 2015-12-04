@@ -57,13 +57,6 @@
             
             <br /><br />
         
-            <div id="reasonbox">
-                <label>More Details:</label>
-                <textarea type="text" name ="windscreen--w_unassist_desc" rows = "10" cols="70" class="form-control mb25" placeholder="" > </textarea>
-            </div>
-            
-            <br /><br />
-        
         	<input type="hidden" id="claimType" name="claimType" value="windscreen"  />
             <input type="hidden" id="windscreen--w_assisted_unassisted" name="windscreen--w_assisted_unassisted" value="Unassisted"  />
             
