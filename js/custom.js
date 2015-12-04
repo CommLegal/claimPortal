@@ -194,6 +194,7 @@ $("#bd_unassisted_submit").click(function(e) {
 $("#w_assisted_submit").click(function(e) {
 	e.preventDefault();
 	alert("true");
+	return false;
 								 
 	var data = $("#w_assisted").serializeArray();
 
@@ -209,7 +210,10 @@ $("#w_assisted_submit").click(function(e) {
 
 $("#w_unassisted_submit").click(function(e) {
 	e.preventDefault();
-								 
+	
+	alert("true");
+	return false;
+		
 	var data = $("#w_unassisted").serializeArray();
 
 	$.post(
