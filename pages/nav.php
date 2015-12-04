@@ -40,7 +40,7 @@
 		<ul class="nav navbar-nav navbar-right mt5">
         
         <?php if($_SESSION['userName'] != "") { ?>
-			<li><a href="#" class="whitetext">Signed in as <?php echo $_SESSION["userName"] . " - " . $_SESSION['companyTitle'];?></a>
+			<li><a href="#" class="whitetext">Signed in as <?php echo $userLogin[0]['ul_username'] . " - " . $userLogin[0]['ul_company_title'];?></a>
 			<li><button type="button" id="sign-out" class="btn btn-default navbar-btn mr10">Sign out</button></li>
             
         <?php } ?>

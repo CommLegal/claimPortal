@@ -8,7 +8,7 @@ $encryptPass = md5($_POST['password'] . _SALT . $_POST['password'] . _SALT . $_P
 
 //$userLogin = $login->execute_sql($_POST['username'], $encryptPass);
 
-$userLogin = $conn->execute_sql("select", array("ul_id", "ul_username", "ul_password", "ul_forename", "ul_surname", "ul_company_title", "ul_breakdown", "ul_accident_recovery", "ul_fnol"), "user_login", "ul_username=LOWER(?) AND ul_password=?", array("s1" => strtolower($_POST['username']), "s2" => $encryptPass));
+$userLogin = $conn->execute_sql("select", array("ul_id", "ul_username", "ul_password", "ul_forename", "ul_surname", "ul_company_title", "ul_breakdown", "ul_accident_recovery", "ul_fnol", "ul_windscreen"), "user_login", "ul_username=LOWER(?) AND ul_password=?", array("s1" => strtolower($_POST['username']), "s2" => $encryptPass));
 
 //var_dump($userLogin);
 
@@ -19,10 +19,6 @@ if(!empty($userLogin)) {
 	
 	$_SESSION['userName'] = $_POST['username'];
 	$_SESSION['userID'] = $userLogin[0]['ul_id'];
-	$_SESSION['companyTitle'] = $userLogin[0]['ul_company_title'];
-	$_SESSION['permissions']['breakdown'] = $userLogin[0]['ul_breakdown'];
-	$_SESSION['permissions']['accident_recovery'] = $userLogin[0]['ul_accident_recovery'];
-	$_SESSION['permissions']['fnol'] = $userLogin[0]['ul_fnol'];
 }
 else {
 	echo "There has been a problem logging you in ";	
