@@ -1,6 +1,6 @@
 <?php
 //require_once('../includes/config.php');
-error_reporting(E_ERROR);
+error_reporting(E_ALL);
 set_time_limit(0);
 ini_set('display_errors', 1);
 ini_set('max_execution_time', '-1');
@@ -30,6 +30,8 @@ class policyImport_class {
 
 		//$file = "/feed/addbord_" . date("dmY") . ".csv";
 		$file = "files/cvi_test.csv";
+		echo $file;
+		break;
 		
 		// run through the CSV and pass back the results
 		$data = $this->parseCSV($file);
