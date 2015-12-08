@@ -29,7 +29,7 @@ class policyImport_class {
 		//$lastDay = date("d") - 1;
 
 		//$file = "/feed/addbord_" . date("dmY") . ".csv";
-		$file = "files/Policy Data1.csv";
+		$file = "files/cvi_test.csv";
 		
 		// run through the CSV and pass back the results
 		$data = $this->parseCSV($file);
