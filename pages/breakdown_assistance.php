@@ -41,7 +41,6 @@
                 <option value="3">Key related</option>
                 <option value="4">Cancelled</option>
                 <option value="5">Same breakdown fault as previous</option>
-                <option value="6">Commercial vehicle policy</option>
                 <option value="O">Other</option>
             </select>
             
