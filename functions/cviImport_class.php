@@ -17,7 +17,7 @@ if(mysqli_connect_errno()) {
 }
 $foebis->select_db(_CME_DATABASE);
 
-class policyImport_class {
+class cviImport_class {
 	
 	function __CONSTRUCT() {		
 		global $foebis;
