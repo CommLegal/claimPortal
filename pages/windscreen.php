@@ -86,7 +86,20 @@
             </select>
             
             <br /><br />
-        
+        	
+            <label>Window</label>
+            <select id = "windscreen--w_windscreen" name="windscreen--w_windscreen">
+                <option value="">Select</option>
+                <option value="1">Front</option>
+                <option value="2">Front Nearside</option>
+                <option value="3">Front Offside</option>
+                <option value="4">Rear Nearside</option>
+                <option value="5">Rear Offside</option>
+                <option value="6">Rear Windscreen</option>
+            </select>
+            
+            <br /><br />
+            
         	<input type="hidden" id="claimType" name="claimType" value="windscreen"  />
             <input type="hidden" id="windscreen--w_assisted_unassisted" name="windscreen--w_assisted_unassisted" value="Assisted"  />
             
