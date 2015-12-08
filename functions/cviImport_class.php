@@ -85,7 +85,7 @@ class cviImport_class {
 			
 			//Cust Num	Title	Name	Address1	Address2	Address3	Address4	Post Code	Home Tel	Work Tel	E-Mail	Policy Id	PolicyType	PolicyNumber	Insurer	Status	Inception	Renewal	Quote	SaleMethod	Advised	User	Branch	Agent	Scheme	Instl. Plan	Acc. Type	Source	SaleType	Campaign	Period	lx Insurer	lx Scheme	lx Pol Num	lx Prem.	lx Inception	lx Renewal	Scheme	PostDate	Protected	GrossPremium	DriverDOB	Vehicle	VehValue	Registration	P_Canc	P_Code	P_Description	P_Insurer	P_PolType	P_Prem	P_Scheme
 			
-			35 => array("lx Inception", "",
+			35 => array("lx Inception", ""),
 			36 => array("lx Renewal", ""),
 			37 => array("Scheme", ""),
 			38 => array("PostDate", ""),
