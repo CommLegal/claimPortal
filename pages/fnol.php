@@ -8,6 +8,7 @@
 				$proceed = 1;
 				$dow = date("N");
 				$time = date("H") . date("i");
+				echo $time;
 				
 				if($dow >= 1 && $dow <= 5) {
 					if($time >= 0730 && $time <= 1700) { 
