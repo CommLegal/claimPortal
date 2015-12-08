@@ -9,6 +9,7 @@
 				$dow = date("N");
 				$time = date("H") . date("m");
 				echo $time;
+				echo date("H:i:s");
 				
 				if($dow >= 1 && $dow <= 5) {
 					if($time >= 0730 && $time <= 1700) { 
