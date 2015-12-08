@@ -30,9 +30,7 @@ class cviImport_class {
 
 		//$file = "/feed/addbord_" . date("dmY") . ".csv";
 		$file = "files/cvi_test.csv";
-		echo $file;
-		break;
-		
+	
 		// run through the CSV and pass back the results
 		$data = $this->parseCSV($file);
 		
