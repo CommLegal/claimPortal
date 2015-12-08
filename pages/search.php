@@ -32,9 +32,15 @@
 					
 					if(!empty($_POST['reg'])) {
 						$policyInfo = $conn->execute_sql("select", array('v_p_id, v_id'), "vehicles", "REPLACE(v_reg, ' ', '')=?", array("s" => str_replace(" ", "", $_POST['reg'])));
+						if(!empty($policyInfo)) {
+							$conn->execute_sql("insert", array('sl_ul_id' => $_SESSION['userID'], 'sl_p_id' => $policyInfo[0]['v_p_id'], 'sl_timestamp' => date("Y-m-d H:i:s"), 'sl_ip' => $_SERVER['REMOTE_ADDR']), "search_list", "", ""));
+						}
 					}
 					elseif(!empty($_POST['postcode'])) {
 						$policyInfo = $conn->execute_sql("select", array('ph_id, ph_p_id'), "policy_holders", "REPLACE(ph_postcode, ' ', '')=?", array("s" => str_replace(" ", "", $_POST['postcode'])));
+						if(!empty($policyInfo)) {
+							$conn->execute_sql("insert", array('sl_ul_id' => $_SESSION['userID'], 'sl_p_id' => $policyInfo[0]['ph_p_id'], 'sl_timestamp' => date("Y-m-d H:i:s"), 'sl_ip' => $_SERVER['REMOTE_ADDR']), "search_list", "", ""));
+						}
 					}
 					
 					if(empty($policyInfo)) {
