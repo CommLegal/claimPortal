@@ -488,7 +488,7 @@ class cviImport_class {
 				
 		if($dbCallType == "select") {
 			/* run query and return the result to the calling page */
-			//echo $query . "<br /><br />";
+			echo $query . "<br /><br />";
 			$result = $foebis->query($query);
 			if($result) {
 				$array = array();
