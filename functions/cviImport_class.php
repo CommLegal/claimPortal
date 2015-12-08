@@ -4,8 +4,8 @@ error_reporting(E_ALL);
 set_time_limit(0);
 ini_set('display_errors', 1);
 ini_set('max_execution_time', '-1');
+ls
 
-define("_CME_HOSTNAME", "5.159.226.131");
 define("_CME_USERNAME", "claimPortal");
 define("_CME_PASSWORD", "CLadmin001!");
 define("_CME_DATABASE", "claimPortal");
@@ -536,7 +536,7 @@ class cviImport_class {
 		global $conn;
 		
 		/* WRITE TO THE ERROR LOG - JS9 */
-		$file = './logs/errors-' . date('Y-m-d') . '.txt';
+		$file = '../logs/errors-' . date('Y-m-d') . '.txt';
 
 		$output = "Timestamp: " . date("d-m-Y H:i:s") .  "\n";
 		$output .= "Error: " . $err . "\n";
