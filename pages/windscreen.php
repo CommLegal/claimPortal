@@ -11,7 +11,7 @@
         <div style="clear: both;"</div>
     </div>
     
-    <div class="well">
+    <div class="well mt25 warning">
     	<h4>Please Note.</h4>
         <p>If the customer fails DPA or their information is not up to date, please tell them to contact their broker, OneCall Insurance Services on 01302 554 015</p>
         <p>If the customer is claiming for multiple windows, please tell them to call the claims team to validate on 0203 738 7300 and choose option 5 (General Enquiries)</p>
