@@ -1,4 +1,4 @@
 <?php 
-require("policyImport_class.php");
-new policyImport_class;
+require("cviImport_class.php");
+new cviImport_class;
 ?>
