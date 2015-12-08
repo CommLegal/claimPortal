@@ -115,7 +115,7 @@ class cviImport_class {
 			while (($data = fgetcsv($handle, 0, ",")) !== FALSE) {
 				$num = count($data);
 				$i++;
-				if($i > 2) {
+				if($i > 1) {
 					$policyNo = $data[13];
 					//echo $data[$c];
 					$parseArray = array();
