@@ -61,7 +61,7 @@ class cviImport_class {
 			13 => array("PolicyNumber", "policy:p_policy_number"),
 			14 => array("Insurer", "policy:p_broker"),
 			15 => array("Status", ""),
-			16 => array("Inception", "policy:p_effective_date"),
+			16 => array("Inception", "policy:p_inception_date"),
 			17 => array("Renewal", "policy:p_renewal_date"),
 			18 => array("Quote", ""),
 			19 => array("Sale Method", ""),
