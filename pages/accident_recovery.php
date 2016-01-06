@@ -42,7 +42,7 @@
 						$proceed = 0;
 					}
 					else {
-						if($policyInfo[$header]['p_broker'] !== "ONE Insurance Limited") {
+						if($policyInfo[$header]['p_broker'] == "ONE Insurance Limited") {
 							echo "<div class=\"well\"><h3>Does the consumer deem the accident to be their fault?</h3><div class=\"faultclaimButton\">Yes</div><div class=\"nonfaultclaimButton\">No</div></div>";
 							$proceed = 0;
 						}
