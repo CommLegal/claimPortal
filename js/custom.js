@@ -201,7 +201,7 @@ $("#ws_assisted_submit").click(function(e) {
 		data,
 		function(data){
 		  $(".save-result").html(data); 
-		  //window.location.replace("https://portal.commercial-legal.co.uk/?displayPage=success");
+		  window.location.replace("https://portal.commercial-legal.co.uk/?displayPage=success");
 		}
 	  );
 });
