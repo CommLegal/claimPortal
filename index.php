@@ -75,7 +75,7 @@ require('pages/nav.php');
 				break;
 			case "windscreen":
 				echo "<h3>Windscreen</h3><div class=\"title-divider\"></div>";
-				$bgcolor = "#337AB7";
+				$bgcolor = "#5cb85c";
 				$fontcolor = "white";
 				$breakcolor = "#CCC";
 				break;
