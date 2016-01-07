@@ -70,7 +70,7 @@
         	<input type="hidden" id="claimType" name="claimType" value="home_emergency"  />
             <input type="hidden" id="home_emergency--he_assisted_unassisted" name="home_emergency--he_assisted_unassisted" value="Assisted"  />
             
-            <button class = "btn btn-lg btn-success mb25" id="hoe_assisted_submit">Accept & Save &nbsp;<i class="fa fa-lg fa-floppy-o"></i></button>
+            <button class = "btn btn-lg btn-success mb25" id="he_assisted_submit">Accept & Save &nbsp;<i class="fa fa-lg fa-floppy-o"></i></button>
             <button class = "btn btn-lg btn-danger mb25 cancel pull-right">Cancel &nbsp;<i class="fa fa-lg fa-times"></i></button>
             
         </form>
