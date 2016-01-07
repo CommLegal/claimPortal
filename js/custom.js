@@ -253,8 +253,10 @@ $("#he_unassisted_submit").click(function(e) {
 
 $("#hc_submit").click(function(e) {
 	e.preventDefault();
+	
+	alert("true");
 								 
-	var data = $("#hc_form").serializeArray();
+	/*var data = $("#hc_form").serializeArray();
 
 	$.post(
 	   'pages/formUpload.php',
@@ -263,7 +265,7 @@ $("#hc_submit").click(function(e) {
 		  $(".save-result").html(data); 
 		  window.location.replace("https://portal.commercial-legal.co.uk/?displayPage=success");
 		}
-	  );
+	  );*/
 });
 
 
