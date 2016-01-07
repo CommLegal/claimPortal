@@ -221,7 +221,7 @@ $("#ws_unassisted_submit").click(function(e) {
 	  );	
 });
 
-$("#he_assisted_submit").click(function(e) {
+$("#hoe_assisted_submit").click(function(e) {
 	e.preventDefault();
 								 
 	//var data = $("#he_assisted").serializeArray();
