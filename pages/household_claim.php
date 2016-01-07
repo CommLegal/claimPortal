@@ -10,9 +10,11 @@
             
             <label>Date of Claim:</label>
             <div class="input-group mb10">
-            <input required type="text" name="household_claim--hc_date" id="household_claim--hc_date" class="form-control mb10 datepicker" placeholder="" width="100" value="">
+            <input required type="text" name="household_claim--hc_date" id="household_claim--hc_date" class="form-control mb10 datepicker" placeholder="" value="">
                 <span class="input-group-addon"><i class = "fa fa-calendar"></i></span>
             </div>
+            
+            <br /><br />
                 
             <label>Reason for Unassisted:</label>
             <select id = "household_claim--hc_claim_type" name="household_claim--hc_claim_type">
