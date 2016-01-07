@@ -138,6 +138,24 @@ require('pages/nav.php');
 			require("pages/search.php");
 			require("pages/windscreen.php");
 		}
+		elseif($_REQUEST['displayPage'] == "home_emergency") {
+			?>
+				<script src="<?php echo _ROOT ?>/js/jquery.jeditable.js"></script>
+				<script src="<?php echo _ROOT ?>/js/jquery.jeditable.datepicker.js"></script>
+			<?php
+			//$_SESSION['claim_type'] = "ct_fnol";
+			require("pages/search.php");
+			require("pages/windscreen.php");
+		}
+		elseif($_REQUEST['displayPage'] == "household_claim") {
+			?>
+				<script src="<?php echo _ROOT ?>/js/jquery.jeditable.js"></script>
+				<script src="<?php echo _ROOT ?>/js/jquery.jeditable.datepicker.js"></script>
+			<?php
+			//$_SESSION['claim_type'] = "ct_fnol";
+			require("pages/search.php");
+			require("pages/windscreen.php");
+		}
 		elseif($_REQUEST['displayPage'] == "success") {
 			?>
             <div class="alert alert-success middle" role="alert">Your claim has been successfully submitted.</div>
