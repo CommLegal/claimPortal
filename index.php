@@ -160,7 +160,7 @@ require('pages/nav.php');
 			<?php
 			//$_SESSION['claim_type'] = "ct_fnol";
 			require("pages/search.php");
-			//require("pages/household_claim.php");
+			require("pages/household_claim.php");
 		}
 		elseif($_REQUEST['displayPage'] == "success") {
 			?>

@@ -251,6 +251,21 @@ $("#he_unassisted_submit").click(function(e) {
 	  );
 });
 
+$("#hc_submit").click(function(e) {
+	e.preventDefault();
+								 
+	var data = $("#hc_form").serializeArray();
+
+	$.post(
+	   'pages/formUpload.php',
+		data,
+		function(data){
+		  $(".save-result").html(data); 
+		  window.location.replace("https://portal.commercial-legal.co.uk/?displayPage=success");
+		}
+	  );
+});
+
 
 // START NEW CLAIM ON CLICK OF "ADD CLAIM" //
 
