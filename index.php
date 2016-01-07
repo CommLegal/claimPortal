@@ -73,6 +73,12 @@ require('pages/nav.php');
 				$fontcolor = "white";
 				$breakcolor = "#CCC";
 				break;
+			case "windscreen":
+				echo "<h3>Windscreen</h3><div class=\"title-divider\"></div>";
+				$bgcolor = "#337AB7";
+				$fontcolor = "white";
+				$breakcolor = "#CCC";
+				break;
 			case "home_emergency":
 				echo "<h3>Home Emergency</h3><div class=\"title-divider\"></div>";
 				$bgcolor = "#863A84";
@@ -139,7 +145,10 @@ require('pages/nav.php');
 			require("pages/windscreen.php");
 		}
 		elseif($_REQUEST['displayPage'] == "home_emergency") {
-
+			?>
+				<script src="<?php echo _ROOT ?>/js/jquery.jeditable.js"></script>
+				<script src="<?php echo _ROOT ?>/js/jquery.jeditable.datepicker.js"></script>
+			<?php
 			//$_SESSION['claim_type'] = "ct_fnol";
 			require("pages/search.php");
 			require("pages/home_emergency.php");
