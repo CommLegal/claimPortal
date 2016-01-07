@@ -70,14 +70,20 @@ require('pages/nav.php');
 			case "fnol":
 				echo "<h3>FNOL</h3><div class=\"title-divider\"></div>";
 				$bgcolor = "#337AB7";
-				$fontcolor = "white	";
+				$fontcolor = "white";
 				$breakcolor = "#CCC";
 				break;
-			case "windscreen":
-				echo "<h3>Windscreen</h3><div class=\"title-divider\"></div>";
-				$bgcolor = "#337AB7";
-				$fontcolor = "white	";
+			case "home_emergency":
+				echo "<h3>Home Emergency</h3><div class=\"title-divider\"></div>";
+				$bgcolor = "#863A84";
+				$fontcolor = "white";
 				$breakcolor = "#CCC";
+				break;
+			case "household_claim":
+				echo "<h3>Household Claim</h3><div class=\"title-divider\"></div>";
+				$bgcolor = "#f0AD4E";
+				$fontcolor = "333";
+				$breakcolor = "#333";
 				break;
 		}
 		if(empty($_REQUEST['displayPage'])) {
