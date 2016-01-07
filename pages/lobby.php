@@ -27,6 +27,6 @@
 		if($userLogin[0]['ul_household_claim'] == "Y") { 
 			echo "<a href=\"". _ROOT . "/?displayPage=household_claim\"><button type=\"button\" 
 			class=\"w100 btn btn-success navbar-btn btn-lg mr5 p25 h150 col-md-12\">Household Claim</button></a><br>";
-        }
+        } 
 		?>
 </div> 
