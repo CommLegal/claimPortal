@@ -14,7 +14,7 @@
                 <span class="input-group-addon"><i class = "fa fa-calendar"></i></span>
             </div>
             
-            <br /><br />
+            <br />
                 
             <label>Reason for Unassisted:</label>
             <select id = "household_claim--hc_claim_type" name="household_claim--hc_claim_type">
