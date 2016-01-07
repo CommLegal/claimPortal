@@ -49,7 +49,7 @@
 		<form method="post" enctype="multipart/form-data" id="he_assisted">
             
             <label>Reason for Assisted:</label>
-            <select id = "home_emergency--he_unassist_reason" name="home_emergency--he_unassist_reason">
+            <select id = "home_emergency--he_assist_reason" name="home_emergency--he_assist_reason">
                 <option value="1">Burst/Blocked Pipes</option>
                 <option value="2">Fire</option>
                 <option value="3">Burglary/attempted burglary</option>
@@ -64,7 +64,7 @@
             
             <div id="reasonbox">
                 <label>More Details:</label>
-                <textarea type="text" name ="home_emergency--he_unassist_desc" rows = "10" cols="70" class="form-control mb25" placeholder="" > </textarea>
+                <textarea type="text" name ="home_emergency--he_assist_desc" rows = "10" cols="70" class="form-control mb25" placeholder="" > </textarea>
             </div>
         
         	<input type="hidden" id="claimType" name="claimType" value="home_emergency"  />

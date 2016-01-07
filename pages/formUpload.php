@@ -24,6 +24,12 @@ if($_POST['claimType'] == "fnol") {
 if($_POST['claimType'] == "windscreen") {
 	$_POST['windscreen--w_c_id'] = $claim_number;
 }
+if($_POST['claimType'] == "home_emergency") {
+	$_POST['home_emergency--he_c_id'] = $claim_number;
+}
+if($_POST['claimType'] == "household_claim") {
+	$_POST['household_claim--hc_c_id'] = $claim_number;
+}
 unset($_POST['claim_ref']);
 unset($_POST['claimType']);
 			 
@@ -35,7 +41,7 @@ foreach($_POST as $key => $value) {
 	$formVals[$fieldSplit[0]][$fieldSplit[1]] = $value;
 }
 
-$tables = array("accident_recovery" => "ar_c_id", "breakdown_assistance" => "db_c_id", "fnol" => "f_c_id", "windscreen" => "w_c_id");
+$tables = array("accident_recovery" => "ar_c_id", "breakdown_assistance" => "db_c_id", "fnol" => "f_c_id", "windscreen" => "w_c_id", "home_emergency" => "he_c_id", "household_claim" => "hc_c_id");
 
 foreach($tables as $table => $field) {
 	// header = table name, value = primary key set above
@@ -76,6 +82,14 @@ foreach($tables as $table => $field) {
 			elseif($table == "windscreen"){
 				$cp = $conn->execute_sql("insert", $insertFields, $table, "", "");
 				$conn->execute_sql("update", array("c_w_id" => $cp), "claims", "c_id=?", array("i" => $claim_number));
+			}
+			elseif($table == "home_emergency"){
+				$cp = $conn->execute_sql("insert", $insertFields, $table, "", "");
+				$conn->execute_sql("update", array("c_he_id" => $cp), "claims", "c_id=?", array("i" => $claim_number));
+			}
+			elseif($table == "household_claim"){
+				$cp = $conn->execute_sql("insert", $insertFields, $table, "", "");
+				$conn->execute_sql("update", array("c_hc_id" => $cp), "claims", "c_id=?", array("i" => $claim_number));
 			}
 		}
 		else {	
