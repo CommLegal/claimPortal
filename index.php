@@ -82,7 +82,7 @@ require('pages/nav.php');
 			case "household_claim":
 				echo "<h3>Household Claim</h3><div class=\"title-divider\"></div>";
 				$bgcolor = "#f0AD4E";
-				$fontcolor = "333";
+				$fontcolor = "#333";
 				$breakcolor = "#333";
 				break;
 		}
