@@ -10,7 +10,7 @@
             
             <label>Date of Claim:</label>
             <div class="input-group mb10">
-            <input required type="text" name="household_claim--hc_date" id="household_claim--hc_date" class="form-control mb10 datepicker" placeholder="" value="">
+            <input required type="text" name="household_claim--hc_date" id="household_claim--hc_date" class="form-control mb10 datepicker" placeholder="" width="100" value="">
                 <span class="input-group-addon"><i class = "fa fa-calendar"></i></span>
             </div>
                 
