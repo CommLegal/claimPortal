@@ -231,7 +231,22 @@ $("#he_assisted_submit").click(function(e) {
 		data,
 		function(data){
 		  $(".save-result").html(data); 
-		  //window.location.replace("https://portal.commercial-legal.co.uk/?displayPage=success");
+		  window.location.replace("https://portal.commercial-legal.co.uk/?displayPage=success");
+		}
+	  );
+});
+
+$("#he_unassisted_submit").click(function(e) {
+	e.preventDefault();
+								 
+	var data = $("#he_assisted").serializeArray();
+
+	$.post(
+	   'pages/formUpload.php',
+		data,
+		function(data){
+		  $(".save-result").html(data); 
+		  window.location.replace("https://portal.commercial-legal.co.uk/?displayPage=success");
 		}
 	  );
 });
