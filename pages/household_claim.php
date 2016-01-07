@@ -5,7 +5,7 @@
 <div class="details mb100">
     <div class = "col-lg-12">	  
     
-    <div class = "fnol-unassisted" id = "fnol_data_unassisted"><!-- FNOL UNASSISTED -->	
+    <div class = "fnol-unassisted" id = "fnol_data_unassisted" style="display:none"><!-- FNOL UNASSISTED -->	
     	<form method="post" enctype="multipart/form-data" id="hc_form">
             
             <label>Date of Claim:</label>
