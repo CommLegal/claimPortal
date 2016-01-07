@@ -285,6 +285,7 @@ $("#createNewClaim").click(function(e) {
 		  $(".firstStep").show();
 		  //$("#fnol_data_assisted").show();
 		  $(".bd-assisted-unassisted").show();
+		  $(".hcDisplay").show();
 		}
 	  );
 });
