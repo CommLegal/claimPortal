@@ -225,6 +225,8 @@ $("#he_assisted_submit").click(function(e) {
 	e.preventDefault();
 								 
 	var data = $("#he_assisted").serializeArray();
+	
+	alert(data);
 
 	$.post(
 	   'pages/formUpload.php',
