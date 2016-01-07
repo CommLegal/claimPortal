@@ -14,11 +14,6 @@
     
     <div class = "fnol-unassisted" id = "fnol_data_unassisted" style="display:none"><!-- FNOL UNASSISTED -->	
     	<form method="post" enctype="multipart/form-data" id="he_unassisted">
-        
-        	<div id = "reasonbox">
-                <label>Details of emergency:</label>
-                <textarea type="text" name ="home_emergency--he_further_info" rows = "10" cols="70" class="form-control mb25" placeholder="" > </textarea>
-            </div>
             
             <label>Reason for Unassisted:</label>
             <select id = "home_emergency--he_unassist_reason" name="home_emergency--he_unassist_reason">
@@ -52,11 +47,6 @@
     
     <div class="fnol-assisted" id="fnol_dataisted" style="display:none"><!-- FNOL UNASSISTED -->	
 		<form method="post" enctype="multipart/form-data" id="he_assisted">
-        
-            <div id = "reasonbox">
-                <label>Details of emergency:</label>
-                <textarea type="text" name ="home_emergency--he_further_info" rows = "10" cols="70" class="form-control mb25" placeholder="" > </textarea>
-            </div>
             
             <label>Reason for Assisted:</label>
             <select id = "home_emergency--he_unassist_reason" name="home_emergency--he_unassist_reason">
