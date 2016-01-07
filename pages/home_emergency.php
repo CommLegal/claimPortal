@@ -6,9 +6,9 @@
     <div class = "col-lg-12">	  
     
     <div class="well bd-assisted-unassisted" style="display: none;">
-        <button type="button" class="btn btn-success navbar-btn btn-lg col-md-5" id = "assistedbutt">Assisted</button>
+        <button type="button" class="btn btn-success navbar-btn btn-lg col-md-5" id="assistedbutt">Assisted</button>
         <div class = "col-md-2"></div>
-        <button type="button" class="btn btn-danger navbar-btn btn-lg col-md-5" id = "unassistedbutt">Unassisted</button>
+        <button type="button" class="btn btn-danger navbar-btn btn-lg col-md-5" id="unassistedbutt">Unassisted</button>
         <div style="clear: both;"></div>
     </div> 
     
@@ -70,7 +70,7 @@
         	<input type="hidden" id="claimType" name="claimType" value="home_emergency"  />
             <input type="hidden" id="home_emergency--he_assisted_unassisted" name="home_emergency--he_assisted_unassisted" value="Assisted"  />
             
-            <button class = "btn btn-lg btn-success mb25" id = "he_assisted_submit">Accept & Save &nbsp;<i class="fa fa-lg fa-floppy-o"></i></button>
+            <button class = "btn btn-lg btn-success mb25" id="he_assisted_submit">Accept & Save &nbsp;<i class="fa fa-lg fa-floppy-o"></i></button>
             <button class = "btn btn-lg btn-danger mb25 cancel pull-right">Cancel &nbsp;<i class="fa fa-lg fa-times"></i></button>
             
         </form>
