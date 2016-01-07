@@ -57,7 +57,7 @@
                 <option value="5">Removal of wasps/hornet nests</option>
                 <option value="6">Damage to locks/Entrance</option>
                 <option value="7">Damage to bricks/doors/windows</option>
-                <option value="8">Guttering – Upgrade Only</option>
+                <option value="8">Guttering - Upgrade Only</option>
             </select>
      
             <br /><br />
