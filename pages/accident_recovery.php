@@ -1,4 +1,5 @@
-	<!-- SEARCH -->  
+	<?php echo $policyDetail[0]['p_broker'] ?>
+    <!-- SEARCH -->  
 	<div class="container">
 
 	<div class="col-md-12 mb25 mt25"> <!-- TOP--> 
