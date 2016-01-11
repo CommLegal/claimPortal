@@ -5,7 +5,7 @@
     
     <div class="col-md-12 mt15 firstStep" style="display: none;">
     		<?php
-				$proceed = 1;
+				/*$proceed = 1;
 				$dow = date("N");
 				$time = date("H") . date("i");
 				
@@ -19,7 +19,7 @@
 						}
 						$proceed = 0; 
 					}
-					else {
+					else {*/
 						if($policyInfo[$header]['p_broker'] !== "ONE Insurance Limited") {
 							echo "
 							<div class=\"well mb25 pb50 ntp\"><h3>Does the consumer deem the accident to be their fault?</h3>
@@ -29,7 +29,7 @@
 							$proceed = 0;
 						}
 						//<!--If the consumer states no – assist the recovery and complete the FNOL form.
-					}
+				 /*}
 				}
 				elseif($dow >= 6 && $dow <= 7) {
 					if($time >= 0900 && $time <= 1730) { 
@@ -48,7 +48,7 @@
 						}
 						//<!--If the consumer states no – assist the recovery and complete the FNOL form.
 					}
-				}
+				}*/
 
 			?>
 			<div class="well faultClaim ntp" style="display: none;">
