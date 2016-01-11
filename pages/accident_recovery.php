@@ -1,4 +1,3 @@
-	<?php echo $policyDetail[0]['p_broker'] ?>
     <!-- SEARCH -->  
 	<div class="container">
 
