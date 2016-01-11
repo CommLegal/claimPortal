@@ -21,7 +21,7 @@
 						$proceed = 0; 
 					}
 					else {*/
-						if($policyInfo[$header]['p_broker'] !== "ONE Insurance Limited") {
+						if($policyDetail[0]['p_broker'] !== "ONE Insurance Limited") {
 							echo "
 							<div class=\"well mb25 pb50 ntp\"><h3>Does the consumer deem the accident to be their fault?</h3>
 								<div class=\"faultclaimButton btn btn-default col-md-5 col-xs-12\">Yes</div><div class=\"col-md-2\"></div>
@@ -54,9 +54,9 @@
 			?>
 			<div class="well faultClaim ntp" style="display: none;">
 				<!-- If Insurer is not OIL -->
-                <?php $brokerNumber = $conn->execute_sql("select", array('ic_number'), "insurer_contacts", "ic_title=?", array("s" => $policyInfo[$header]['p_broker'])); ?>
+                <?php $brokerNumber = $conn->execute_sql("select", array('ic_number'), "insurer_contacts", "ic_title=?", array("s" => $policyDetail[0]['p_broker'])); ?>
                 <h3>This claim needs to be referred to the consumers insurance company, please read the following script:</h3>
-				 <h4 style="padding-top: 15px;">"I see you are insured with <?php echo $policyInfo[$header]['p_broker'] ?>. I will need to give you a contact number 
+				 <h4 style="padding-top: 15px;">"I see you are insured with <?php echo $policyDetail[0]['p_broker'] ?>. I will need to give you a contact number 
                  for them as they are your insurer and will deal with your claim or recovery.
 				 <br /><br />Please contact your insurer on <b><?php echo $brokerNumber[0]['ic_number'] ?></b>"</h4>
                  <form id="confirmUnassist" method="post" action="">
