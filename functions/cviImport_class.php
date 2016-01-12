@@ -48,56 +48,56 @@ class cviImport_class {
 			0 => array("Cust Num", "policy_holders:ph_customerNo"),
 			1 => array("Title", "policy_holders:ph_title"),
 			2 => array("Surname", "policy_holders:ph_surname"),
-			2 => array("Forename", "policy_holders:ph_forename"),
-			3 => array("Address1", "policy_holders:ph_address1"),
-			4 => array("Address2", "policy_holders:ph_address2"),
-			5 => array("Address3", "policy_holders:ph_address3"),
-			6 => array("Address4", "policy_holders:ph_address4"),
-			7 => array("Post Code", "policy_holders:ph_postcode"),
-			8 => array("Home Tel", "policy_holders:ph_telephone"),
-			9 => array("Work Tel", "policy_holders:ph_telephone_other"),
-			10 => array("E-Mail", "policy_holders:ph_email"),
-			11 => array("Policy Id", ""),
-			12 => array("Policy Type", "policy:p_policy_type"),
-			13 => array("PolicyNumber", "policy:p_policy_number"),
-			14 => array("Insurer", "policy:p_broker"),
-			15 => array("Status", ""),
-			16 => array("Inception", "policy:p_inception_date"),
-			17 => array("Renewal", "policy:p_renewal_date"),
-			18 => array("Quote", ""),
-			19 => array("Sale Method", ""),
-			20 => array("Advised", ""),
-			21 => array("User", ""),
-			22 => array("Branch", ""),
-			23 => array("Agent", ""),
-			24 => array("Scheme", ""),
-			25 => array("Instl. Plan", ""),
-			26 => array("Acc. Type", ""),
-			27 => array("Source", ""),
-			28 => array("SaleType", ""),
-			29 => array("Campaign", ""),
-			30 => array("Period", ""),
-			31 => array("lx Insurer", ""),
-			32 => array("lx Scheme", ""),
-			33 => array("lx Pol Num", ""),
-			34 => array("lx Prem.", ""),
-			35 => array("lx Inception", ""),
-			36 => array("lx Renewal", ""),
-			37 => array("Scheme", ""),
-			38 => array("PostDate", ""),
-			39 => array("Protected", ""),
-			40 => array("GrossPremium", ""),
-			41 => array("DriverDOB", ""),
-			42 => array("Vehicle", "vehicles:v_long_desc"),
-			43 => array("VehValue", "vehicles:v_value"),
-			44 => array("Registration", "vehicles:v_reg"),
-			45 => array("P_Canc", ""),
-			46 => array("P_Code", ""),
-			47 => array("P_Description", ""),
-			48 => array("P_Insurer", ""),
-			49 => array("P_PolType", ""),
-			50 => array("P_Prem", ""),
-			51 => array("P_Scheme", "")
+			3 => array("Forename", "policy_holders:ph_forename"),
+			4 => array("Address1", "policy_holders:ph_address1"),
+			5 => array("Address2", "policy_holders:ph_address2"),
+			6 => array("Address3", "policy_holders:ph_address3"),
+			7 => array("Address4", "policy_holders:ph_address4"),
+			8 => array("Post Code", "policy_holders:ph_postcode"),
+			9 => array("Home Tel", "policy_holders:ph_telephone"),
+			10 => array("Work Tel", "policy_holders:ph_telephone_other"),
+			11 => array("E-Mail", "policy_holders:ph_email"),
+			12 => array("Policy Id", ""),
+			13 => array("Policy Type", "policy:p_policy_type"),
+			14 => array("PolicyNumber", "policy:p_policy_number"),
+			15 => array("Insurer", "policy:p_broker"),
+			16 => array("Status", ""),
+			17 => array("Inception", "policy:p_inception_date"),
+			18 => array("Renewal", "policy:p_renewal_date"),
+			19 => array("Quote", ""),
+			20 => array("Sale Method", ""),
+			21 => array("Advised", ""),
+			22 => array("User", ""),
+			23 => array("Branch", ""),
+			24 => array("Agent", ""),
+			25 => array("Scheme", ""),
+			26 => array("Instl. Plan", ""),
+			27 => array("Acc. Type", ""),
+			28 => array("Source", ""),
+			29 => array("SaleType", ""),
+			30 => array("Campaign", ""),
+			31 => array("Period", ""),
+			32 => array("lx Insurer", ""),
+			33 => array("lx Scheme", ""),
+			34 => array("lx Pol Num", ""),
+			35 => array("lx Prem.", ""),
+			36 => array("lx Inception", ""),
+			37 => array("lx Renewal", ""),
+			38 => array("Scheme", ""),
+			39 => array("PostDate", ""),
+			40 => array("Protected", ""),
+			41 => array("GrossPremium", ""),
+			42 => array("DriverDOB", ""),
+			43 => array("Vehicle", "vehicles:v_long_desc"),
+			44 => array("VehValue", "vehicles:v_value"),
+			45 => array("Registration", "vehicles:v_reg"),
+			46 => array("P_Canc", ""),
+			47 => array("P_Code", ""),
+			48 => array("P_Description", ""),
+			49 => array("P_Insurer", ""),
+			50 => array("P_PolType", ""),
+			51 => array("P_Prem", ""),
+			52 => array("P_Scheme", "")
 		);
 		
 		return $columns;
@@ -114,7 +114,7 @@ class cviImport_class {
 				$num = count($data);
 				$i++;
 				if($i > 1) {
-					$policyNo = $data[13];
+					$policyNo = $data[14];
 					//echo $data[$c];
 					$parseArray = array();
 					for ($c=0; $c < $num; $c++) {
@@ -150,7 +150,7 @@ class cviImport_class {
 				//get column name
 				$array = explode(":", $columns[$i][1]);
 				if(!empty($array[0])) {
-					$tableArray[$rowData[13]][$array[0]][$array[1]] = $rowData[$i];
+					$tableArray[$rowData[14]][$array[0]][$array[1]] = $rowData[$i];
 				}
 				$i++;
 			}
@@ -232,10 +232,10 @@ class cviImport_class {
 			unset($policyData);
 			unset($whereStatement);
 			
-			$ph_name = explode(",", $row['policy_holders']['ph_name']);			
+			/*$ph_name = explode(",", $row['policy_holders']['ph_name']);			
 			$row['policy_holders']['ph_forename'] = $ph_name[1];
 			$row['policy_holders']['ph_surname'] = $ph_name[0];
-			unset($row['policy_holders']['ph_name']);
+			unset($row['policy_holders']['ph_name']);*/
 					
 			// get policy_holders			
 			$policyholderData = array();
