@@ -46,7 +46,7 @@ class addonImport_class {
 		*/
 		
 		$columns = array(
-			0 => array("Trans. Type", ""),	
+			0 => array("Trans. Type", "addons:trans_type"),	
 			1 => array("Main Pol. No.", "addons:a_policy_number"),
 			2 => array("Add-On Pol. No.", ""),
 			3 => array("Insurer", ""),
@@ -104,7 +104,7 @@ class addonImport_class {
 					//var_dump($parseArray[$policyNo]);
 					unset($parseArray);
 				}
-				if($i == 2) {
+				if($i == 3) {
 					break;
 				}
 			}
@@ -179,7 +179,11 @@ class addonImport_class {
 				}
 			}*/	
 			
-			$a_id = $this->checkKey("a_id", "addons", "a_policy_number = '" . $policyNumber . "'");
+			if($row['addons']['trans_type'] == "Cancellation") {
+				$policyData['a_cancel_date'] = date("Y-m-d");	
+			}
+			
+			$a_id = $this->checkKey("a_id", "addons", "a_policy_number = '" . $policyNumber . "' and a_scheme = '" . $policyData['a_scheme'] . "'");
 			
 			$effective = str_replace("/", "-", $policyData['a_effective_date']);
 			$effective = date("Y-m-d", strtotime($effective));
