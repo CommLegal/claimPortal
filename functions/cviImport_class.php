@@ -124,7 +124,7 @@ class cviImport_class {
 					//var_dump($parseArray[$policyNo]);
 					unset($parseArray);
 				}
-				if($i == 100) {
+				if($i == 1) {
 					break;
 				}
 
@@ -518,7 +518,7 @@ class cviImport_class {
 			/* run query and return the result to the calling page, upon error write to error log */
 			echo $query . "<br /><br />";	
 
-			/*$result = $foebis->query($query);
+			$result = $foebis->query($query);
 			if($result) {
 				unset($result);
 				if($dbCallType == "insert") {	
@@ -534,7 +534,7 @@ class cviImport_class {
 					$this->writeErrorLog($foebis->error, $query);
 					//return json_encode(array('success'=>'false'));
 				}	
-			}*/
+			}
 		}
 		return false;			
 	}
