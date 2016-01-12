@@ -190,6 +190,8 @@ class cviImport_class {
 		foreach($dataRows as $column => $row) {
 			$policyNumber = $row['policy']['p_policy_number'];
 			
+			echo $policyNumber . "<br />";
+			
 			// get all addons data
 			$policyData = array();
 			$policyData = $dataRows[$column]['policy'];
@@ -516,7 +518,7 @@ class cviImport_class {
 		}
 		elseif($dbCallType == "update" || $dbCallType == "insert") {
 			/* run query and return the result to the calling page, upon error write to error log */
-			echo $query . "<br /><br />";	
+			//echo $query . "<br /><br />";	
 
 			$result = $foebis->query($query);
 			if($result) {
