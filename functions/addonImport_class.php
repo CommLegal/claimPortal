@@ -49,7 +49,7 @@ class addonImport_class {
 			0 => array("Trans. Type", ""),	
 			1 => array("Main Pol. No.", "addons:a_policy_number"),
 			2 => array("Add-On Pol. No.", ""),
-			3 => array("Insurer", "addons:a_broker"),
+			3 => array("Insurer", ""),
 			4 => array("Add-On", "addons:a_addon_type"),
 			5 => array("Scheme", "addons:a_scheme"),
 			6 => array("Effective Date", "addons:a_effective_date"),
