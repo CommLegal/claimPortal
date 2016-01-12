@@ -124,8 +124,8 @@ class cviImport_class {
 					//var_dump($parseArray[$policyNo]);
 					unset($parseArray);
 				}
-				if($i == 2) {
-					//break;
+				if($i == 51) {
+					break;
 				}
 
 			}
