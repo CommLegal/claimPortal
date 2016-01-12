@@ -1,6 +1,6 @@
 <?php
 //require_once('../includes/config.php');
-error_reporting(E_ALL);
+error_reporting(E_ERROR);
 set_time_limit(0);
 ini_set('display_errors', 1);
 ini_set('max_execution_time', '-1');
@@ -125,7 +125,7 @@ class cviImport_class {
 					unset($parseArray);
 				}
 				if($i == 51) {
-					break;
+					//break;
 				}
 
 			}
