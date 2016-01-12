@@ -29,7 +29,7 @@ class addonImport_class {
 		//$lastDay = date("d") - 1;
 
 		//$file = "/feed/addbord_" . date("dmY") . ".csv";
-		$file = "files/Add On Data.csv";
+		$file = "files/addbord_09112015.csv";
 		
 		// run through the CSV and pass back the results
 		$data = $this->parseCSV($file);
@@ -46,60 +46,38 @@ class addonImport_class {
 		*/
 		
 		$columns = array(
-			0 => array("Cust Num", ""),	
-			1 => array("Title", "addon_policy_holders:aph_title"),
-			2 => array("Original", ""),
-			3 => array("Firstname(s)", "addon_policy_holders:aph_forename"),
-			4 => array("Surname", "addon_policy_holders:aph_surname"),
-			5 => array("Address1", "addon_policy_holders:aph_address1"),
-			6 => array("Address2", "addon_policy_holders:aph_address2"),
-			7 => array("Address3", "addon_policy_holders:aph_address3"),
-			8 => array("Address4", "addon_policy_holders:aph_address4"),
-			9 => array("Post Code", "addon_policy_holders:aph_postcode"),
-			10 => array("Home Tel", "addon_policy_holders:aph_telephone"),
-			11 => array("Work Tel", "addon_policy_holders:aph_telephone_other"),
-			12 => array("E-Mail", "addon_policy_holders:aph_email"),
-			13=> array("Policy Id", ""),
-			14 => array("PolicyType", ""),
-			15 => array("PolicyNumber", "addons:a_policy_number"),
-			16 => array("Insurer", "addons:a_broker"),
-			17 => array("Status", ""),
-			18 => array("Inception", "addons:a_effective_date"),
-			19 => array("Renewal", "addons:a_renewal_date"),
-			20 => array("Quote", ""),
-			21 => array("SaleMethod", ""),
-			22 => array("Advised", ""),
-			23 => array("User", ""),
-			24 => array("Branch", ""),
-			25 => array("Agent", ""),
-			26 => array("Scheme", ""),
-			27 => array("Instl. Plan", ""),
-			28 => array("Acc. Type", ""),
-			29 => array("Source", ""),
-			30 => array("SaleType", ""),
-			31 => array("Campaign", ""),
-			32 => array("Period", ""),
-			33 => array("lx Insurer", ""),
-			34 => array("lx Scheme", ""),
-			35 => array("lx Pol Num", ""),
-			36 => array("lx Prem.", ""),
-			37 => array("lx Inception", ""),
-			38 => array("lx Renewal", ""),
-			39 => array("Scheme", ""),
-			40 => array("PostDate", ""),
-			41 => array("Protected", ""),
-			42 => array("GrossPremium", ""),
-			43 => array("DriverDOB", ""),
-			44 => array("Vehicle", "addon_vehicles:av_long_desc"),
-			45 => array("VehValue", "addon_vehicles:av_value"),
-			46 => array("Registration", "addon_vehicles:av_reg"),
-			47 => array("P_Canc", ""),
-			48 => array("P_Code", ""),			
-			49 => array("P_Description", "addons:a_description"),
-			50 => array("P_Insurer", "addons:a_insurer"),
-			51 => array("P_PolType", "addons:a_addon_type"),
-			52 => array("P_Prem", "addons:a_gross_premium"),
-			53 => array("P_Scheme", "addons:a_scheme")
+			0 => array("Trans. Type", ""),	
+			1 => array("Main Pol. No.", "addons:a_policy_number"),
+			2 => array("Add-On Pol. No.", ""),
+			3 => array("Insurer", "addons:a_broker"),
+			4 => array("Add-On", "addons:a_addon_type"),
+			5 => array("Scheme", "addons:a_scheme"),
+			6 => array("Effective Date", "addons:a_effective_date"),
+			7 => array("Renewal Date", "addons:a_renewal_date"),
+			8 => array("Gross Premium", "addons:a_gross_premium"),
+			9 => array("IPT", "addons:a_ipt"),
+			10 => array("Nett Premium", "addons:a_net_premium"),
+			11 => array("Forename", "addon_policy_holders:aph_forename"),
+			12 => array("Surname", "addon_policy_holders:aph_surname"),
+			13=> array("Date Of Birth", "addon_policy_holders:dob"),
+			14 => array("Age", "addon_policy_holders:aph_age"),
+			15 => array("Postcode", "addon_policy_holders:aph_postcode"),
+			16 => array("Address1", "addon_policy_holders:aph_address1"),
+			17 => array("Address2", "addon_policy_holders:aph_address2"),
+			18 => array("Address3", "addon_policy_holders:aph_address3"),
+			19 => array("Address4", "addon_policy_holders:aph_address4"),
+			20 => array("Home Tel. No.", "addon_policy_holders:aph_telephone"),
+			21 => array("Work Tel. No.", "addon_policy_holders:aph_telephone_other"),
+			22 => array("Mobile No.", "addon_policy_holders:aph_mobile"),
+			23 => array("Email Address", "addon_policy_holders:aph_email"),
+			24 => array("Model ABI Code", ""),
+			25 => array("Vehicle Reg.", "addon_vehicles:av_reg"),
+			26 => array("Manufacturer ABI", "addon_vehicles:av_model"),
+			27 => array("Model", "addon_vehicles:av_model"),
+			28 => array("Year", "addon_vehicles:av_yom"),
+			29 => array("Engine Size", "addon_vehicles:av_cc"),
+			30 => array("Value", "addon_vehicles:av_value"),
+			31 => array("Unique ID", "")
 		);
 		
 		return $columns;
@@ -116,7 +94,7 @@ class addonImport_class {
 				$num = count($data);
 				$i++;
 				if($i > 2) {
-					$policyNo = $data[15];
+					$policyNo = $data[1];
 					//echo $data[$c];
 					$parseArray = array();
 					for ($c=0; $c < $num; $c++) {
@@ -151,7 +129,7 @@ class addonImport_class {
 				//get column name
 				$array = explode(":", $columns[$i][1]);
 				if(!empty($array[0])) {
-					$tableArray[$rowData[15]][$array[0]][$array[1]] = $rowData[$i];
+					$tableArray[$rowData[1]][$array[0]][$array[1]] = $rowData[$i];
 				}
 				$i++;
 			}
@@ -199,7 +177,9 @@ class addonImport_class {
 				if(!empty($row['addons'])) {
 					$policyData = $row['addons'][$header];
 				}
-			}*/		
+			}*/	
+			
+			$a_id = $this->checkKey("a_id", "addons", "a_policy_number = '" . $policyNumber . "'");
 			
 			$effective = str_replace("/", "-", $policyData['a_effective_date']);
 			$effective = date("Y-m-d", strtotime($effective));
@@ -209,7 +189,16 @@ class addonImport_class {
 			$policyData['a_effective_date'] = $effective;
 			$policyData['a_inception_date'] = $effective;
 			
-			$a_id = $this->execute_sql("insert", $policyData, "addons", "");	
+			
+			if($a_id) {
+				$action = "update";
+				$whereStatement = "a_id = " . $a_id;
+				$this->execute_sql($action, $policyData, "addons", $whereStatement);
+			}
+			else {
+				$action = "insert";	
+				$a_id = $this->execute_sql($action, $policyData, "addons", "");	
+			}
 												   
 			//$this->execute_sql($action, $policyData, "addons", $whereStatement);
 			unset($policyData);
@@ -224,10 +213,19 @@ class addonImport_class {
 				}
 			}
 			
+			$ph_id = $this->checkKey("a_aph_id", "addons", "a_id = " . $a_id);
 			$policyholderData['aph_p_id'] = $a_id;
 		
-			$aph_id = $this->execute_sql("insert", $policyholderData, "addon_policy_holders", "");
-			$this->execute_sql("update", array("a_aph_id" => $aph_id), "addons", "a_id=" . $a_id);									  
+			if($ph_id) {
+				$action = "update";
+				$whereStatement = "aph_id = " . $ph_id;
+				$this->execute_sql($action, $policyholderData, "addon_policy_holders", $whereStatement);
+			}
+			else {
+				$action = "insert";	
+				$ph_id = $this->execute_sql($action, $policyholderData, "addon_policy_holders", "");
+				$this->execute_sql("update", array("a_aph_id" => $ph_id), "addons", "a_id=" . $a_id);
+			}									  
 			
 			unset($phDriver);
 			unset($policyholderData);
@@ -246,15 +244,6 @@ class addonImport_class {
 					$vehicleData[$header] = $row['addon_vehicles'][$header];
 				}
 			}
-			$vehicle = $row['addon_vehicles']['av_long_desc'];
-			$makemodel = explode(",", $vehicle);
-			$extrainfo = explode(" ", $makemodel[3]);
-			
-			$vehicleData['av_make'] = ucwords(strtolower(trim($makemodel[0])));
-			$vehicleData['av_model'] = ucwords(strtolower(trim($makemodel[1])));
-			$vehicleData['av_cc'] = ucwords(strtolower(trim($makemodel[2])));
-			$vehicleData['av_fuel_type'] = ucwords(strtolower(trim($extrainfo[2])));
-			$vehicleData['av_transmission'] = ucwords(strtolower(trim($extrainfo[3])));
 			
 			$av_id = $this->execute_sql("insert", $vehicleData, "addon_vehicles", "");
 			
@@ -263,6 +252,23 @@ class addonImport_class {
 			$policyArray['a_av_id'] = $av_id;
 			$this->execute_sql("update", $policyArray, "addons", "a_id=" . $a_id);
 			unset($policyArray);
+			
+			$v_id = $this->checkKey("a_av_id", "addons", "a_id = " . $a_id);
+		
+			if($v_id) {
+				$action = "update";
+				$whereStatement = "av_id = " . $v_id;
+				$this->execute_sql($action, $vehicleData, "addon_vehicles", $whereStatement);
+			}
+			else {
+				$action = "insert";	
+				$v_id = $this->execute_sql($action, $vehicleData, "addon_vehicles", "");
+
+				$policyArray = array();
+				$policyArray['a_av_id'] = $v_id;
+				$this->execute_sql("update", $policyArray, "addons", "a_id=" . $a_id);
+				unset($policyArray);
+			}
 							
 			unset($vehicleData);
 			unset($whereStatement);
@@ -476,7 +482,7 @@ class addonImport_class {
 			/* run query and return the result to the calling page, upon error write to error log */
 			echo $query . "<br /><br />";	
 
-			$result = $foebis->query($query);
+			/*$result = $foebis->query($query);
 			if($result) {
 				unset($result);
 				if($dbCallType == "insert") {	
@@ -492,7 +498,7 @@ class addonImport_class {
 					$this->writeErrorLog($foebis->error, $query);
 					//return json_encode(array('success'=>'false'));
 				}	
-			}
+			}*/
 		}
 		return false;			
 	}
