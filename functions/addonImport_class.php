@@ -179,11 +179,11 @@ class addonImport_class {
 				}
 			}*/	
 			
-			if($row['addons']['trans_type'] == "Cancellation") {
+			if($policyData['trans_type'] == "Cancellation") {
 				$policyData['a_cancel_date'] = date("Y-m-d");
 				
 			}
-			unset($policyData['addons']['trans_type']);
+			unset($policyData['trans_type']);
 			
 			$a_id = $this->checkKey("a_id", "addons", "a_policy_number = '" . $policyNumber . "' and a_scheme = '" . $policyData['a_scheme'] . "'");
 			
