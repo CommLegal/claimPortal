@@ -47,7 +47,8 @@ class cviImport_class {
 		$columns = array(
 			0 => array("Cust Num", "policy_holders:ph_customerNo"),
 			1 => array("Title", "policy_holders:ph_title"),
-			2 => array("Name", "policy_holders:ph_name"),
+			2 => array("Surname", "policy_holders:ph_surname"),
+			2 => array("Forename", "policy_holders:ph_forename"),
 			3 => array("Address1", "policy_holders:ph_address1"),
 			4 => array("Address2", "policy_holders:ph_address2"),
 			5 => array("Address3", "policy_holders:ph_address3"),
@@ -57,7 +58,7 @@ class cviImport_class {
 			9 => array("Work Tel", "policy_holders:ph_telephone_other"),
 			10 => array("E-Mail", "policy_holders:ph_email"),
 			11 => array("Policy Id", ""),
-			12 => array("Policy Type", ""),
+			12 => array("Policy Type", "policy:p_policy_type"),
 			13 => array("PolicyNumber", "policy:p_policy_number"),
 			14 => array("Insurer", "policy:p_broker"),
 			15 => array("Status", ""),
@@ -80,9 +81,6 @@ class cviImport_class {
 			32 => array("lx Scheme", ""),
 			33 => array("lx Pol Num", ""),
 			34 => array("lx Prem.", ""),
-			
-			//Cust Num	Title	Name	Address1	Address2	Address3	Address4	Post Code	Home Tel	Work Tel	E-Mail	Policy Id	PolicyType	PolicyNumber	Insurer	Status	Inception	Renewal	Quote	SaleMethod	Advised	User	Branch	Agent	Scheme	Instl. Plan	Acc. Type	Source	SaleType	Campaign	Period	lx Insurer	lx Scheme	lx Pol Num	lx Prem.	lx Inception	lx Renewal	Scheme	PostDate	Protected	GrossPremium	DriverDOB	Vehicle	VehValue	Registration	P_Canc	P_Code	P_Description	P_Insurer	P_PolType	P_Prem	P_Scheme
-			
 			35 => array("lx Inception", ""),
 			36 => array("lx Renewal", ""),
 			37 => array("Scheme", ""),
@@ -209,7 +207,15 @@ class cviImport_class {
 			$policyData['p_renewal_date'] = $renewal;
 			$policyData['p_effective_date'] = $effective;
 			$policyData['p_inception_date'] = $effective;
-			$policyData['p_policy_type'] = "COMMERCIAL";
+			
+			switch($row['policy']['p_policy_type']) {
+				case "Commercial Vehicle Integrated":
+					$policyData['p_policy_type'] = "COMMERCIAL";
+					break;
+				case "Private Car":
+					$policyData['p_policy_type'] = "PRIVATE";
+					break;
+			}
 			
 			if($p_id) {
 				$action = "update";
@@ -509,9 +515,9 @@ class cviImport_class {
 		}
 		elseif($dbCallType == "update" || $dbCallType == "insert") {
 			/* run query and return the result to the calling page, upon error write to error log */
-			//echo $query . "<br /><br />";	
+			echo $query . "<br /><br />";	
 
-			$result = $foebis->query($query);
+			/*$result = $foebis->query($query);
 			if($result) {
 				unset($result);
 				if($dbCallType == "insert") {	
@@ -527,7 +533,7 @@ class cviImport_class {
 					$this->writeErrorLog($foebis->error, $query);
 					//return json_encode(array('success'=>'false'));
 				}	
-			}
+			}*/
 		}
 		return false;			
 	}
