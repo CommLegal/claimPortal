@@ -105,7 +105,7 @@ class addonImport_class {
 					unset($parseArray);
 				}
 				if($i == 10) {
-					break;
+					//break;
 				}
 			}
 		}
@@ -168,6 +168,8 @@ class addonImport_class {
 		//var_dump($dataRows);
 		foreach($dataRows as $column => $row) {
 			$policyNumber = $row['addons']['a_policy_number'];
+			
+			echo $policyNumber . "<br />";
 			
 			// get all addons data
 			$policyData = array();
