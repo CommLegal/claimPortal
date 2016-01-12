@@ -104,7 +104,7 @@ class addonImport_class {
 					//var_dump($parseArray[$policyNo]);
 					unset($parseArray);
 				}
-				if($i == 3) {
+				if($i == 10) {
 					break;
 				}
 			}
