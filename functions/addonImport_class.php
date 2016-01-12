@@ -5,9 +5,9 @@ set_time_limit(0);
 ini_set('display_errors', 1);
 ini_set('max_execution_time', '-1');
 
-define("_CME_HOSTNAME", "192.168.3.214");
+define("_CME_HOSTNAME", "5.159.226.131");
 define("_CME_USERNAME", "claimPortal");
-define("_CME_PASSWORD", "claimPortal001!");
+define("_CME_PASSWORD", "CLadmin001!");
 define("_CME_DATABASE", "claimPortal");
 
 @$foebis = new mysqli(_CME_HOSTNAME, _CME_USERNAME, _CME_PASSWORD, _CME_DATABASE);
