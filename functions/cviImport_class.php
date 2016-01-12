@@ -125,7 +125,7 @@ class cviImport_class {
 					unset($parseArray);
 				}
 				if($i == 2) {
-					break;
+					//break;
 				}
 
 			}
@@ -227,8 +227,6 @@ class cviImport_class {
 				$action = "insert";	
 				$p_id = $this->execute_sql($action, $policyData, "policy", "");	
 			}
-			
-			echo $p_id;
 												   
 			//$this->execute_sql($action, $policyData, "addons", $whereStatement);
 			unset($policyData);
