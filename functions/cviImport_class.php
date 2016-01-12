@@ -533,6 +533,7 @@ class cviImport_class {
 			else {
 				unset($result);
 				if($foebis->error) {
+					echo $foebis->error;
 					$this->writeErrorLog($foebis->error, $query);
 					//return json_encode(array('success'=>'false'));
 				}	
