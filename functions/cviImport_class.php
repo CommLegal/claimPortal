@@ -120,13 +120,14 @@ class cviImport_class {
 					for ($c=0; $c < $num; $c++) {
 						$parseArray[$policyNo][$c] = $data[$c];
 					}
+					if($i == 370) {
+						return false;
+					}
 					$this->analyseData($columns, $parseArray);
 					//var_dump($parseArray[$policyNo]);
 					unset($parseArray);
 				}
-				if($i == 370) {
-					//break;
-				}
+
 			}
 		}
 			
