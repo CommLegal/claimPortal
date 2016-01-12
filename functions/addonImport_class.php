@@ -22,20 +22,31 @@ class addonImport_class {
 	function __CONSTRUCT() {		
 		global $foebis;
 		
-		// map the CSV columns to database fields
-		//$columns = $this->feedColumns();
+		$columns = $this->feedColumns();
 		
-		//$this->getFile(date("Y.m.d")."CSV");
-		//$lastDay = date("d") - 1;
-
-		//$file = "/feed/addbord_" . date("dmY") . ".csv";
-		$file = "files/addbord_09112015.csv";
+		$date = new DateTime("2015-11-08");
+		$date->add(new DateInterval('P1D'));
 		
-		// run through the CSV and pass back the results
-		$data = $this->parseCSV($file);
+		$dir    = '../feeds';
+		$files = scandir($dir);
+		foreach($files as $header => $value) {
+			if(strpos($value, "addbord_" . $date->format('dmY')) !== false) { 
+				$filename = $value;	
+				$fileCount = $this->execute_sql("select", array("count(*) as fileCount"), "addon_update", "a_file = '" . $filename . "'");
+			}
+		}
+		if($fileCount[0]['fileCount'] == 0) {
+			$addon_id = $this->execute_sql("insert", array("a_date" => date("Y-m-d"), "a_file" => $filename, "a_started" => date("H:i:s")), "addon_update", "");
 		
-		// pass the results for splitting into database calls
-		//$dataRows = $this->analyseData($columns, $data);
+			// run through the CSV and pass back the results
+			$data = $this->parseCSV("../feeds/" . $filename, $addon_id);
+					
+			// pass the results for splitting into database calls
+			$dataRows = $this->analyseData($columns, $data, $addon_id);
+			
+			$this->execute_sql("update", array("a_finished" => date("H:i:s")), "addon_update", "a_id=" . $addon_id);
+		}
+		
 		//var_dump($dataRows);
 		mysql_close($foebis);
 	}
@@ -83,39 +94,38 @@ class addonImport_class {
 		return $columns;
 	}
 	
-	private function parseCSV($filename) {
-		$columns = $this->feedColumns();
+	private function parseCSV($filename, $addon_id) {
 		
-		//$parseArray = array();
+		$parseArray = array();
 		$i=0;
 
 		if (($handle = fopen($filename, "r")) !== FALSE) {
 			while (($data = fgetcsv($handle, 0, ",")) !== FALSE) {
+				$this->execute_sql("update", array("a_file_error" => NULL), "addon_update", "a_id=" . $addon_id);
 				$num = count($data);
 				$i++;
-				if($i > 1) {
+				if($i > 2) {
 					$policyNo = $data[1];
 					//echo $data[$c];
-					$parseArray = array();
 					for ($c=0; $c < $num; $c++) {
 						$parseArray[$policyNo][$c] = $data[$c];
 					}
-					$this->analyseData($columns, $parseArray);
-					//var_dump($parseArray[$policyNo]);
-					unset($parseArray);
 				}
-				if($i == 10) {
-					//break;
+				if($i == 5) {
+					break;
 				}
 			}
 		}
+		else {
+			$this->execute_sql("update", array("a_file_error" => "Y"), "addon_update", "a_id=" . $addon_id);	
+		}	
 			
 		fclose($handle);
 		unset($data);
 		return $parseArray;
 	}
-	
-	private function analyseData($columns, $data) {
+		
+	private function analyseData($columns, $data, $addon_id) {
 		$tableArray = array();
 		
 		foreach($data as $dataColumn => $value) {
@@ -134,12 +144,13 @@ class addonImport_class {
 				$i++;
 			}
 
-			$this->buildQueries($tableArray);
+			$this->buildQueries($tableArray, $addon_id);
 			unset($rowData);
 			unset($tableArray);
 		}
 		
 		return $tableArray;
+
 	}
 	
 	private function checkPolicyNo($policyNumber) {
@@ -164,12 +175,14 @@ class addonImport_class {
 		}
 	}
 	
-	private function buildQueries($dataRows) {
+	private function buildQueries($dataRows, $addon_id) {
 		//var_dump($dataRows);
 		foreach($dataRows as $column => $row) {
 			$policyNumber = $row['addons']['a_policy_number'];
 			
 			echo $policyNumber . "<br />";
+			
+			$this->execute_sql("insert", array("au_bu_id" => $addon_id, "au_claimno" => $policyNumber, "au_timestamp" => date("Y-m-d H:i:s"), "au_action" => $recordType), "addon_update_claims", "");
 			
 			// get all addons data
 			$policyData = array();
@@ -482,7 +495,7 @@ class addonImport_class {
 			/* run query and return the result to the calling page, upon error write to error log */
 			echo $query . "<br /><br />";	
 
-			$result = $foebis->query($query);
+			/*$result = $foebis->query($query);
 			if($result) {
 				unset($result);
 				if($dbCallType == "insert") {	
@@ -498,7 +511,7 @@ class addonImport_class {
 					$this->writeErrorLog($foebis->error, $query);
 					//return json_encode(array('success'=>'false'));
 				}	
-			}
+			}*/
 		}
 		return false;			
 	}
