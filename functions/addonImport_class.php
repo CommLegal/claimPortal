@@ -59,7 +59,7 @@ class addonImport_class {
 			10 => array("Nett Premium", "addons:a_net_premium"),
 			11 => array("Forename", "addon_policy_holders:aph_forename"),
 			12 => array("Surname", "addon_policy_holders:aph_surname"),
-			13=> array("Date Of Birth", "addon_policy_holders:dob"),
+			13=> array("Date Of Birth", "addon_policy_holders:aph_dob"),
 			14 => array("Age", "addon_policy_holders:aph_age"),
 			15 => array("Postcode", "addon_policy_holders:aph_postcode"),
 			16 => array("Address1", "addon_policy_holders:aph_address1"),
@@ -244,15 +244,7 @@ class addonImport_class {
 					$vehicleData[$header] = $row['addon_vehicles'][$header];
 				}
 			}
-			
-			$av_id = $this->execute_sql("insert", $vehicleData, "addon_vehicles", "");
-			
-			//$v_id = $this->checkKey("v_id", "vehicles", "v_p_id = '" . $p_id . "'");
-			$policyArray = array();
-			$policyArray['a_av_id'] = $av_id;
-			$this->execute_sql("update", $policyArray, "addons", "a_id=" . $a_id);
-			unset($policyArray);
-			
+					
 			$v_id = $this->checkKey("a_av_id", "addons", "a_id = " . $a_id);
 		
 			if($v_id) {
