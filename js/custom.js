@@ -179,7 +179,7 @@ $("#bd_assisted_submit").click(function(e) {
 $("#bd_unassisted_submit").click(function(e) {
 	e.preventDefault();
 								 
-	var data = $("#ws_unassisted").serializeArray();
+	var data = $("#bd_unassisted").serializeArray();
 
 	$.post(
 	   'pages/formUpload.php',
