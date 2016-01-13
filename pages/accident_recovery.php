@@ -5,50 +5,14 @@
     
     <div class="col-md-12 mt15 firstStep" style="display: none;">
     		<?php
-				/*$proceed = 1;
-				$dow = date("N");
-				$time = date("H") . date("i");
-				
-				if($dow >= 1 && $dow <= 5) {
-					if($time >= 0730 && $time <= 2100) { 
-						if($policyInfo[$header]['p_broker'] !== "ONE Insurance Limited") {
-							echo "<div class=\"well\"><h3>Within Normal Operating Hours</h3>Please inform the customer that they need to contact their insurance company 'Commercial Legal' and they will assist recovery. <h3>Please call 0203 738 7300</h3></div>";
-						}
-						else {
-							echo "<div class=\"well\"><h3>Within Normal Operating Hours</h3>Please assist recovery and inform the customer that they need to contact their insurance company 'One Insurance Limited' on the below number to process their claim.<h3>0203 738 7301</h3></div>";
-						}
-						$proceed = 0; 
-					}
-					else {*/
-						if($policyDetail[0]['p_broker'] !== "ONE Insurance Limited") {
-							echo "
-							<div class=\"well mb25 pb50 ntp\"><h3>Does the consumer deem the accident to be their fault?</h3>
-								<div class=\"faultclaimButton btn btn-default col-md-5 col-xs-12\">Yes</div><div class=\"col-md-2\"></div>
-								<div class=\"nonfaultclaimButton btn btn-default col-md-5 col-xs-12\">No</div>
-							</div>";
-							$proceed = 1;
-						}
-						//<!--If the consumer states no – assist the recovery and complete the FNOL form.
-				 /*}
+				if($policyDetail[0]['p_broker'] !== "ONE Insurance Limited") {
+					echo "
+					<div class=\"well mb25 pb50 ntp\"><h3>Does the consumer deem the accident to be their fault?</h3>
+						<div class=\"faultclaimButton btn btn-default col-md-5 col-xs-12\">Yes</div><div class=\"col-md-2\"></div>
+						<div class=\"nonfaultclaimButton btn btn-default col-md-5 col-xs-12\">No</div>
+					</div>";
+					$proceed = 1;
 				}
-				elseif($dow >= 6 && $dow <= 7) {
-					if($time >= 0900 && $time <= 1730) { 
-						if($policyInfo[$header]['p_broker'] !== "ONE Insurance Limited") {
-							echo "<div class=\"well\"><h3>Within Normal Operating Hours</h3>Please inform the customer that they need to contact their insurance company 'Commercial Legal' and they will assist recovery.<h3>Please call 0203 738 7300</h3></div>";
-						}
-						else {
-							echo "<div class=\"well\"><h3>Within Normal Operating Hours</h3>Please assist recovery and inform the customer that they need to contact their insurance company 'One Insurance Limited' on <br /><h3>0203 738 7301</h3> to process their claim</div>";
-						}
-						$proceed = 0;
-					}
-					else {
-						if($policyInfo[$header]['p_broker'] == "ONE Insurance Limited") {
-							echo "<div class=\"well\"><h3>Does the consumer deem the accident to be their fault?</h3><div class=\"faultclaimButton\">Yes</div><div class=\"nonfaultclaimButton\">No</div></div>";
-							$proceed = 0;
-						}
-						//<!--If the consumer states no – assist the recovery and complete the FNOL form.
-					}
-				}*/
 
 			?>
 			<div class="well faultClaim ntp" style="display: none;">
@@ -65,7 +29,7 @@
                  <div style="clear: both;"></div>
 			</div>	
 			
-            <div class="well assisted-unassisted" <?php if($proceed == 0) { echo "style=\"display: none;\""; } ?>>
+            <div class="well assisted-unassisted">
                 <button type="button" class="btn btn-success navbar-btn btn-lg col-md-5" id = "assistedbutt">Assisted</button>
                 <div class = "col-md-2"></div>
                 <button type="button" class="btn btn-danger navbar-btn btn-lg col-md-5" id = "unassistedbutt">Unassisted</button>
