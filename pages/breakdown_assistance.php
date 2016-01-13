@@ -35,7 +35,7 @@
             </div>
             
             <label>Reason for Unassisted:</label>
-            <select id = "breakdown_assistance--bd_unassist_reason" name="breakdown_assistance--bd_unassist_reason">
+            <select id = "breakdown_assistance--bd_unassist_desc" name="breakdown_assistance--bd_unassist_desc">
                 <option value="1">Wrong fuel</option>
                 <option value="2">Tyre related on basic</option>
                 <option value="3">Key related</option>
