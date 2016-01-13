@@ -41,7 +41,7 @@ foreach($_POST as $key => $value) {
 	$formVals[$fieldSplit[0]][$fieldSplit[1]] = $value;
 }
 
-$tables = array("accident_recovery" => "ar_c_id", "breakdown_assistance" => "db_c_id", "fnol" => "f_c_id", "windscreen" => "w_c_id", "home_emergency" => "he_c_id", "household_claim" => "hc_c_id");
+$tables = array("accident_recovery" => "ar_c_id", "breakdown_assistance" => "bd_c_id", "fnol" => "f_c_id", "windscreen" => "w_c_id", "home_emergency" => "he_c_id", "household_claim" => "hc_c_id");
 
 foreach($tables as $table => $field) {
 	// header = table name, value = primary key set above
