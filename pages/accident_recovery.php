@@ -26,7 +26,7 @@
 								<div class=\"faultclaimButton btn btn-default col-md-5 col-xs-12\">Yes</div><div class=\"col-md-2\"></div>
 								<div class=\"nonfaultclaimButton btn btn-default col-md-5 col-xs-12\">No</div>
 							</div>";
-							$proceed = 0;
+							$proceed = 1;
 						}
 						//<!--If the consumer states no – assist the recovery and complete the FNOL form.
 				 /*}
