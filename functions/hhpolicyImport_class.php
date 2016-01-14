@@ -126,7 +126,7 @@ class hhpolicyImport_class {
 					unset($parseArray);
 				}
 				if($i == 10) {
-					break;
+					//break;
 				}
 			}
 		}
@@ -453,7 +453,7 @@ class hhpolicyImport_class {
 			else {
 				unset($result);
 				if($foebis->error) {
-					echo $foebis->error;
+					//echo $foebis->error;
 					$this->writeErrorLog($foebis->error, $query);
 					//return json_encode(array('success'=>'false'));
 				}
