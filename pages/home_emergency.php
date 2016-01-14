@@ -4,7 +4,7 @@
 
 <div class="well">
         <div class="btn-group" role="group">
-          <a href="<?php _ROOT ?>pdf-docs/One-Call-Home-Information-Book.pdf" target="_blank"><button type="button" class="btn btn-default">Home Information Book</button></a>
+          <a href="<?php _ROOT ?>pdf-docs/One-Call-Home-Information-Book.pdf" target="_blank"><button type="button" class="btn btn-default">Home Insurance Information Book</button></a>
         </div>
         <div style="clear: both;"></div>
     </div>
@@ -32,8 +32,8 @@
                 <option value="6">Within 14 days</option>
                 <option value="7">Not informed within 24 hours</option>
                 <option value="8">Boilers</option>
-                <option value="9">Trace & Access</option>
-                <option value="10">Other – Out of Criteria</option>
+                <option value="9">Trace &amp; Access</option>
+                <option value="10">Other - Out of Criteria</option>
             </select>
             
             <br /><br />
