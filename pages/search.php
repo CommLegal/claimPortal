@@ -13,11 +13,13 @@
                 
                 <form method="post" enctype="multipart/form-data" id="policySearch">
                        
+                       <?php if(($_REQUEST['displayPage'] !== "home_emergency") && ($_REQUEST['displayPage'] !== "household_claim")) { ?>
                         <div class ="col-md-4">
                             <p>Vehicle registration:</p><input type="text" name="reg" class="form-control mb10" 
                             placeholder="" aria-describedby="basic-addon2" value="<?php echo $_POST['reg'] ?>">
                         </div>	
                         <div class ="col-md-1">&nbsp;</div>
+                        <?php } ?>
                         <div class ="col-md-4">
                             <p>Postcode:</p><input type="text" name="postcode" class="form-control mb10" 
                             placeholder="" aria-describedby="basic-addon2" value="<?php echo $_POST['postcode'] ?>">
