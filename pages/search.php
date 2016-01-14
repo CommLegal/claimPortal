@@ -166,7 +166,7 @@
                 <!-- OS90101589193 -->
 				<div class="col-md-6">
                 <!--<div id="hidden_claim_type" class="hidden"><?php echo $_REQUEST['displayPage']; ?>" /></div>-->
-				<h4>Vehicle Information</h4><div class="title-divider"></div>
+				<h4><?php if(($_REQUEST['displayPage'] !== "home_emergency") && ($_REQUEST['displayPage'] !== "household_claim")) { ?>Vehicle Information<?php } else { ?>Policy Information<?php } ?></h4><div class="title-divider"></div>
                         <table width="600" border="0">
                           <tr>
                             <th scope="row"><b>Policy Number:</b></th>
