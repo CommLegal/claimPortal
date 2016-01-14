@@ -131,7 +131,7 @@ class hhaddonImport_class {
 					unset($parseArray);
 				}
 				if($i == 10) {
-					break;
+					//break;
 				}
 			}
 		}
