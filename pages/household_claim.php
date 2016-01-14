@@ -16,7 +16,7 @@
             
             <br />
                 
-            <label>Reason for Unassisted:</label>
+            <label>Claim Type:</label>
             <select id = "household_claim--hc_claim_type" name="household_claim--hc_claim_type">
                 <option value="1">Accidental Damage</option>
                 <option value="2">Accidental Loss</option>
