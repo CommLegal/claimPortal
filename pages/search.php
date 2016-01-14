@@ -188,6 +188,7 @@
                             <td><?php echo "Replace: &pound;" . $wsexcessInfo[0]['ic_windscreen_replace_xs'] . " / Repair: &pound;" . $wsexcessInfo[0]['ic_windscreen_repair_xs'] ?></td>
                           </tr>
                           <?php } ?>
+                          <?php if(($_REQUEST['displayPage'] !== "home_emergency") && ($_REQUEST['displayPage'] !== "household_claim")) { ?>
                           <tr>
                             <th scope="row"><b>Vehicle Reg:</b></th>
                             <td><?php echo $policyDetail[0]['v_reg'] ?></td>
@@ -196,6 +197,7 @@
                             <th scope="row"><b>Vehicle Details:</b></th>
                             <td><?php echo $policyDetail[0]['v_make'] . " " . $policyDetail[0]['v_model'] ?></td>
                           </tr>
+                          <?php } ?>
                         </table>		
 				</div>
                 
