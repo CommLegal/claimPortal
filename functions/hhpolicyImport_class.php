@@ -455,9 +455,9 @@ class hhpolicyImport_class {
 		}
 		elseif($dbCallType == "update" || $dbCallType == "insert") {
 			/* run query and return the result to the calling page, upon error write to error log */
-			echo $query . "<br /><br />";	
+			//echo $query . "<br /><br />";	
 
-			/*$result = $foebis->query($query);
+			$result = $foebis->query($query);
 			if($result) {
 				unset($result);
 				if($dbCallType == "insert") {	
@@ -473,7 +473,7 @@ class hhpolicyImport_class {
 					$this->writeErrorLog($foebis->error, $query);
 					//return json_encode(array('success'=>'false'));
 				}	
-			}*/
+			}
 		}
 		return false;			
 	}
