@@ -78,18 +78,35 @@
 								$cover = "Fleet Cover";
 							}
 							else {
-								$breakdownInfo = $conn->execute_sql("select", array('a_scheme', 'a_description'), "addons", "a_addon_type=? and a_policy_number=? and (a_cancel_date IS NULL OR a_cancel_date = '0000-00-00') and a_renewal_date >= '" . date('Y-m-d') . "'", array("s1" => "CBA", "s2" => $policyDetail[0]['p_policy_number']));
-								if(!empty($breakdownInfo)) {
-									switch($breakdownInfo[0]['a_description']) {
-										case "RAC EU Breakdown":
-											$cover = "<span style=\"color: #f00; font-weight: bold;\">Please Refer to RAC</span>";
-											break;
-										default:
-											$cover = "Gold Breakdown";
+								if($_REQUEST['displayPage'] == "breakdown_assistance") {
+									$breakdownInfo = $conn->execute_sql("select", array('a_scheme', 'a_description'), "addons", "a_addon_type=? and a_policy_number=? and (a_cancel_date IS NULL OR a_cancel_date = '0000-00-00') and a_renewal_date >= '" . date('Y-m-d') . "'", array("s1" => "CBA", "s2" => $policyDetail[0]['p_policy_number']));
+									if(!empty($breakdownInfo)) {
+										switch($breakdownInfo[0]['a_description']) {
+											case "RAC EU Breakdown":
+												$cover = "<span style=\"color: #f00; font-weight: bold;\">Please Refer to RAC</span>";
+												break;
+											default:
+												$cover = "Gold Breakdown";
+										}
+									}
+									else {
+										$cover = "Basic Breakdown";	
 									}
 								}
-								else {
-									$cover = "Basic Breakdown";	
+								elseif(($_REQUEST['displayPage'] == "home_emergency") || ($_REQUEST['displayPage'] == "household_claim")) {
+									$householdInfo = $conn->execute_sql("select", array('a_scheme', 'a_description'), "addons", "a_addon_type=? and a_policy_number=? and (a_cancel_date IS NULL OR a_cancel_date = '0000-00-00') and a_renewal_date >= '" . date('Y-m-d') . "'", array("s1" => "CBA", "s2" => $policyDetail[0]['p_policy_number']));
+									if(!empty($householdInfo)) {
+										switch($householdInfo[0]['a_description']) {
+											case "RAC EU Breakdown":
+												$cover = "<span style=\"color: #f00; font-weight: bold;\">Please Refer to RAC</span>";
+												break;
+											default:
+												$cover = "Gold Cover";
+										}
+									}
+									else {
+										$cover = "Basic Cover";	
+									}
 								}
 							}
 						}
