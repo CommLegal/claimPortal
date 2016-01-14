@@ -30,7 +30,7 @@
                 </form>
                 
                 <?php 
-				if(!empty($_POST['reg']) || !empty($_POST['postcode'])) { 
+				if(!empty($_POST['reg']) || !empty($_POST['postcode'])) {
 					
 					if(!empty($_POST['reg'])) {
 						$policyInfo = $conn->execute_sql("select", array('v_p_id, v_id'), "vehicles", "REPLACE(v_reg, ' ', '')=?", array("s" => str_replace(" ", "", $_POST['reg'])));
