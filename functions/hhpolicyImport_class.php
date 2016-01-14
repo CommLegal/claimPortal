@@ -22,12 +22,6 @@ class hhpolicyImport_class {
 	function __CONSTRUCT() {		
 		global $foebis;
 		
-		// map the CSV columns to database fields
-		//$columns = $this->feedColumns();
-		
-		//$this->getFile(date("Y.m.d")."CSV");
-		//$lastDay = date("d") - 1;
-
 		//$file = "/feed/addbord_" . date("dmY") . ".csv";
 		$file = "files/Policy Data1.csv";
 		
@@ -35,7 +29,7 @@ class hhpolicyImport_class {
 		$data = $this->parseCSV($file);
 		
 		// pass the results for splitting into database calls
-		//$dataRows = $this->analyseData($columns, $data);
+		//$dataRows = $this->analyseData($data);
 		//var_dump($dataRows);
 		mysql_close($foebis);
 	}
@@ -44,7 +38,6 @@ class hhpolicyImport_class {
 		/* seperate table name and column name with a :
 			maps each column in the spreadsheet with a database table and field
 		*/
-		//Cust Num	Title	Name	Firstname(s)	Surname	Address1	Address2	Address3	Address4	Post Code	Home Tel	Work Tel	E-Mail	PolicyNumber	Insurer	Status	Inception	Renewal	Vehicle	Registration
 
 		$columns = array(
 			0 => array("Cust Num", "policy_holders:ph_customerNo"),
@@ -60,46 +53,46 @@ class hhpolicyImport_class {
 			11 => array("Work Tel", "policy_holders:ph_telephone_other"),
 			12 => array("E-Mail", "policy_holders:ph_email"),
 			13 => array("Policy Id", ""),
-			13 => array("PolicyType", "policy:p_policy_number"),
-			13 => array("PolicyNumber", "policy:p_policy_number"),
-			14 => array("Insurer", "policy:p_broker"),
-			15 => array("Status", ""),
-			16 => array("Inception", "policy:p_effective_date"),
-			17 => array("Renewal", "policy:p_renewal_date"),
-			18 => array("Quote", ""),
-			18 => array("SaleMethod", ""),
-			18 => array("Advised", ""),
-			18 => array("User", ""),
-			18 => array("Branch", ""),
-			18 => array("Agent", ""),
-			18 => array("Scheme", ""),
-			18 => array("Instl. Plan", ""),
-			18 => array("Acc. Type", ""),
-			18 => array("Source", ""),
-			18 => array("SaleType", ""),
-			18 => array("Campaign", ""),
-			18 => array("Period", ""),
-			18 => array("lx Insurer", ""),
-			18 => array("lx Scheme", ""),
-			18 => array("lx Pol Num", ""),
-			18 => array("lx Prem.", ""),
-			18 => array("lx Inception", ""),
-			18 => array("lx Renewal", ""),
-			18 => array("Scheme", ""),
-			18 => array("PostDate", ""),
-			18 => array("Protected", ""),
-			18 => array("GrossPremium", ""),
-			18 => array("DriverDOB", ""),
-			18 => array("Vehicle", ""),
-			18 => array("VehValue", ""),
-			18 => array("Registration", ""),
-			18 => array("P_Canc", ""),
-			18 => array("P_Code", ""),
-			18 => array("P_Description", ""),
-			18 => array("P_Insurer", ""),
-			18 => array("P_PolType", ""),
-			18 => array("P_Prem", ""),
-			18 => array("P_Scheme", "")
+			14 => array("PolicyType", "policy:p_policy_number"),
+			15 => array("PolicyNumber", "policy:p_policy_number"),
+			16 => array("Insurer", "policy:p_broker"),
+			17 => array("Status", ""),
+			18 => array("Inception", "policy:p_inception_date"),
+			19 => array("Renewal", "policy:p_renewal_date"),
+			20 => array("Quote", ""),
+			21 => array("SaleMethod", ""),
+			22 => array("Advised", ""),
+			23 => array("User", ""),
+			24 => array("Branch", ""),
+			25 => array("Agent", ""),
+			26 => array("Scheme", ""),
+			27 => array("Instl. Plan", ""),
+			28 => array("Acc. Type", ""),
+			29 => array("Source", ""),
+			30 => array("SaleType", ""),
+			31 => array("Campaign", ""),
+			32 => array("Period", ""),
+			33 => array("lx Insurer", ""),
+			34 => array("lx Scheme", ""),
+			35 => array("lx Pol Num", ""),
+			36 => array("lx Prem.", ""),
+			37 => array("lx Inception", ""),
+			38 => array("lx Renewal", ""),
+			39 => array("Scheme", ""),
+			40 => array("PostDate", ""),
+			41 => array("Protected", ""),
+			42 => array("GrossPremium", ""),
+			43 => array("DriverDOB", ""),
+			44 => array("Vehicle", ""),
+			45 => array("VehValue", ""),
+			46 => array("Registration", ""),
+			47 => array("P_Canc", ""),
+			48 => array("P_Code", ""),
+			49 => array("P_Description", ""),
+			50 => array("P_Insurer", ""),
+			51 => array("P_PolType", ""),
+			52 => array("P_Prem", ""),
+			53 => array("P_Scheme", "")
 		);																																			
 
 		
@@ -117,7 +110,7 @@ class hhpolicyImport_class {
 				$num = count($data);
 				$i++;
 				if($i > 2) {
-					$policyNo = $data[13];
+					$policyNo = $data[15];
 					//echo $data[$c];
 					$parseArray = array();
 					for ($c=0; $c < $num; $c++) {
@@ -152,7 +145,7 @@ class hhpolicyImport_class {
 				//get column name
 				$array = explode(":", $columns[$i][1]);
 				if(!empty($array[0])) {
-					$tableArray[$rowData[13]][$array[0]][$array[1]] = $rowData[$i];
+					$tableArray[$rowData[15]][$array[0]][$array[1]] = $rowData[$i];
 				}
 				$i++;
 			}
@@ -166,7 +159,7 @@ class hhpolicyImport_class {
 	}
 	
 	private function checkPolicyNo($policyNumber) {
-		$checkresult = $this->execute_sql("select", array("a_id"), "addons", "a_policy_number = '" . $policyNumber . "'");
+		$checkresult = $this->execute_sql("select", array("p_id"), "policy", "p_policy_number = '" . $policyNumber . "'");
 		//var_dump($checkresult[0]['p_id']) . "<br />";
 		if(!empty($checkresult[0]['p_id'])) {
 			return $checkresult[0]['p_id'];	
@@ -203,13 +196,16 @@ class hhpolicyImport_class {
 			}*/		
 			
 			$p_id = $this->checkKey("p_id", "policy", "p_policy_number = '" . $policyNumber . "' and p_broker = '" . $row['policy']['p_broker'] . "'");
-			$effective = str_replace("/", "-", $policyData['p_effective_date']);
-			$effective = date("Y-m-d", strtotime($effective));
+			
+			$inception = str_replace("/", "-", $policyData['p_inception_date']);
+			$inception = date("Y-m-d", strtotime($inception));
 			$renewal = str_replace("/", "-", $policyData['p_renewal_date']);
 			$renewal = date("Y-m-d", strtotime($renewal));
+			
 			$policyData['p_renewal_date'] = $renewal;
-			$policyData['p_effective_date'] = $effective;
-			$policyData['p_inception_date'] = $effective;
+			$policyData['p_effective_date'] = $inception;
+			$policyData['p_inception_date'] = $inception;
+			$policyData['p_policy_type'] = "HOUSEHOLD";
 			
 			if($p_id) {
 				$action = "update";
@@ -250,51 +246,6 @@ class hhpolicyImport_class {
 			
 			unset($phDriver);
 			unset($policyholderData);
-			unset($whereStatement);
-			
-			//break;
-			
-			//var_dump($policyholderData);
-			
-			// get vehicles			
-			$vehicleData = array();
-			$vehicleData['v_p_id'] = $p_id;
-			foreach ($row['vehicles'] as $header => $value) {
-				//$$header = ($row['addons'][$header]);
-				if(!empty($row['vehicles'][$header])) {
-					$vehicleData[$header] = $row['vehicles'][$header];
-				}
-			}
-			$vehicle = $row['vehicles']['v_long_desc'];
-			$makemodel = explode(",", $vehicle);
-			$extrainfo = explode(" ", $makemodel[3]);
-			
-			$vehicleData['v_make'] = ucwords(strtolower(trim($makemodel[0])));
-			$vehicleData['v_model'] = ucwords(strtolower(trim($makemodel[1])));
-			$vehicleData['v_cc'] = ucwords(strtolower(trim($makemodel[2])));
-			$vehicleData['v_fuel_type'] = ucwords(strtolower(trim($extrainfo[2])));
-			$vehicleData['v_transmission'] = ucwords(strtolower(trim($extrainfo[3])));
-			
-			//$vehicleData['v_p_id'] = $p_id;
-			$v_id = $this->checkKey("p_v_id", "policy", "p_id = " . $p_id);
-		
-			if($v_id) {
-				$action = "update";
-				$whereStatement = "v_id = " . $v_id;
-				$this->execute_sql($action, $vehicleData, "vehicles", $whereStatement);
-			}
-			else {
-				$action = "insert";	
-				$v_id = $this->execute_sql($action, $vehicleData, "vehicles", "");
-				
-				//$v_id = $this->checkKey("v_id", "vehicles", "v_p_id = '" . $p_id . "'");
-				$policyArray = array();
-				$policyArray['p_v_id'] = $v_id;
-				$this->execute_sql("update", $policyArray, "policy", "p_id=" . $p_id);
-				unset($policyArray);
-			}
-							
-			unset($vehicleData);
 			unset($whereStatement);
 		}
 	}
@@ -506,7 +457,7 @@ class hhpolicyImport_class {
 			/* run query and return the result to the calling page, upon error write to error log */
 			echo $query . "<br /><br />";	
 
-			$result = $foebis->query($query);
+			/*$result = $foebis->query($query);
 			if($result) {
 				unset($result);
 				if($dbCallType == "insert") {	
@@ -522,7 +473,7 @@ class hhpolicyImport_class {
 					$this->writeErrorLog($foebis->error, $query);
 					//return json_encode(array('success'=>'false'));
 				}	
-			}
+			}*/
 		}
 		return false;			
 	}
