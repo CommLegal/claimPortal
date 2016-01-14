@@ -109,7 +109,7 @@ class hhpolicyImport_class {
 			while (($data = fgetcsv($handle, 0, ",")) !== FALSE) {
 				$num = count($data);
 				$i++;
-				if($i > 2) {
+				if($i > 1) {
 					$policyNo = $data[15];
 					//echo $data[$c];
 					$parseArray = array();
@@ -120,8 +120,8 @@ class hhpolicyImport_class {
 					//var_dump($parseArray[$policyNo]);
 					unset($parseArray);
 				}
-				if($i == 370) {
-					//break;
+				if($i == 10) {
+					break;
 				}
 			}
 		}
