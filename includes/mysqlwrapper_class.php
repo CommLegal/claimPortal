@@ -261,7 +261,7 @@ class mysqlwrapper_class {
 				
 		if($dbCallType == "select") {
 			/* run query and return the result to the calling page */
-			//echo $query;
+			echo $query;
 			//$result = $cme->query($query);
 
 			if($statement->execute()) {
