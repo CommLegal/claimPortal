@@ -53,7 +53,7 @@ class hhpolicyImport_class {
 			11 => array("Work Tel", "policy_holders:ph_telephone_other"),
 			12 => array("E-Mail", "policy_holders:ph_email"),
 			13 => array("Policy Id", ""),
-			14 => array("PolicyType", "policy:p_policy_number"),
+			14 => array("PolicyType", ""),
 			15 => array("PolicyNumber", "policy:p_policy_number"),
 			16 => array("Insurer", "policy:p_broker"),
 			17 => array("Status", ""),
