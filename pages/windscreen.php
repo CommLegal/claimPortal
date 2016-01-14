@@ -8,7 +8,7 @@
         <div class="btn-group" role="group">
           <a href="http://www.onecalldirect.co.uk/existingCustomers/policy-downloads.php" target="_blank"><button type="button" class="btn btn-default">Policy Booklet</button></a>
         </div>
-        <div style="clear: both;"</div>
+        <div style="clear: both;"></div>
     </div>
     
     <div class="well mt25">

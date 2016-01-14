@@ -1,6 +1,13 @@
 <!-- SEARCH -->
 
-<div class="col-md-12 mb25"> <!-- TOP--> 
+<div class="col-md-12 mb10"> <!-- TOP--> 
+
+<div class="well">
+        <div class="btn-group" role="group">
+          <a href="<?php _ROOT ?>pdf-docs/One-Call-Home-Information-Book.pdf" target="_blank"><button type="button" class="btn btn-default">Home Information Book</button></a>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
 
 <div class="details mb100">
     <div class = "col-lg-12">	  
