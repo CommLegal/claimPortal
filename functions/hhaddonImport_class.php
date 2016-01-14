@@ -17,7 +17,7 @@ if(mysqli_connect_errno()) {
 }
 $foebis->select_db(_CME_DATABASE);
 
-class addonImport_class {
+class hhaddonImport_class {
 	
 	function __CONSTRUCT() {		
 		global $foebis;
