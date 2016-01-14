@@ -159,7 +159,7 @@ class hhpolicyImport_class {
 	}
 	
 	private function checkPolicyNo($policyNumber) {
-		$checkresult = $this->execute_sql("select", array("p_id"), "policy", "p_policy_number = '" . $policyNumber . "'");
+		$checkresult = $this->execute_sql("select", array("p_id"), "policy", "p_policy_number = '" . $policyNumber . "' and p_policy_type = 'HOUSEHOLD'");
 		//var_dump($checkresult[0]['p_id']) . "<br />";
 		if(!empty($checkresult[0]['p_id'])) {
 			return $checkresult[0]['p_id'];	
