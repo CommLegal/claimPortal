@@ -23,7 +23,7 @@ class hhpolicyImport_class {
 		global $foebis;
 		
 		//$file = "/feed/addbord_" . date("dmY") . ".csv";
-		$file = "files/Policy Data1.csv";
+		$file = "files/hhpolicies.csv";
 		
 		// run through the CSV and pass back the results
 		$data = $this->parseCSV($file);
