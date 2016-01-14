@@ -29,7 +29,7 @@ class hhaddonImport_class {
 		//$lastDay = date("d") - 1;
 
 		//$file = "/feed/addbord_" . date("dmY") . ".csv";
-		$file = "files/addbord_09112015.csv";
+		$file = "files/headdons.csv";
 		
 		// run through the CSV and pass back the results
 		$data = $this->parseCSV($file);
