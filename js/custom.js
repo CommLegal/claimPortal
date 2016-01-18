@@ -278,13 +278,13 @@ $("#createNewClaim").click(function(e) {
 	   'pages/accident_recovery_upload.php',
 		data,
 		function(data){
+			alert(data);
 		  $(".hiddenClaimType").html(data);
 		  $('#createNewClaim').hide();
 		  $(".firstStep").show();
 		  //$("#fnol_data_assisted").show();
 		  $(".bd-assisted-unassisted").show();
 		  $(".hcDisplay").show();
-		  return false;
 		}
 	  );
 });
