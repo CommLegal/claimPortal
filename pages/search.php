@@ -277,7 +277,7 @@
                 </div>
                 
                 <div class="col-md-6">
-                    <form id="hiddenClaimType" method="post" action="pages/accident_recovery_upload.php">
+                    <form id="hiddenClaimType" method="post" action="#">
                         <input id="claims--c_claim_type" name="claimType" type="hidden" value="<?php echo $_REQUEST['displayPage']; ?>" />
                         <input id="claims--c_timestamp" name="claimTimestamp" type="hidden" value="<?php echo date("Y-m-d H:i:s"); ?>" />
                         <input id="claims--c_p_id" name="policyId" type="hidden" value="<?php echo $policyDetail[0]['p_id'] ?>" />
