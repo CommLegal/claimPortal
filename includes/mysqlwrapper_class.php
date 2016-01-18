@@ -297,7 +297,7 @@ class mysqlwrapper_class {
 			}
 			else {
 				if($cme->error) {
-					echo $cme->error;
+					//echo $cme->error;
 					//$this->writeErrorLog($cme->error, $query);
 					//return json_encode(array('success'=>'false'));
 				}	
