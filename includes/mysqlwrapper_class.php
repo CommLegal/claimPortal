@@ -363,7 +363,7 @@ class mysqlwrapper_class {
 	}
 	
 	private function writeErrorLog($err, $data) {
-		//$this->execute_sql("insert", array("e_user" => $_COOKIE['username'], "e_timestamp" => date("d-m-Y H:i:s"), "e_error" => $err, "e_query" => $data, "e_p_id" => $_SESSION['policyId'], "e_c_id" => $_SESSION['claimId'], "e_ip" => $_SERVER['REMOTE_ADDR'], "e_user_agent" => $_SERVER['HTTP_USER_AGENT']), "error_log", "", array(""));
+		$this->execute_sql("insert", array("e_user" => $_COOKIE['username'], "e_timestamp" => date("d-m-Y H:i:s"), "e_error" => $err, "e_query" => $data, "e_p_id" => $_SESSION['policyId'], "e_c_id" => $_SESSION['claimId'], "e_ip" => $_SERVER['REMOTE_ADDR'], "e_user_agent" => $_SERVER['HTTP_USER_AGENT']), "error_log", "", array(""));
 		
 		/* WRITE TO THE ERROR LOG - JS9 
 		$file = './logs/errors-' . date('Y-m-d') . '.txt';
