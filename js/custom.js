@@ -271,6 +271,8 @@ $("#hc_submit").click(function(e) {
 
 $("#createNewClaim").click(function(e) {
 	e.preventDefault();
+	
+	var form = $(this).closest("form");
 							
 	var data = $("#hiddenClaimType").serializeArray();
 	
@@ -278,7 +280,6 @@ $("#createNewClaim").click(function(e) {
 	   'pages/accident_recovery_upload.php',
 		data,
 		function(data){
-			alert(data);
 		  $(".hiddenClaimType").html(data);
 		  $('#createNewClaim').hide();
 		  $(".firstStep").show();

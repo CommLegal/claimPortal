@@ -64,8 +64,11 @@
 						echo "<div class=\"col-md-12\"><h4>" . count($policyInfo) . " " . $term . " found...</h4></div>
 						<div class=\"col-md-12 mb25\" style=\"height: 10px; background-color:#EBEBEB;\"></div>";
 					}
+					
+					$i = 0;
 				
 					foreach($policyInfo as $header => $value) {
+						$i++;
 						$fields_string = NULL;
 						if(!empty($_POST['reg'])) {
 							$policyDetail = $conn->execute_sql("select", array('*'), "policy JOIN policy_holders ON p_id = ph_p_id join vehicles on v_p_id = p_id", "v_id=? and (p_cancel_date IS NULL OR p_cancel_date = '0000-00-00') and p_renewal_date >= '" . date('Y-m-d') . "'", array("i" => $policyInfo[$header]['v_id']));
@@ -277,7 +280,7 @@
                 </div>
                 
                 <div class="col-md-6">
-                    <form id="hiddenClaimType" method="post" action="">
+                    <form id="hiddenClaimType<?php echo $i ?>" method="post" action="">
                         <input id="claims--c_claim_type" name="claimType" type="hidden" value="<?php echo $_REQUEST['displayPage']; ?>" />
                         <input id="claims--c_timestamp" name="claimTimestamp" type="hidden" value="<?php echo date("Y-m-d H:i:s"); ?>" />
                         <input id="claims--c_p_id" name="policyId" type="hidden" value="<?php echo $policyDetail[0]['p_id'] ?>" />
