@@ -105,7 +105,7 @@ class hhaddonImport_class {
 			51 => array("P_Prem", "addons:a_gross_premium"),
 			52 => array("P_Scheme", "addons:a_scheme")
 		);
-		
+				
 		return $columns;
 	}
 	
