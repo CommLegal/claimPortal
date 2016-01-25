@@ -37,8 +37,8 @@ class cancelledAddonImport_class {
 				$i++;
 				if($i > 1) {
 					$policyNo = trim((string)$data[0]);
-					echo $policyNo . "<br />";
-					//$this->execute_sql("update", array("a_cancel_date" => date("Y-m-d")), "addons", "a_policy_number='" . $policyNo . "' and a_addon_type = 'HEC'");					
+					//echo $policyNo . "<br />";
+					$this->execute_sql("update", array("a_cancel_date" => date("Y-m-d")), "addons", "a_policy_number='" . $policyNo . "' and a_addon_type = 'HEC'");					
 				}
 				if($i == 50) {
 					//break;
