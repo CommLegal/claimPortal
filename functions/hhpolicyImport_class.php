@@ -98,8 +98,7 @@ class hhpolicyImport_class {
 			50 => array("P_PolType", ""),
 			51 => array("P_Prem", ""),
 			52 => array("P_Scheme", "")
-		);																																			
-
+		);			
 		
 		return $columns;
 	}

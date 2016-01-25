@@ -271,10 +271,6 @@ $("#hc_submit").click(function(e) {
 
 $("#createNewClaim").click(function(e) {
 	e.preventDefault();
-	
-	var form = $(this).closest("form");
-	alert(form);
-	/*
 							
 	var data = $("#hiddenClaimType").serializeArray();
 	
@@ -290,7 +286,6 @@ $("#createNewClaim").click(function(e) {
 		  $(".hcDisplay").show();
 		}
 	  );
-	*/
 });
 
 $("#passFormToNCI").click(function(e) {
