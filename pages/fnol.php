@@ -10,7 +10,7 @@
 				$time = date("H") . date("i");
 
 				if($dow >= 1 && $dow <= 5) {
-					if($time >= 0730 && $time <= 2100) { 
+					if((date("G") > 7 && date("i") > 30)) && (date("G") < 21 && date("i") > 00))) { 
 						if($policyInfo[$header]['p_broker'] !== "ONE Insurance Limited") {
 							echo "<div class=\"well\"><h3>Within Normal Operating Hours</h3>Please inform the customer that they need to contact their insurance company 'Commercial Legal' and they will assist.<h3>Please call 0203 738 7300</h3></div>";
 						}
