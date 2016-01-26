@@ -8,6 +8,7 @@
 				$proceed = 1;
 				$dow = date("N");
 				$time = date("G") . date("i");
+				echo $time;
 
 				if($dow >= 1 && $dow <= 5) {
 					if($time >= 730 && $time <= 2100) { 
@@ -39,7 +40,7 @@
 					}
 				}
 				elseif($dow >= 6 && $dow <= 7) {
-					if($time >= 0900 && $time <= 1730) { 
+					if($time >= 900 && $time <= 1730) { 
 						if($policyInfo[$header]['p_broker'] !== "ONE Insurance Limited") {
 							echo "<div class=\"well\"><h3>Within Normal Operating Hours</h3>Please inform the customer that they need to contact their insurance company 'Commercial Legal' and they will assist.<h3>Please call 0203 738 7300</h3></div>";
 						}
