@@ -7,7 +7,7 @@
     		<?php
 				$proceed = 1;
 				$dow = date("N");
-				$time = (int)(date("G") . date("i");
+				$time = (date("G") . date("i");
 											   
 				echo $time;
 
