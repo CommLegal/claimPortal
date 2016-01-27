@@ -271,6 +271,8 @@ $("#hc_submit").click(function(e) {
 
 $("#createNewClaim").click(function(e) {
 	e.preventDefault();
+	
+	alert($(this).attr("policyId"));
 							
 	//var data = $("#hiddenClaimType").serializeArray();				
 	
