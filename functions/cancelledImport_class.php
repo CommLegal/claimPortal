@@ -36,7 +36,7 @@ class cancelledImport_class {
 				$num = count($data);
 				$i++;
 				if($i > 1) {
-					$policyNo = trim((int)$data[0]);
+					$policyNo = trim($data[0]);
 					echo $policyNo . "<br />";
 					//$this->execute_sql("update", array("p_cancel_date" => date("Y-m-d")), "policy", "p_policy_number='" . $policyNo . "'");					
 				}
