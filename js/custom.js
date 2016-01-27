@@ -279,7 +279,7 @@ $("#createNewClaim").click(function(e) {
 		data,
 		function(data){
 		  $(".hiddenClaimType").html(data);
-		  //$('#createNewClaim').hide();
+		  $('#createNewClaim').hide();
 		  $(".firstStep").show();
 		  //$("#fnol_data_assisted").show();
 		  $(".bd-assisted-unassisted").show();
