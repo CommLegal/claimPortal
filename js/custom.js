@@ -272,20 +272,22 @@ $("#hc_submit").click(function(e) {
 $("#createNewClaim").click(function(e) {
 	e.preventDefault();
 							
-	var data = $("#hiddenClaimType").serializeArray();
+	//var data = $("#hiddenClaimType").serializeArray();				
 	
-	$.post(
-	   'pages/accident_recovery_upload.php',
-		data,
-		function(data){
+	$.post('pages/accident_recovery_upload.php', {
+		claimType: $(this).attr("claimType"),
+		claimTimestamp: $(this).attr("claimTimestamp"),
+		policyId: $(this).attr("policyId"),
+		policyHolderId: $(this).attr("policyHolderId")
+	})
+	.done(function( data ) {
 		  $(".hiddenClaimType").html(data);
 		  $('#createNewClaim').hide();
 		  $(".firstStep").show();
 		  //$("#fnol_data_assisted").show();
 		  $(".bd-assisted-unassisted").show();
 		  $(".hcDisplay").show();
-		}
-	  );
+	});
 });
 
 $("#passFormToNCI").click(function(e) {
