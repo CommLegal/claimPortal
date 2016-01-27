@@ -269,9 +269,8 @@ $("#hc_submit").click(function(e) {
 
 // START NEW CLAIM ON CLICK OF "ADD CLAIM" //
 
-$("a.btn.btn-success.w100.mt25.createNewClaim").click(function(e) {
+$("#createNewClaim").click(function(e) {
 	e.preventDefault();
-	alert("true");
 							
 	//var data = $("#hiddenClaimType").serializeArray();				
 	

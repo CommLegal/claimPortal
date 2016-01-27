@@ -285,7 +285,7 @@
                         <a id="passFormToNCI" class = "btn btn-default w100 mt25" PID="<?php echo $policyDetail[0]['p_id'] ?>" href="<?php echo $url . "?" . $fields_string ?>" target="_blank">Pass to NCI &nbsp;<i class="fa fa-lg fa-plus-circle"></i></a>
                         <div class="nci_message"></div>
                         <?php } ?>
-                        <a class="btn btn-success w100 mt25 createNewClaim" claimType="<?php echo $_REQUEST['displayPage']; ?>" claimTimestamp="<?php echo date("Y-m-d H:i:s"); ?>" policyId="<?php echo $policyDetail[0]['p_id'] ?>" policyHolderId="<?php echo $policyDetail[0]['p_ph_id'] ?>">Add Claim &nbsp;<i class="fa fa-lg fa-plus-circle"></i></a>	
+                        <button id="createNewClaim" class="btn btn-success w100 mt25" claimType="<?php echo $_REQUEST['displayPage']; ?>" claimTimestamp="<?php echo date("Y-m-d H:i:s"); ?>" policyId="<?php echo $policyDetail[0]['p_id'] ?>" policyHolderId="<?php echo $policyDetail[0]['p_ph_id'] ?>">Add Claim &nbsp;<i class="fa fa-lg fa-plus-circle"></i></button>	
                         
                     <div class="hiddenClaimType" style="display: none;"><?php echo ((!empty($_SESSION['claimID'])) ? trim($_SESSION['claimID']) : "") ?></div>
                 </div>
