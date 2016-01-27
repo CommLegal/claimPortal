@@ -280,19 +280,13 @@
                 </div>
                 
                 <div class="col-md-6">
-                    <form action="" method="post" id="hiddenClaimType<?php echo $i ?>">
-                        <input id="claims--c_claim_type" name="claimType" type="hidden" value="<?php echo $_REQUEST['displayPage']; ?>" />
-                        <input id="claims--c_timestamp" name="claimTimestamp" type="hidden" value="<?php echo date("Y-m-d H:i:s"); ?>" />
-                        <input id="claims--c_p_id" name="policyId" type="hidden" value="<?php echo $policyDetail[0]['p_id'] ?>" />
-                        <input id="claims--c_ph_id" name="policyHolderId" type="hidden" value="<?php echo $policyDetail[0]['p_ph_id'] ?>" />
-                        
+                      
                         <?php if($_SESSION['userID'] == 2 || ($_SESSION['userID'] == 3)) { ?>
                         <a id="passFormToNCI" class = "btn btn-default w100 mt25" PID="<?php echo $policyDetail[0]['p_id'] ?>" href="<?php echo $url . "?" . $fields_string ?>" target="_blank">Pass to NCI &nbsp;<i class="fa fa-lg fa-plus-circle"></i></a>
                         <div class="nci_message"></div>
                         <?php } ?>
                         <a id="createNewClaim" class="btn btn-success w100 mt25" claimType="<?php echo $_REQUEST['displayPage']; ?>" claimTimestamp="<?php echo date("Y-m-d H:i:s"); ?>" policyId="<?php echo $policyDetail[0]['p_id'] ?>" policyHolderId="<?php echo $policyDetail[0]['p_ph_id'] ?>">Add Claim &nbsp;<i class="fa fa-lg fa-plus-circle"></i></a>	
                         
-                    </form>	
                     <div class="hiddenClaimType" style="display: none;"><?php echo ((!empty($_SESSION['claimID'])) ? trim($_SESSION['claimID']) : "") ?></div>
                 </div>
                 
