@@ -8,7 +8,6 @@
 				$proceed = 1;
 				$dow = date("N");
 				$time = strtotime(date("Y-m-d H:i:s")); 
-				echo $dow . " - " . $time;
 				//date("G") . date("i");
 
 				if($dow >= 1 && $dow <= 5) {
@@ -26,7 +25,7 @@
 					}
 					else {
 						if($policyInfo[$header]['p_broker'] !== "ONE Insurance Limited") {
-								<div class=\"faultclaimButton btn btn-default col-md-5 col-xs-12\">Yes</div><div class=\"col-md-2\"></div>							echo "
+								echo "<div class=\"faultclaimButton btn btn-default col-md-5 col-xs-12\">Yes</div><div class=\"col-md-2\"></div>
 							<div class=\"well mb25 pb50 ntp\"><h3>Does the consumer deem the accident to be their fault?</h3>
 
 								<div class=\"nonfaultclaimButton btn btn-default col-md-5 col-xs-12\">No</div>
