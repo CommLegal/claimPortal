@@ -25,9 +25,9 @@
 					}
 					else {
 						if($policyInfo[$header]['p_broker'] !== "ONE Insurance Limited") {
-							echo "
+								<div class=\"faultclaimButton btn btn-default col-md-5 col-xs-12\">Yes</div><div class=\"col-md-2\"></div>							echo "
 							<div class=\"well mb25 pb50 ntp\"><h3>Does the consumer deem the accident to be their fault?</h3>
-								<div class=\"faultclaimButton btn btn-default col-md-5 col-xs-12\">Yes</div><div class=\"col-md-2\"></div>
+
 								<div class=\"nonfaultclaimButton btn btn-default col-md-5 col-xs-12\">No</div>
 							</div>";
 							$proceed = 0;
@@ -45,6 +45,8 @@
 				elseif($dow >= 6 && $dow <= 7) {
 					$open = strtotime(date("Y-m-d 09:00:00"));
 					$close = strtotime(date("Y-m-d 17:30:00"));
+					
+					echo $time . " - " . $open . " : " . $close;
 					
 					if($time >= $open && $time <= $close) { 
 						if($policyInfo[$header]['p_broker'] !== "ONE Insurance Limited") {
