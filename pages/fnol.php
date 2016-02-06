@@ -48,6 +48,15 @@
 
 					if($time >= $open && $time <= $close) { 
 						if($policyInfo[$header]['p_broker'] !== "ONE Insurance Limited") {
+							echo "<div class=\"well\"><h3>Within Normal Operating Hours</h3>Please inform the customer that they need to contact their insurance company 'Commercial Legal' and they will assist.<h3>Please call 0203 738 7300</h3></div>";
+						}
+						else {
+							echo "<div class=\"well\"><h3>Within Normal Operating Hours</h3>Please inform the customer that they need to contact their insurance company 'One Insurance Limited' on <h3>0203 738 7301</h3> to process their claim</div>";
+						}
+						$proceed = 0; 
+					}
+					else {
+						if($policyInfo[$header]['p_broker'] !== "ONE Insurance Limited") {
 								echo "<div class=\"faultclaimButton btn btn-default col-md-5 col-xs-12\">Yes</div><div class=\"col-md-2\"></div>
 							<div class=\"well mb25 pb50 ntp\"><h3>Does the consumer deem the accident to be their fault?</h3>
 
@@ -62,6 +71,7 @@
 								<div class=\"cancel btn btn-default col-md-5 col-xs-12\">No</div>
 							</div>";	
 						}
+						//<!--If the consumer states no – assist the recovery and complete the FNOL form.
 					}
 				}
 
