@@ -45,7 +45,6 @@
 				elseif($dow >= 6 && $dow <= 7) {
 					$open = strtotime(date("Y-m-d 09:00:00"));
 					$close = strtotime(date("Y-m-d 17:30:00"));
-					echo $time . " - " . $open . ":" . $close;
 
 					if($time >= $open && $time <= $close) { 
 						if($policyInfo[$header]['p_broker'] !== "ONE Insurance Limited") {
