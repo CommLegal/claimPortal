@@ -62,6 +62,7 @@
 								<div class=\"cancel btn btn-default col-md-5 col-xs-12\">No</div>
 							</div>";	
 						}
+					}
 				}
 
 			?>
