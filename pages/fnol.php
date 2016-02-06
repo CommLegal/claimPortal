@@ -8,6 +8,7 @@
 				$proceed = 1;
 				$dow = date("N");
 				$time = strtotime(date("Y-m-d H:i:s")); 
+				echo $dow . " - " . $time;
 				//date("G") . date("i");
 
 				if($dow >= 1 && $dow <= 5) {
