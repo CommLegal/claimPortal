@@ -11,8 +11,8 @@
 				//date("G") . date("i");
 
 				if($dow >= 1 && $dow <= 5) {
-					$open = strtotime(date("Y-m-d 07:30:00"));
-					$close = strtotime(date("Y-m-d 21:00:00"));
+					$open = strtotime(date("Y-m-d 08:00:00"));
+					$close = strtotime(date("Y-m-d 20:00:00"));
 					
 					if($time >= $open && $time <= $close) { 
 						if($policyInfo[$header]['p_broker'] !== "ONE Insurance Limited") {
