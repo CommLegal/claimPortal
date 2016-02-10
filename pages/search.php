@@ -47,7 +47,7 @@
 						}
 						$policyInfo = $conn->execute_sql("select", array('ph_id, ph_p_id'), "policy_holders JOIN policy ON ph_p_id = p_id", "REPLACE(ph_postcode, ' ', '')=?" . $policyType, array("s" => str_replace(" ", "", $_POST['postcode'])));
 						if(!empty($policyInfo)) {
-							$conn->execute_sql("insert", array('sl_ul_id' => $_SESSION['userID'], 'sl_p_id' => $policyInfo[0]['ph_p_id'], 'sl_timestamp' => date("Y-m-d H:i:s"), 'sl_ip' => $_SERVER['REMOTE_ADDR']), "search_list", "", "");
+							$conn->execute_sql("insert", array('sl_ul_id' => $_SESSION['userID'], 'sl_page' => $_REQUEST['displayPage'], 'sl_p_id' => $policyInfo[0]['ph_p_id'], 'sl_timestamp' => date("Y-m-d H:i:s"), 'sl_ip' => $_SERVER['REMOTE_ADDR']), "search_list", "", "");
 						}
 					}
 					
