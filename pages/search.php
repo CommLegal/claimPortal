@@ -35,7 +35,10 @@
 					if(!empty($_POST['reg'])) {
 						$policyInfo = $conn->execute_sql("select", array('v_p_id, v_id'), "vehicles", "REPLACE(v_reg, ' ', '')=?", array("s" => str_replace(" ", "", $_POST['reg'])));
 						if(!empty($policyInfo)) {
-							$conn->execute_sql("insert", array('sl_ul_id' => $_SESSION['userID'], 'sl_p_id' => $policyInfo[0]['v_p_id'], 'sl_timestamp' => date("Y-m-d H:i:s"), 'sl_ip' => $_SERVER['REMOTE_ADDR']), "search_list", "", "");
+							$conn->execute_sql("insert", array('sl_ul_id' => $_SESSION['userID'], 'sl_page' => $_REQUEST['displayPage'], 'sl_postcode' => $_POST['postcode'], 'sl_reg' => $_POST['reg'], 'sl_p_id' => $policyInfo[0]['v_p_id'], 'sl_timestamp' => date("Y-m-d H:i:s"), 'sl_ip' => $_SERVER['REMOTE_ADDR']), "search_list", "", "");
+						}
+						else {
+							$conn->execute_sql("insert", array('sl_ul_id' => $_SESSION['userID'], 'sl_page' => $_REQUEST['displayPage'], 'sl_postcode' => $_POST['postcode'], 'sl_reg' => $_POST['reg'], 'sl_timestamp' => date("Y-m-d H:i:s"), 'sl_ip' => $_SERVER['REMOTE_ADDR']), "search_list", "", "");
 						}
 					}
 					elseif(!empty($_POST['postcode'])) {
