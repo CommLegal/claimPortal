@@ -11,7 +11,7 @@
 				//date("G") . date("i");
 
 				if($dow >= 1 && $dow <= 5) {
-					$open = strtotime(date("Y-m-d 08:00:00"));
+					$open = strtotime(date("Y-m-d 10:00:00"));
 					$close = strtotime(date("Y-m-d 20:00:00"));
 					
 					if($time >= $open && $time <= $close) { 
