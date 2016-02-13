@@ -15,7 +15,7 @@
 					$close = strtotime(date("Y-m-d 20:00:00"));
 					
 					if($time >= $open && $time <= $close) { 
-						if($policyInfo[$header]['p_broker'] !== "ONE Insurance Limited") {
+						if($policyDetail[0]['p_broker'] !== "ONE Insurance Limited") {
 							echo "<div class=\"well\"><h3>Within Normal Operating Hours</h3>Please inform the customer that they need to contact their insurance company 'Commercial Legal' and they will assist.<h3>Please call 0203 738 7300</h3></div>";
 						}
 						else {
@@ -24,7 +24,7 @@
 						$proceed = 0; 
 					}
 					else {
-						if($policyInfo[$header]['p_broker'] !== "ONE Insurance Limited") {
+						if($policyDetail[0]['p_broker'] !== "ONE Insurance Limited") {
 								echo "<div class=\"well mb25 pb50 ntp\"><h3>Does the consumer deem the accident to be their fault?</h3>
 								<div class=\"faultclaimButton btn btn-default col-md-5 col-xs-12\">Yes</div><div class=\"col-md-2\"></div>
 								<div class=\"nonfaultclaimButton btn btn-default col-md-5 col-xs-12\">No</div>
@@ -46,7 +46,7 @@
 					$close = strtotime(date("Y-m-d 17:30:00"));
 
 					if($time >= $open && $time <= $close) { 
-						if($policyInfo[$header]['p_broker'] !== "ONE Insurance Limited") {
+						if($policyDetail[0]['p_broker'] !== "ONE Insurance Limited") {
 							echo "<div class=\"well\"><h3>Within Normal Operating Hours</h3>Please inform the customer that they need to contact their insurance company 'Commercial Legal' and they will assist.<h3>Please call 0203 738 7300</h3></div>";
 						}
 						else {
@@ -76,9 +76,9 @@
 			?>
 			<div class="well faultClaim ntp" style="display: none;">
 				<!-- If Insurer is not OIL -->
-                <?php $brokerNumber = $conn->execute_sql("select", array('ic_number'), "insurer_contacts", "ic_title=?", array("s" => $policyInfo[$header]['p_broker'])); ?>
+                <?php $brokerNumber = $conn->execute_sql("select", array('ic_number'), "insurer_contacts", "ic_title=?", array("s" => $policyDetail[0]['p_broker'])); ?>
                 <h3>This claim needs to be referred to the consumers insurance company, please read the following script:</h3>
-				 <h4 style="padding-top: 15px;">"I see you are insured with <?php echo $policyInfo[$header]['p_broker'] ?>. I will need to give you a contact number 
+				 <h4 style="padding-top: 15px;">"I see you are insured with <?php echo $policyDetail[0]['p_broker'] ?>. I will need to give you a contact number 
                  for them as they are your insurer and will deal with your claim or recovery.
 				 <br /><br />Please contact your insurer on <b><?php echo $brokerNumber[0]['ic_number'] ?></b>"</h4>
                  <form id="confirmUnassist" method="post" action="">
@@ -109,15 +109,15 @@
 				
 				<label>Policy Number:</label>
 				<input disabled type="text" name="fnol--f_policy_number" id="fnol--f_policy_number" class="form-control mb10" placeholder="" 
-                value="<?php echo $policyInfo[$header]['p_policy_number'] ?>">
+                value="<?php echo $policyDetail[0]['p_policy_number'] ?>">
 				
 				<label>Driver Name:</label>
 				<input required type="text" name="fnol--f_policy_holder" id="fnol--f_policy_holder" class="form-control mb10" placeholder="" 
-                value="<?php echo ucwords(strtolower($policyInfo[$header]['ph_forename'] . " " . $policyInfo[$header]['ph_surname'])) ?>">
+                value="<?php echo ucwords(strtolower($policyDetail[0]['ph_forename'] . " " . $policyDetail[0]['ph_surname'])) ?>">
 				
 				<label>Vehicle Registration:</label>
 				<input disabled type="text" name="fnol--f_vehicle_reg" id="fnol--f_vehicle_reg" class="form-control mb10" placeholder="" 
-                value="<?php echo $policyInfo[$header]['v_reg'] ?>"   >
+                value="<?php echo $policyDetail[0]['v_reg'] ?>"   >
 				
 				<label>Date of Incident:</label>
                 <div class="input-group mb10">
