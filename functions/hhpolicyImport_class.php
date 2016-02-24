@@ -119,7 +119,7 @@ class hhpolicyImport_class {
 				$num = count($data);
 				$i++;
 				if($i > 1) {
-					$policyNo = $data[14];
+					$policyNo = $data[15];
 					//echo $data[$c];
 					$parseArray = array();
 					for ($c=0; $c < $num; $c++) {
@@ -154,7 +154,7 @@ class hhpolicyImport_class {
 				//get column name
 				$array = explode(":", $columns[$i][1]);
 				if(!empty($array[0])) {
-					$tableArray[$rowData[14]][$array[0]][$array[1]] = $rowData[$i];
+					$tableArray[$rowData[15]][$array[0]][$array[1]] = $rowData[$i];
 				}
 				$i++;
 			}
