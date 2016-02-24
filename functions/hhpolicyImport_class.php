@@ -10,10 +10,15 @@ define("_CME_USERNAME", "claimPortal");
 define("_CME_PASSWORD", "claimPortal001!");
 define("_CME_DATABASE", "claimPortal");*/
 
-define("_CME_HOSTNAME", "5.159.226.131");
+define("_CME_HOSTNAME", "192.168.3.211");
+define("_CME_USERNAME", "foebis");
+define("_CME_PASSWORD", "Foebis001!");
+define("_CME_DATABASE", "policies");
+
+/*define("_CME_HOSTNAME", "5.159.226.131");
 define("_CME_USERNAME", "claimPortal");
 define("_CME_PASSWORD", "CLadmin001!");
-define("_CME_DATABASE", "claimPortal");
+define("_CME_DATABASE", "claimPortal");*/
 
 @$foebis = new mysqli(_CME_HOSTNAME, _CME_USERNAME, _CME_PASSWORD, _CME_DATABASE);
 if(mysqli_connect_errno()) {
