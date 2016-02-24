@@ -54,7 +54,7 @@ class hhaddonImport_class {
 		/* seperate table name and column name with a :
 			maps each column in the spreadsheet with a database table and field
 		*/
-		
+
 		$columns = array(
 			0 => array("Cust Num", ""),	
 			1 => array("Title", "addon_policy_holders:aph_title"),

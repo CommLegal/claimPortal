@@ -5,10 +5,15 @@ set_time_limit(0);
 ini_set('display_errors', 1);
 ini_set('max_execution_time', '-1');
 
-define("_CME_HOSTNAME", "192.168.3.214");
+/*define("_CME_HOSTNAME", "192.168.3.214");
 define("_CME_USERNAME", "claimPortal");
 define("_CME_PASSWORD", "claimPortal001!");
-define("_CME_DATABASE", "claimPortal");
+define("_CME_DATABASE", "claimPortal");*/
+
+define("_CME_HOSTNAME", "192.168.3.211");
+define("_CME_USERNAME", "foebis");
+define("_CME_PASSWORD", "Foebis001!");
+define("_CME_DATABASE", "policies");
 
 @$foebis = new mysqli(_CME_HOSTNAME, _CME_USERNAME, _CME_PASSWORD, _CME_DATABASE);
 if(mysqli_connect_errno()) {
@@ -29,7 +34,7 @@ class policyImport_class {
 		//$lastDay = date("d") - 1;
 
 		//$file = "/feed/addbord_" . date("dmY") . ".csv";
-		$file = "files/Policy Data1.csv";
+		$file = "files/non_oil.csv";
 		
 		// run through the CSV and pass back the results
 		$data = $this->parseCSV($file);
@@ -132,7 +137,7 @@ class policyImport_class {
 	}
 	
 	private function checkPolicyNo($policyNumber) {
-		$checkresult = $this->execute_sql("select", array("a_id"), "addons", "a_policy_number = '" . $policyNumber . "'");
+		$checkresult = $this->execute_sql("select", array("p_id"), "policy", "p_policy_number = '" . $policyNumber . "'");
 		//var_dump($checkresult[0]['p_id']) . "<br />";
 		if(!empty($checkresult[0]['p_id'])) {
 			return $checkresult[0]['p_id'];	
