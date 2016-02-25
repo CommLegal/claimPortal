@@ -92,7 +92,9 @@
 							echo "<h4>Policy is no longer valid...</h4>";				
 						}
 						else {
-						
+                                                    if(empty($policyDetail[0]['p_broker'])){
+                                                        $policyDetail[0]['p_broker'] = "ONE Insurance Limited";
+                                                    }
 						if($_REQUEST['displayPage'] !== "fnol" && $_REQUEST['displayPage'] !== "windscreen") {
 							if(!empty($policyDetail[0]['v_fleet'])) {
 								$cover = "Fleet Cover";

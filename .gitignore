@@ -222,3 +222,4 @@ dwsync.xml
 *.LCK
 img/_notes/dwsync.xml
 *.LCK
+/nbproject/private/
