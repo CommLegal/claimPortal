@@ -22,12 +22,12 @@ $_SESSION['userID'] = $userLogin[0]['ul_id'];
     <link href="<?php echo _ROOT ?>/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="<?php echo _ROOT ?>/css/smoothness/jquery-ui.css">
-    <link href="<?php echo _ROOT ?>/css/theme.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="<?php echo _ROOT ?>/css/smoothness/jquery-ui.css" />
+    <link href="<?php echo _ROOT ?>/css/theme.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet' type='text/css' />
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css' />
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css' />
     <script src="<?php echo _ROOT ?>/js/jquery-2.1.3.min.js"></script>
     <script src="<?php echo _ROOT ?>/js/jquery-ui.js"></script>
     <script src="<?php echo _ROOT ?>/js/jquery.sessionTimeout.js"></script>

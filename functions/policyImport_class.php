@@ -122,7 +122,7 @@ class policyImport_class {
 				//$tableData = $rowData[$i];
 				//get column name
 				$array = explode(":", $columns[$i][1]);
-				if(!empty($array[0])) {
+				if(!empty($array[0]) && !empty($rowData[13])) {
 					$tableArray[$rowData[13]][$array[0]][$array[1]] = $rowData[$i];
 				}
 				$i++;
