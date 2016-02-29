@@ -71,9 +71,9 @@ class policyImport_class {
 			16 => array("Inception", "policy:p_effective_date"),
 			17 => array("Renewal", "policy:p_renewal_date"),
 			18 => array("Vehicle", "vehicles:v_long_desc"),
-			19 => array("Registration", "vehicles:v_reg")
-		);
-		
+			19 => array("Registration", "vehicles:v_reg"),
+                        20 => array("Policy Type", "policy:p_policy_type")
+		);                
 		return $columns;
 	}
 	
@@ -162,6 +162,7 @@ class policyImport_class {
 		//var_dump($dataRows);
 		foreach($dataRows as $column => $row) {
 			$policyNumber = $row['policy']['p_policy_number'];
+                        $row['policy']['p_policy_type'] = strtoupper($row['policy']['p_policy_number']);
 			
 			// get all addons data
 			$policyData = array();
