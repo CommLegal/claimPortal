@@ -41,7 +41,7 @@ if (!empty($_SESSION['claimID'])) {
                 }
             } elseif (!empty($_POST['postcode'])) {
                 if (($_REQUEST['displayPage'] !== "home_emergency") && ($_REQUEST['displayPage'] !== "household_claim")) {
-                    $policyType = " AND p_policy_type in('PRIVATE', 'COMMERCIAL') or p_policy_type is NULL";
+                    $policyType = " AND (p_policy_type in('PRIVATE', 'COMMERCIAL') or p_policy_type is NULL)";
                 } else {
                     $policyType = " AND p_policy_type = 'HOUSEHOLD'";
                 }
