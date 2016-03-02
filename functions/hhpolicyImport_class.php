@@ -119,7 +119,7 @@ class hhpolicyImport_class {
 				$num = count($data);
 				$i++;
 				if($i > 1) {
-					$policyNo = $data[15];
+					$policyNo = $data[14];
 					//echo $data[$c];
 					$parseArray = array();
 					for ($c=0; $c < $num; $c++) {
@@ -154,7 +154,7 @@ class hhpolicyImport_class {
 				//get column name
 				$array = explode(":", $columns[$i][1]);
 				if(!empty($array[0])) {
-					$tableArray[$rowData[15]][$array[0]][$array[1]] = $rowData[$i];
+					$tableArray[$rowData[14]][$array[0]][$array[1]] = $rowData[$i];
 				}
 				$i++;
 			}
@@ -168,7 +168,7 @@ class hhpolicyImport_class {
 	}
 	
 	private function checkPolicyNo($policyNumber) {
-		$checkresult = $this->execute_sql("select", array("p_id"), "policy", "p_policy_number = '" . $policyNumber . "' and p_policy_type = 'HOUSEHOLD'");
+		$checkresult = $this->execute_sql("select", array("p_id"), "policy", "p_policy_number = '" . $policyNumber . "' and p_policy_type = 'Household'");
 		//var_dump($checkresult[0]['p_id']) . "<br />";
 		if(!empty($checkresult[0]['p_id'])) {
 			return $checkresult[0]['p_id'];	
@@ -214,7 +214,7 @@ class hhpolicyImport_class {
 			$policyData['p_renewal_date'] = $renewal;
 			$policyData['p_effective_date'] = $inception;
 			$policyData['p_inception_date'] = $inception;
-			$policyData['p_policy_type'] = "HOUSEHOLD";
+			$policyData['p_policy_type'] = "Household";
 			
 			if($p_id) {
 				$action = "update";
