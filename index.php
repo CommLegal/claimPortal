@@ -31,7 +31,6 @@ $_SESSION['userID'] = $userLogin[0]['ul_id'];
     <script src="<?php echo _ROOT ?>/js/jquery-2.1.3.min.js"></script>
     <script src="<?php echo _ROOT ?>/js/jquery-ui.js"></script>
     <script src="<?php echo _ROOT ?>/js/jquery.sessionTimeout.js"></script>
-    <script src="<?php echo _ROOT ?>/js/validator.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
@@ -178,6 +177,9 @@ require('pages/nav.php');
 	?>
 	
 </div>
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="<?php echo _ROOT ?>/js/validator.js"></script>
 <script src="<?php echo _ROOT ?>/js/custom.js"></script>
 <script src="<?php echo _ROOT ?>/js/script.js"></script>
 </body>
