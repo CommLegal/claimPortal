@@ -98,7 +98,7 @@ if (!empty($_SESSION['claimID'])) {
                                             $cover = "<span style=\"color: #f00; font-weight: bold;\">Please Refer to RAC</span>";
                                             break;
                                         default:
-                                            $cover = "Gold Breakdown (Inception - " . date("d/m/Y", strtotime($breakdownInfo[0]['a_inception'])) . ")";
+                                            $cover = "Gold Breakdown (Inception - " . date("d/m/Y", strtotime($breakdownInfo[0]['a_inception_date'])) . ")";
                                     }
                                 } else {
                                     $cover = "Basic Breakdown";
@@ -106,7 +106,7 @@ if (!empty($_SESSION['claimID'])) {
                             } elseif ($_REQUEST['displayPage'] == "home_emergency") {
                                 $householdInfo = $conn->execute_sql("select", array('a_scheme', 'a_description', 'a_inception_date'), "addons", "a_addon_type=? and a_policy_number=? and (a_cancel_date IS NULL OR a_cancel_date = '0000-00-00') and a_renewal_date >= '" . date('Y-m-d') . "'", array("s1" => "HEC", "s2" => $policyDetail[0]['p_policy_number']));
                                 if (!empty($householdInfo)) {
-                                    $cover = "Gold Cover (Inception - " . date("d/m/Y", strtotime($householdInfo[0]['a_inception'])) . ")";
+                                    $cover = "Gold Cover (Inception - " . date("d/m/Y", strtotime($householdInfo[0]['a_inception_date'])) . ")";
                                 } else {
                                     $cover = "Basic Cover";
                                 }
