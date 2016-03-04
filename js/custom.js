@@ -255,7 +255,8 @@ $("#hc_submit").click(function(e) {
 	e.preventDefault();
 								 
 	var data = $("#hc_form").serializeArray();
-
+        $('#hc_form').validator();
+        
 	$.post(
 	   'pages/formUpload.php',
 		data,
