@@ -256,14 +256,7 @@ $("#hc_submit").click(function(e) {
 								 
 	var data = $("#hc_form").serializeArray();
         
-        var validator = $("#hc_form").validate({errorPlacement: function (error, element) {}, highlight: function (element) {
-                $(element).parent().addClass("label-error");
-                $(element).addClass("error");
-            },
-            unhighlight: function (element) {
-                $(element).parent().removeClass("label-error");
-                $(element).removeClass("error");
-            }});
+        var validator = $( "#claimForm" ).validate({ ignore: ".ignore", errorPlacement: function(error, element) {} });
 
         //var validator = $( "#claimForm" ).validate({ ignore: ".error.ignore" });
         validator.form();
