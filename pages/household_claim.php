@@ -14,8 +14,7 @@
     <div class = "col-lg-12">	  
     
     <div class = "hcDisplay" id = "hcDisplay" style="display:none"><!-- FNOL UNASSISTED -->	
-    	<form method="post" enctype="multipart/form-data" id="hc_form" data-toggle="validator" role="form">
-            <div class="form-group">
+    	<form method="post" enctype="multipart/form-data" name="hc_form" id="hc_form">
             <label>Date of Claim:</label>
             <div class="input-group mb10">
             <input required type="text" name="household_claim--hc_date" id="household_claim--hc_date" class="form-control mb10 datepicker" placeholder="" value="">
@@ -41,14 +40,13 @@
         
             <div id="reasonbox">
                 <label>More Details:</label>
-                <textarea name ="household_claim--hc_desc" rows = "10" cols="70" class="form-control mb25" placeholder="" required> </textarea>
+                <textarea name ="household_claim--hc_desc" rows = "10" cols="70" class="mb25" placeholder="" required></textarea>
             </div>
         
         	<input type="hidden" id="claimType" name="claimType" value="household_claim"  />
             
             <button class = "btn btn-lg btn-success mb25" id ="hc_submit">Accept & Save &nbsp;<i class="fa fa-lg fa-floppy-o"></i></button>
             <button class = "btn btn-lg btn-danger mb25 cancel pull-right">Cancel &nbsp;<i class="fa fa-lg fa-times"></i></button>
-            </div>
         </form>
     </div>
         
