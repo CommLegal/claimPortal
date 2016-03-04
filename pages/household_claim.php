@@ -41,7 +41,7 @@
         
             <div id="reasonbox">
                 <label>More Details:</label>
-                <textarea type="text" name ="household_claim--hc_desc" rows = "10" cols="70" class="form-control mb25" placeholder="" required> </textarea>
+                <textarea name ="household_claim--hc_desc" rows = "10" cols="70" class="form-control mb25" placeholder="" required> </textarea>
             </div>
         
         	<input type="hidden" id="claimType" name="claimType" value="household_claim"  />
