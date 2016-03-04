@@ -256,7 +256,7 @@ $("#hc_submit").click(function(e) {
 								 
 	var data = $("#hc_form").serializeArray();
         
-        var validator = $( "#claimForm" ).validate({ ignore: ".ignore", errorPlacement: function(error, element) {} });
+        var validator = $( "#hc_form" ).validate({ ignore: ".ignore", errorPlacement: function(error, element) {} });
 
         //var validator = $( "#claimForm" ).validate({ ignore: ".error.ignore" });
         validator.form();
