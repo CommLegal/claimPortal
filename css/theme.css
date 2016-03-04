@@ -255,3 +255,6 @@ ul.document-downloads li a {
     font-size: 1.3em;
     color: #f00;
 }
+.error {
+    background-color: #d9534f;
+}
