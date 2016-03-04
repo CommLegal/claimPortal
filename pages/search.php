@@ -98,7 +98,7 @@ if (!empty($_SESSION['claimID'])) {
                                             $cover = "<span style=\"color: #f00; font-weight: bold;\">Please Refer to RAC</span>";
                                             break;
                                         default:
-                                            $cover = "Gold Breakdown (Inception - " . date("d/m/Y", strtotime($breakdown[0]['a_inception'])) . ")";
+                                            $cover = "Gold Breakdown (Inception - " . date("d/m/Y", strtotime($breakdownInfo[0]['a_inception'])) . ")";
                                     }
                                 } else {
                                     $cover = "Basic Breakdown";
