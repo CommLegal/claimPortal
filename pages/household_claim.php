@@ -5,7 +5,7 @@
 <div class="well">
         <div class="btn-group" role="group">
           <a href="<?php _ROOT ?>pdf-docs/Household Contact numbers for Insurers.xlsx" target="_blank"><button type="button" class="btn btn-default">Contact numbers for insurers</button></a>
-          <a href="https://www.onecalldirect.co.uk/existingCustomers/policy-downloads.php#home" target="_blank"><button type="button" class="btn btn-default">Home Insurance Information Book</button></a>
+          <a href="https://www.onecalldirect.co.uk/existingCustomers/policy-downloads.php" target="_blank"><button type="button" class="btn btn-default">Home Insurance Information Book</button></a>
         </div>
         <div style="clear: both;"></div>
     </div>
