@@ -238,9 +238,9 @@ if (!empty($_SESSION['claimID'])) {
                         </table>
                     </div>
 
-                    <div class="col-md-6 mt25">
+                <div class="col-md-6 mt25" style="clear:both;">
             <?php if ($_REQUEST['displayPage'] == "breakdown_assistance") { ?>
-                            <h4>Previous Breakdowns</h4><div class="title-divider"></div>  
+                <h4>Previous Breakdowns</h4><div class="title-divider"></div>  
                 <?php
                 $date = new DateTime(date("Y-m-d"));
                 $date->sub(new DateInterval('P7D'));
