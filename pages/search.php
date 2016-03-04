@@ -81,7 +81,7 @@ if (!empty($_SESSION['claimID'])) {
                 }
 
                 if (empty($policyDetail[0])) {
-                    echo "<h4>Policy is no longer valid...</h4>";
+                    echo "<h4 style=\"clear:both;\">Policy is no longer valid...</h4>";
                 } else {
                     if (empty($policyDetail[0]['p_broker']) || $policyDetail[0]['p_broker'] == 'MLT' || $policyDetail[0]['p_broker'] == 'WHS' || $policyDetail[0]['p_broker'] == 'TPS' || $policyDetail[0]['p_broker'] == 'SCR') {
                         $policyDetail[0]['p_broker'] = "ONE Insurance Limited";
