@@ -255,16 +255,17 @@ $("#hc_submit").click(function(e) {
 	e.preventDefault();
 								 
 	var data = $("#hc_form").serializeArray();
-        $('#hc_form').validator();
         
-	$.post(
-	   'pages/formUpload.php',
-		data,
-		function(data){
-		  $(".save-result").html(data); 
-		  window.location.replace("https://portal.commercial-legal.co.uk/?displayPage=success");
-		}
-	  );
+        if($('#hc_form').validator()){
+            $.post(
+               'pages/formUpload.php',
+                    data,
+                    function(data){
+                      $(".save-result").html(data); 
+                      window.location.replace("https://portal.commercial-legal.co.uk/?displayPage=success");
+                    }
+              );
+        }
 });
 
 
