@@ -14,7 +14,7 @@
     <div class = "col-lg-12">	  
     
     <div class = "hcDisplay" id = "hcDisplay" style="display:none"><!-- FNOL UNASSISTED -->	
-    	<form method="post" enctype="multipart/form-data" id="hc_form">
+    	<form method="post" enctype="multipart/form-data" id="hc_form" data-toggle="validator">
             
             <label>Date of Claim:</label>
             <div class="input-group mb10">
