@@ -62,7 +62,7 @@ if (!empty($_SESSION['claimID'])) {
                     $term = "policies";
                 }
                 echo "<div class=\"col-md-12\"><h4>" . count($policyInfo) . " " . $term . " found...</h4></div>
-						<div class=\"col-md-12 mb25\" style=\"height: 10px; background-color:#EBEBEB;\"></div>";
+			<div class=\"col-md-12 mb25\" style=\"height: 10px; background-color:#EBEBEB;\"></div>";
             }
 
             $i = 0;
@@ -176,6 +176,10 @@ if (!empty($_SESSION['claimID'])) {
                             <tr>
                                 <th scope="row"><b>Policy Number:</b></th>
                                 <td><?php echo $policyDetail[0]['p_policy_number'] ?></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><b>Inception Date:</b></th>
+                                <td><?php echo date("d/m/Y", strtotime($policyDetail[0]['p_inception_date'])) ?></td>
                             </tr>
                             <tr>
                                 <th scope="row"><b>Insurer:</b></th>
