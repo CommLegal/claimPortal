@@ -257,4 +257,5 @@ ul.document-downloads li a {
 }
 .error {
     background-color: #d9534f;
+    border: 1px solid #d9534f;
 }
