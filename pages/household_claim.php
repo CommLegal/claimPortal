@@ -23,7 +23,7 @@
             
             <br />
                 
-            <label>Claim Type:</label><br />
+            <label>Claim Type:</label>
             <select id = "household_claim--hc_claim_type" name="household_claim--hc_claim_type" class="form-control">
                 <option value="1">Accidental Damage</option>
                 <option value="2">Accidental Loss</option>
@@ -39,7 +39,7 @@
             <br /><br />
         
             <div id="reasonbox">
-                <label>More Details:</label>
+                <label>More Details:</label><br />
                 <textarea name ="household_claim--hc_desc" rows = "10" cols="70" class="mb25" placeholder="" required></textarea>
             </div>
         
