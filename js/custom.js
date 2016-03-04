@@ -256,7 +256,23 @@ $("#hc_submit").click(function(e) {
 								 
 	var data = $("#hc_form").serializeArray();
         
-        if($('#hc_form').validator()){
+        var validator = $("#hc_form").validate({errorPlacement: function (error, element) {}, highlight: function (element) {
+                $(element).parent().addClass("label-error");
+                $(element).addClass("error");
+            },
+            unhighlight: function (element) {
+                $(element).parent().removeClass("label-error");
+                $(element).removeClass("error");
+            }});
+
+        //var validator = $( "#claimForm" ).validate({ ignore: ".error.ignore" });
+        validator.form();
+        validator.valid();
+
+        if (validator.numberOfInvalids() > 0) {
+            $(".save-result").html("There are errors in the form, please correct and save again.");
+        }
+        else {
             $.post(
                'pages/formUpload.php',
                     data,

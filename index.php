@@ -178,8 +178,7 @@ require('pages/nav.php');
 	
 </div>
 
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script src="<?php echo _ROOT ?>/js/validator.js"></script>
+<script src="<?php echo _ROOT ?>/js/jquery.validate.js"></script>
 <script src="<?php echo _ROOT ?>/js/custom.js"></script>
 <script src="<?php echo _ROOT ?>/js/script.js"></script>
 </body>
