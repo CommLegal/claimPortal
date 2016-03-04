@@ -23,7 +23,7 @@
             
             <br />
                 
-            <label>Claim Type:</label>
+            <label>Claim Type:</label><br />
             <select id = "household_claim--hc_claim_type" name="household_claim--hc_claim_type" class="form-control">
                 <option value="1">Accidental Damage</option>
                 <option value="2">Accidental Loss</option>
