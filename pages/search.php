@@ -91,22 +91,22 @@ if (!empty($_SESSION['claimID'])) {
                             $cover = "Fleet Cover";
                         } else {
                             if ($_REQUEST['displayPage'] == "breakdown_assistance") {
-                                $breakdownInfo = $conn->execute_sql("select", array('a_scheme', 'a_description'), "addons", "a_addon_type=? and a_policy_number=? and (a_cancel_date IS NULL OR a_cancel_date = '0000-00-00') and a_renewal_date >= '" . date('Y-m-d') . "'", array("s1" => "CBA", "s2" => $policyDetail[0]['p_policy_number']));
+                                $breakdownInfo = $conn->execute_sql("select", array('a_scheme', 'a_description', 'a_inception_date'), "addons", "a_addon_type=? and a_policy_number=? and (a_cancel_date IS NULL OR a_cancel_date = '0000-00-00') and a_renewal_date >= '" . date('Y-m-d') . "'", array("s1" => "CBA", "s2" => $policyDetail[0]['p_policy_number']));
                                 if (!empty($breakdownInfo)) {
                                     switch ($breakdownInfo[0]['a_description']) {
                                         case "RAC EU Breakdown":
                                             $cover = "<span style=\"color: #f00; font-weight: bold;\">Please Refer to RAC</span>";
                                             break;
                                         default:
-                                            $cover = "Gold Breakdown";
+                                            $cover = "Gold Breakdown (Inception - " . date("d/m/Y", strtotime($breakdown[0]['a_inception'])) . ")";
                                     }
                                 } else {
                                     $cover = "Basic Breakdown";
                                 }
                             } elseif ($_REQUEST['displayPage'] == "home_emergency") {
-                                $householdInfo = $conn->execute_sql("select", array('a_scheme', 'a_description'), "addons", "a_addon_type=? and a_policy_number=? and (a_cancel_date IS NULL OR a_cancel_date = '0000-00-00') and a_renewal_date >= '" . date('Y-m-d') . "'", array("s1" => "HEC", "s2" => $policyDetail[0]['p_policy_number']));
+                                $householdInfo = $conn->execute_sql("select", array('a_scheme', 'a_description', 'a_inception_date'), "addons", "a_addon_type=? and a_policy_number=? and (a_cancel_date IS NULL OR a_cancel_date = '0000-00-00') and a_renewal_date >= '" . date('Y-m-d') . "'", array("s1" => "HEC", "s2" => $policyDetail[0]['p_policy_number']));
                                 if (!empty($householdInfo)) {
-                                    $cover = "Gold Cover";
+                                    $cover = "Gold Cover (Inception - " . date("d/m/Y", strtotime($householdInfo[0]['a_inception'])) . ")";
                                 } else {
                                     $cover = "Basic Cover";
                                 }
