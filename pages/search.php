@@ -81,6 +81,7 @@ if (!empty($_SESSION['claimID'])) {
                 }
 
                 if (empty($policyDetail[0])) {
+                    $policyDetail = $conn->execute_sql("select", array('p_policy_number'), "policy", "p_id=?", array("i" => $policyInfo[$header]['ph_p_id']));
                     echo "<h4 style=\"clear:both; color: #ccc;\">Policy no: " . $policyDetail[0]['p_policy_number'] . " is no longer valid...</h4><div class=\"col-md-12 mb25\" style=\"height: 10px; background-color:#EBEBEB;\"></div>";
                 } else {
                     if (empty($policyDetail[0]['p_broker']) || $policyDetail[0]['p_broker'] == 'MLT' || $policyDetail[0]['p_broker'] == 'WHS' || $policyDetail[0]['p_broker'] == 'TPS' || $policyDetail[0]['p_broker'] == 'SCR') {
