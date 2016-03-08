@@ -54,7 +54,7 @@ if (!empty($_SESSION['claimID'])) {
             }
 
             if (empty($policyInfo)) {
-                echo "<div class=\"col-md-12\"><h4 style=\"color: #999;\">No policies found...</h4></div><div class=\"col-md-12 mb25\" style=\"height: 10px; background-color:#EBEBEB;\"></div>";
+                echo "<div class=\"col-md-12\"><h4 style=\"color: #ccc;\">No policies found...</h4></div><div class=\"col-md-12 mb25\" style=\"height: 10px; background-color:#EBEBEB;\"></div>";
             } else {
                 if (count($policyInfo) == 1) {
                     $term = "policy";
@@ -81,7 +81,7 @@ if (!empty($_SESSION['claimID'])) {
                 }
 
                 if (empty($policyDetail[0])) {
-                    echo "<h4 style=\"clear:both; color: #999;\">Policy is no longer valid...</h4><div class=\"col-md-12 mb25\" style=\"height: 10px; background-color:#EBEBEB;\"></div>";
+                    echo "<h4 style=\"clear:both; color: #ccc;\">Policy is no longer valid...</h4><div class=\"col-md-12 mb25\" style=\"height: 10px; background-color:#EBEBEB;\"></div>";
                 } else {
                     if (empty($policyDetail[0]['p_broker']) || $policyDetail[0]['p_broker'] == 'MLT' || $policyDetail[0]['p_broker'] == 'WHS' || $policyDetail[0]['p_broker'] == 'TPS' || $policyDetail[0]['p_broker'] == 'SCR') {
                         $policyDetail[0]['p_broker'] = "ONE Insurance Limited";
