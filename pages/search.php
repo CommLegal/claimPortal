@@ -54,7 +54,7 @@ if (!empty($_SESSION['claimID'])) {
             }
 
             if (empty($policyInfo)) {
-                echo "<div class=\"col-md-12\"><h4>No policies found...</h4></div>";
+                echo "<div class=\"col-md-12\"><h4>No policies found...</h4></div><div class=\"title-divider\"></div>";
             } else {
                 if (count($policyInfo) == 1) {
                     $term = "policy";
@@ -81,7 +81,7 @@ if (!empty($_SESSION['claimID'])) {
                 }
 
                 if (empty($policyDetail[0])) {
-                    echo "<h4 style=\"clear:both;\">Policy is no longer valid...</h4>";
+                    echo "<h4 style=\"clear:both;\">Policy is no longer valid...</h4><div class=\"title-divider\"></div>";
                 } else {
                     if (empty($policyDetail[0]['p_broker']) || $policyDetail[0]['p_broker'] == 'MLT' || $policyDetail[0]['p_broker'] == 'WHS' || $policyDetail[0]['p_broker'] == 'TPS' || $policyDetail[0]['p_broker'] == 'SCR') {
                         $policyDetail[0]['p_broker'] = "ONE Insurance Limited";
