@@ -79,6 +79,13 @@ if (!empty($_SESSION['claimID'])) {
                         $policyDetail = $conn->execute_sql("select", array('*'), "policy JOIN policy_holders ON p_id = ph_p_id", "p_id=? and (p_cancel_date IS NULL OR p_cancel_date = '0000-00-00') and p_renewal_date >= '" . date('Y-m-d') . "'", array("i" => $policyInfo[$header]['ph_p_id']));
                     }
                 }
+
+                $interval = date_diff(date_create($policyDetail[0]['p_inception_date']), date_create($policyDetail[0]['p_renewal_date']));
+
+                echo $interval->format($differenceFormat);
+                //$policyDetail[0]['p_policy_newrnwl'] = 
+                
+                
                 if($_REQUEST['displayPage'] == "windscreen") {
                     if($_SESSION['userID'] == 4) {
                         $brokerArray = array("Ageas", "Ageas - Grp", "Ageas Insurance", "Ageas KC", "Ageas KC Telematics", "Ageas Telematic", "Groupama", "GROUPAMA Insurance Company Limited", "Groupama KC", "Groupama Key Choice", "KGM @ Lloyds", "KGM Motor Policies at Lloyd's", "Sabre", "Sabre Insurance Company Limited", "Sabre Telemati", "Sabre Telematics - Soteria Drive");
@@ -206,6 +213,10 @@ if (!empty($_SESSION['claimID'])) {
                             <tr>
                                 <th scope="row"><b>Policy Number:</b></th>
                                 <td><?php echo $policyDetail[0]['p_policy_number'] ?></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><b>Policy Type:</b></th>
+                                <td><?php echo $policyDetail[0]['p_policy_newrnwl'] ?></td>
                             </tr>
                             <tr>
                                 <th scope="row"><b>Inception Date:</b></th>
