@@ -83,7 +83,9 @@ if (!empty($_SESSION['claimID'])) {
                     if($_SESSION['userID'] == 2) {
                         $brokerArray = array("Ageas", "Ageas - Grp", "Ageas Insurance", "Ageas KC", "Ageas KC Telematics", "Ageas Telematic", "Groupama", "GROUPAMA Insurance Company Limited", "Groupama KC", "Groupama Key Choice", "KGM @ Lloyds", "KGM Motor Policies at Lloyd's", "Sabre", "Sabre Insurance Company Limited", "Sabre Telemati", "Sabre Telematics - Soteria Drive");
                         if(!in_array($policyDetail[0]['p_broker'], $brokerArray)) {
-                            echo "<h4 style=\"clear:both; color: #ccc;\">Please refer claim back to Commercial Legal on 0203 7387300 option 2</h4><div class=\"col-md-12 mb25\" style=\"height: 10px; background-color:#EBEBEB;\"></div>";
+                            if($policyDetail[0]['p_inception_date'] >= date("Y-m-d")) {
+                                echo "<h4 style=\"clear:both; color: #ccc;\">Please refer claim back to Commercial Legal on 0203 7387300 option 2</h4><div class=\"col-md-12 mb25\" style=\"height: 10px; background-color:#EBEBEB;\"></div>";
+                            }
                             unset($policyDetail[0]); 
                             $ignore = 1;
                         }
