@@ -80,6 +80,15 @@ if (!empty($_SESSION['claimID'])) {
                     }
                 }
 
+                if($_REQUEST['displayPage'] == "windscreen") {
+                    if($_SESSION['userID'] == 2) {
+                        if(!in_array($policyDetail[0]['p_broker'], array("Ageas", "Ageas - Grp", "Ageas Insurance", "Ageas KC", "Ageas KC Telematics", "Ageas Telematic", "Groupama", "GROUPAMA Insurance Company Limited", "Groupama KC", "Groupama Key Choice", "KGM @ Lloyds", "KGM Motor Policies at Lloyd's", "Sabre", "Sabre Insurance Company Limited", "Sabre Telemati", "Sabre Telematics - Soteria Drive"))) {
+                            echo "<h4 style=\"clear:both; color: #ccc;\">Please refer claim back to Commercial Legal on 0203 7387300 option 2</h4><div class=\"col-md-12 mb25\" style=\"height: 10px; background-color:#EBEBEB;\"></div>";
+                            unset($policyDetail[0]);  
+                        }
+                    }
+                }
+
                 if (empty($policyDetail[0])) {
                     $policyDetail = $conn->execute_sql("select", array('p_policy_number'), "policy", "p_id=? or p_ph_id=?", array("i1" => $policyInfo[$header]['v_p_id'], "i2" => $policyInfo[$header]['ph_id']));
                     echo "<h4 style=\"clear:both; color: #ccc;\">Policy no: " . $policyDetail[0]['p_policy_number'] . " is no longer valid...</h4><div class=\"col-md-12 mb25\" style=\"height: 10px; background-color:#EBEBEB;\"></div>";
@@ -118,20 +127,20 @@ if (!empty($_SESSION['claimID'])) {
                     if ($_REQUEST['displayPage'] == "windscreen") {
                         $wsexcessInfo = $conn->execute_sql("select", array('ic_windscreen_replace_xs', 'ic_windscreen_repair_xs'), "insurer_contacts", "ic_title=? ", array("s" => $policyDetail[0]['p_broker']));
                     }
-                    
-                    if(empty($policyDetail[0]['v_make'])) {
+
+                    if (empty($policyDetail[0]['v_make'])) {
                         $policyDetail[0]['v_make'] = $policyDetail[0]['abi_make'];
                     }
-                    if(empty($policyDetail[0]['v_model'])) {
+                    if (empty($policyDetail[0]['v_model'])) {
                         $policyDetail[0]['v_model'] = $policyDetail[0]['abi_model'];
                     }
-                    if(empty($policyDetail[0]['v_transmission'])) {
+                    if (empty($policyDetail[0]['v_transmission'])) {
                         $policyDetail[0]['v_transmission'] = $policyDetail[0]['abi_transmission'];
                     }
-                    if(empty($policyDetail[0]['v_fuel_type'])) {
+                    if (empty($policyDetail[0]['v_fuel_type'])) {
                         $policyDetail[0]['v_fuel_type'] = $policyDetail[0]['abi_fuel_type'];
                     }
-                    
+
 
                     switch ($policyDetail[0]['v_transmission']) {
                         case "M":
@@ -200,19 +209,19 @@ if (!empty($_SESSION['claimID'])) {
                                 <th scope="row"><b>Insurer:</b></th>
                                 <td><?php echo $policyDetail[0]['p_broker'] ?></td>
                             </tr>
-            <?php if (($_REQUEST['displayPage'] !== "fnol") && ($_REQUEST['displayPage'] !== "windscreen") && ($_REQUEST['displayPage'] !== "household_claim")) { ?>
+                            <?php if (($_REQUEST['displayPage'] !== "fnol") && ($_REQUEST['displayPage'] !== "windscreen") && ($_REQUEST['displayPage'] !== "household_claim")) { ?>
                                 <tr>
                                     <th scope="row"><b>Cover:</b></th>
                                     <td><?php echo $cover ?></td>
                                 </tr>
-            <?php } ?>
-            <?php if ($_REQUEST['displayPage'] == "windscreen") { ?>
+                            <?php } ?>
+                            <?php if ($_REQUEST['displayPage'] == "windscreen") { ?>
                                 <tr>
                                     <th scope="row"><b>Windscreen excess:</b></th>
                                     <td><?php echo "Replace: &pound;" . $wsexcessInfo[0]['ic_windscreen_replace_xs'] . " / Repair: &pound;" . $wsexcessInfo[0]['ic_windscreen_repair_xs'] ?></td>
                                 </tr>
                             <?php } ?>
-            <?php if (($_REQUEST['displayPage'] !== "home_emergency") && ($_REQUEST['displayPage'] !== "household_claim")) { ?>
+                            <?php if (($_REQUEST['displayPage'] !== "home_emergency") && ($_REQUEST['displayPage'] !== "household_claim")) { ?>
                                 <tr>
                                     <th scope="row"><b>Vehicle Reg:</b></th>
                                     <td><?php echo $policyDetail[0]['v_reg'] ?></td>
@@ -253,20 +262,20 @@ if (!empty($_SESSION['claimID'])) {
                         </table>
                     </div>
 
-                <div class="col-md-6 mt25" style="clear:both;">
-            <?php if ($_REQUEST['displayPage'] == "breakdown_assistance") { ?>
-                <h4>Previous Breakdowns</h4><div class="title-divider"></div>  
-                <?php
-                $date = new DateTime(date("Y-m-d"));
-                $date->sub(new DateInterval('P7D'));
-                $last_week = $date->format('dmY');
+                    <div class="col-md-6 mt25" style="clear:both;">
+                        <?php if ($_REQUEST['displayPage'] == "breakdown_assistance") { ?>
+                            <h4>Previous Breakdowns</h4><div class="title-divider"></div>  
+                            <?php
+                            $date = new DateTime(date("Y-m-d"));
+                            $date->sub(new DateInterval('P7D'));
+                            $last_week = $date->format('dmY');
 
-                $previousBreakdowns = $conn->execute_sql("select", array('c_id, c_timestamp, bd_assisted_unassisted, bd_further_info, c_ul_id', 'bd_id'), "claims JOIN breakdown_assistance ON c_bd_id = bd_id", "c_p_id = ?", array("i" => $policyDetail[0]['p_id']));
-                //echo $policyInfo[$header]['p_id'];
-                $i = 0;
-                foreach ($previousBreakdowns as $header => $record) {
-                    $i++;
-                    ?>
+                            $previousBreakdowns = $conn->execute_sql("select", array('c_id, c_timestamp, bd_assisted_unassisted, bd_further_info, c_ul_id', 'bd_id'), "claims JOIN breakdown_assistance ON c_bd_id = bd_id", "c_p_id = ?", array("i" => $policyDetail[0]['p_id']));
+                            //echo $policyInfo[$header]['p_id'];
+                            $i = 0;
+                            foreach ($previousBreakdowns as $header => $record) {
+                                $i++;
+                                ?>
                                 <a title="View Breakdown" <?php if (($previousBreakdowns[$header]['c_ul_id'] == $_SESSION['userID']) && ((int) date("dmY", strtotime($previousBreakdowns[$header]['c_timestamp'])) > (int) $last_week)) { ?> class="show-overlay" id="viewBD:<?php echo $previousBreakdowns[$header]['bd_id'] ?>" <?php } ?>style="color: #333; text-decoration:none;"><table width="100%" border="0">
                                         <tr>
                                             <th width="40">#<?php echo $i ?></th>
@@ -290,15 +299,15 @@ if (!empty($_SESSION['claimID'])) {
                                         </tr>
                                     </table></a>
                                 <div class="title-divider"></div>
-                    <?php
-                }
-            }
-            ?>
+                                <?php
+                            }
+                        }
+                        ?>
                     </div>
 
                     <div class="col-md-6">
 
-            <?php if ($_SESSION['userID'] == 2 || ($_SESSION['userID'] == 3)) { ?>
+                        <?php if ($_SESSION['userID'] == 2 || ($_SESSION['userID'] == 3)) { ?>
                             <a id="passFormToNCI" class = "btn btn-default w100 mt25" PID="<?php echo $policyDetail[0]['p_id'] ?>" href="<?php echo $url . "?" . $fields_string ?>" target="_blank">Pass to NCI &nbsp;<i class="fa fa-lg fa-plus-circle"></i></a>
                             <div class="nci_message"></div>
                         <?php } ?>
@@ -309,11 +318,11 @@ if (!empty($_SESSION['claimID'])) {
 
                     <div class="col-md-12 mt25 mb25" style="height: 20px; background-color:#EBEBEB;"></div>
 
-            <?php
+                    <?php
+                }
+            }
         }
-    }
-}
-?>
+        ?>
 
     </div>
 
