@@ -85,9 +85,10 @@ if (!empty($_SESSION['claimID'])) {
                         if(!in_array($policyDetail[0]['p_broker'], $brokerArray)) {
                             if($policyDetail[0]['p_inception_date'] >= date("Y-m-d")) {
                                 echo "<h4 style=\"clear:both; color: #ccc;\">Please refer claim back to Commercial Legal on 0203 7387300 option 2</h4><div class=\"col-md-12 mb25\" style=\"height: 10px; background-color:#EBEBEB;\"></div>";
+                                $ignore = 1;                                
                             }
                             unset($policyDetail[0]); 
-                            $ignore = 1;
+                            
                         }
                     }
                 }
