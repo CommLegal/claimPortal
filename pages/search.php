@@ -79,20 +79,22 @@ if (!empty($_SESSION['claimID'])) {
                         $policyDetail = $conn->execute_sql("select", array('*'), "policy JOIN policy_holders ON p_id = ph_p_id", "p_id=? and (p_cancel_date IS NULL OR p_cancel_date = '0000-00-00') and p_renewal_date >= '" . date('Y-m-d') . "'", array("i" => $policyInfo[$header]['ph_p_id']));
                     }
                 }
-                echo $_SESSION['userID'];
                 if($_REQUEST['displayPage'] == "windscreen") {
                     if($_SESSION['userID'] == 2) {
                         $brokerArray = array("Ageas", "Ageas - Grp", "Ageas Insurance", "Ageas KC", "Ageas KC Telematics", "Ageas Telematic", "Groupama", "GROUPAMA Insurance Company Limited", "Groupama KC", "Groupama Key Choice", "KGM @ Lloyds", "KGM Motor Policies at Lloyd's", "Sabre", "Sabre Insurance Company Limited", "Sabre Telemati", "Sabre Telematics - Soteria Drive");
                         if(!in_array($policyDetail[0]['p_broker'], $brokerArray)) {
                             echo "<h4 style=\"clear:both; color: #ccc;\">Please refer claim back to Commercial Legal on 0203 7387300 option 2</h4><div class=\"col-md-12 mb25\" style=\"height: 10px; background-color:#EBEBEB;\"></div>";
-                            unset($policyDetail[0]);  
+                            unset($policyDetail[0]); 
+                            $ignore = 1;
                         }
                     }
                 }
 
                 if (empty($policyDetail[0])) {
-                    $policyDetail = $conn->execute_sql("select", array('p_policy_number'), "policy", "p_id=? or p_ph_id=?", array("i1" => $policyInfo[$header]['v_p_id'], "i2" => $policyInfo[$header]['ph_id']));
-                    echo "<h4 style=\"clear:both; color: #ccc;\">Policy no: " . $policyDetail[0]['p_policy_number'] . " is no longer valid...</h4><div class=\"col-md-12 mb25\" style=\"height: 10px; background-color:#EBEBEB;\"></div>";
+                    if(empty($ignore)) {
+                        $policyDetail = $conn->execute_sql("select", array('p_policy_number'), "policy", "p_id=? or p_ph_id=?", array("i1" => $policyInfo[$header]['v_p_id'], "i2" => $policyInfo[$header]['ph_id']));
+                        echo "<h4 style=\"clear:both; color: #ccc;\">Policy no: " . $policyDetail[0]['p_policy_number'] . " is no longer valid...</h4><div class=\"col-md-12 mb25\" style=\"height: 10px; background-color:#EBEBEB;\"></div>";
+                    }
                 } else {
                     if (empty($policyDetail[0]['p_broker']) || $policyDetail[0]['p_broker'] == 'MLT' || $policyDetail[0]['p_broker'] == 'WHS' || $policyDetail[0]['p_broker'] == 'TPS' || $policyDetail[0]['p_broker'] == 'SCR') {
                         $policyDetail[0]['p_broker'] = "ONE Insurance Limited";
