@@ -124,10 +124,10 @@ if (!empty($_SESSION['claimID'])) {
                       else {
                         $interval = date_diff(date_create($policyDetail[0]['p_inception_date']), date_create($policyDetail[0]['p_renewal_date']));
                         if($interval->format("%a") < 370) { 
-                            $policyDetail[0]['p_policy_newrnwl'] = "Renewed Policy";
+                            $policyDetail[0]['p_policy_newrnwl'] = "New Policy";
                         } 
                         else {
-                            $policyDetail[0]['p_policy_newrnwl'] = "New Policy";
+                            $policyDetail[0]['p_policy_newrnwl'] = "Renewed Policy";
                         }
                       } 
                     //$policyDetail[0]['p_policy_newrnwl'] = 
