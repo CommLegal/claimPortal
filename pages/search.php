@@ -68,6 +68,7 @@ if (!empty($_SESSION['claimID'])) {
             $i = 0;
 
             foreach ($policyInfo as $header => $value) {
+                var_dump($policyInfo);
                 $i++;
                 $fields_string = NULL;
                 if (!empty($_POST['reg'])) {
