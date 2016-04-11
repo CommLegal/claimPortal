@@ -79,35 +79,53 @@ if (!empty($_SESSION['claimID'])) {
                         $policyDetail = $conn->execute_sql("select", array('*'), "policy JOIN policy_holders ON p_id = ph_p_id", "p_id=? and (p_cancel_date IS NULL OR p_cancel_date = '0000-00-00') and p_renewal_date >= '" . date('Y-m-d') . "'", array("i" => $policyInfo[$header]['ph_p_id']));
                     }
                 }
-                
-                if($_REQUEST['displayPage'] == "windscreen") {
-                    if($_SESSION['userID'] == 4) {
+
+                if ($_REQUEST['displayPage'] == "windscreen") {
+                    if ($_SESSION['userID'] == 4) {
                         $brokerArray = array("Ageas", "Ageas - Grp", "Ageas Insurance", "Ageas KC", "Ageas KC Telematics", "Ageas Telematic", "Groupama", "GROUPAMA Insurance Company Limited", "Groupama KC", "Groupama Key Choice", "KGM @ Lloyds", "KGM Motor Policies at Lloyd's", "Sabre", "Sabre Insurance Company Limited", "Sabre Telemati", "Sabre Telematics - Soteria Drive");
-                        if(!in_array($policyDetail[0]['p_broker'], $brokerArray)) {
-                            if($policyDetail[0]['p_inception_date'] >= date("Y-m-d")) {
-                                echo "<h4 style=\"clear:both; color: #ccc;\">Please refer claim back to Commercial Legal on 0203 7387300 option 2</h4><div class=\"col-md-12 mb25\" style=\"height: 10px; background-color:#EBEBEB;\"></div>";
-                                $ignore = 1;                                
+                        if (!in_array($policyDetail[0]['p_broker'], $brokerArray)) {
+                            if ($policyDetail[0]['p_inception_date'] >= date("Y-m-d")) {
+                                echo "<h4 style=\"clear:both; color: #ccc;\">Please refer the claim back to Commercial Legal on 0203 7387300 option 2</h4><div class=\"col-md-12 mb25\" style=\"height: 10px; background-color:#EBEBEB;\"></div>";
+                                $ignore = 1;
                             }
-                            unset($policyDetail[0]); 
-                            
+                            unset($policyDetail[0]);
                         }
                     }
+                    if($_SESSION['userID'] == 10) {
+                        $brokerArray = array("Ageas", "Ageas - Grp", "Ageas Insurance", "Ageas KC", "Ageas KC Telematics", "Ageas Telematic", "Groupama", "GROUPAMA Insurance Company Limited", "Groupama KC", "Groupama Key Choice", "KGM @ Lloyds", "KGM Motor Policies at Lloyd's", "Sabre", "Sabre Insurance Company Limited", "Sabre Telemati", "Sabre Telematics - Soteria Drive");
+                        if (in_array($policyDetail[0]['p_broker'], $brokerArray)) {
+                            if ($policyDetail[0]['p_inception_date'] >= date("Y-m-d")) {
+                                echo "<h4 style=\"clear:both; color: #ccc;\">Please refer the claim to National Windscreens 01827 338727</h4><div class=\"col-md-12 mb25\" style=\"height: 10px; background-color:#EBEBEB;\"></div>";
+                                $ignore = 1;
+                            }
+                            unset($policyDetail[0]);
+                        }                        
+                    }
+                    
+                    $brokerArray = array("XSD");
+                    if (in_array($policyDetail[0]['p_broker'], $brokerArray)) {
+                        if ($policyDetail[0]['p_inception_date'] >= date("Y-m-d")) {
+                            echo "<h4 style=\"clear:both; color: #ccc;\">Please refer the claim to XSD 03333 443 018</h4><div class=\"col-md-12 mb25\" style=\"height: 10px; background-color:#EBEBEB;\"></div>";
+                            $ignore = 1;
+                        }
+                        unset($policyDetail[0]);
+                    } 
                 }
 
                 if (empty($policyDetail[0])) {
-                    if(empty($ignore)) {
+                    if (empty($ignore)) {
                         $policyDetail = $conn->execute_sql("select", array('p_policy_number'), "policy", "p_id=? or p_ph_id=?", array("i1" => $policyInfo[$header]['v_p_id'], "i2" => $policyInfo[$header]['ph_id']));
                         echo "<h4 style=\"clear:both; color: #ccc;\">Policy no: " . $policyDetail[0]['p_policy_number'] . " is no longer valid...</h4><div class=\"col-md-12 mb25\" style=\"height: 10px; background-color:#EBEBEB;\"></div>";
                     }
                 } else {
-                    /*$interval = date_diff(date_create($policyDetail[0]['p_inception_date']), date_create($policyDetail[0]['p_renewal_date']));
-                    if($interval->format("%a") < 370) {
-                        $policyDetail[0]['p_policy_newrnwl'] = "New Policy";
-                    }
-                    else {
-                        $policyDetail[0]['p_policy_newrnwl'] = "Renewed Policy";
-                    }*/
-                //$policyDetail[0]['p_policy_newrnwl'] = 
+                    /* $interval = date_diff(date_create($policyDetail[0]['p_inception_date']), date_create($policyDetail[0]['p_renewal_date']));
+                      if($interval->format("%a") < 370) {
+                      $policyDetail[0]['p_policy_newrnwl'] = "New Policy";
+                      }
+                      else {
+                      $policyDetail[0]['p_policy_newrnwl'] = "Renewed Policy";
+                      } */
+                    //$policyDetail[0]['p_policy_newrnwl'] = 
                     if (empty($policyDetail[0]['p_broker']) || $policyDetail[0]['p_broker'] == 'MLT' || $policyDetail[0]['p_broker'] == 'WHS' || $policyDetail[0]['p_broker'] == 'TPS' || $policyDetail[0]['p_broker'] == 'SCR') {
                         $policyDetail[0]['p_broker'] = "ONE Insurance Limited";
                     }
@@ -218,11 +236,11 @@ if (!empty($_SESSION['claimID'])) {
                             </tr>
                             <!--<tr>
                                 <th scope="row"><b>Policy Type:</b></th>
-                                <td><?php //echo $policyDetail[0]['p_policy_newrnwl'] ?></td>
+                                <td><?php //echo $policyDetail[0]['p_policy_newrnwl']  ?></td>
                             </tr>
                             <tr>!-->
-                                <th scope="row"><b>Inception Date:</b></th>
-                                <td><?php echo date("d/m/Y", strtotime($policyDetail[0]['p_inception_date'])) ?></td>
+                            <th scope="row"><b>Inception Date:</b></th>
+                            <td><?php echo date("d/m/Y", strtotime($policyDetail[0]['p_inception_date'])) ?></td>
                             </tr>
                             <tr>
                                 <th scope="row"><b>Insurer:</b></th>
