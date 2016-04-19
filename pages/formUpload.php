@@ -91,6 +91,7 @@ foreach($tables as $table => $field) {
 				$cp = $conn->execute_sql("insert", $insertFields, $table, "", "");
 				$conn->execute_sql("update", array("c_hc_id" => $cp), "claims", "c_id=?", array("i" => $claim_number));
 			}
+			echo "Record inserted";
 		}
 		else {	
 			$cp = $conn->execute_sql("update", $insertFields, $table, $field . "=?", array("i" => $claim_number));
