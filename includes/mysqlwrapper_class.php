@@ -47,7 +47,7 @@ class mysqlwrapper_class {
 		global $cme;
 		$tableArray = array();
 		
-		$sql = "SHOW FIELDS FROM " . $table;
+		/*$sql = "SHOW FIELDS FROM " . $table;
 		$result = $cme->query($sql);
 		if($result->num_rows > 0){
 			$i=0;
@@ -55,7 +55,16 @@ class mysqlwrapper_class {
 			   $tableArray[$row['Field']] = $this->get_field_type($row['Field'], $table);
 			   //array_push($tableArray, $this->get_field_type($row['Field'], $table));
 			}
-		}
+		}*/
+		$sql = "select fc_column, fc_datatype FROM field_cache where fc_table = '" . $table . "'";
+        $result = $foebis->query($sql);
+        if ($result->num_rows > 0) {
+            $i = 0;
+            while ($row = $result->fetch_assoc()) {
+                $tableArray[$row['fc_column']] = $row['fc_datatype'];
+                //array_push($tableArray, $this->get_field_type($row['Field'], $table));
+            }
+        }
 		
 		//print_r($this->tableArray);
 		unset($result);
