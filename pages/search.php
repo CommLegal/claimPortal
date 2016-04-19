@@ -81,7 +81,7 @@ if (!empty($_SESSION['claimID'])) {
                 }
 
                 if ($_REQUEST['displayPage'] == "windscreen") {
-                    if ($_SESSION['userID'] == 4 || $_SESSION['userID'] == 2) {
+                    if ($_SESSION['userID'] == 4) {
                         $brokerArray = array("Ageas", "Ageas - Grp", "Ageas Insurance", "Ageas KC", "Ageas KC Telematics", "Ageas Telematic", "Groupama", "GROUPAMA Insurance Company Limited", "Groupama KC", "Groupama Key Choice", "KGM @ Lloyds", "KGM Motor Policies at Lloyd's", "Sabre", "Sabre Insurance Company Limited", "Sabre Telemati", "Sabre Telematics - Soteria Drive");
                         if (!in_array($policyDetail[0]['p_broker'], $brokerArray)) {
                             if ($policyDetail[0]['p_renewal_date'] >= date("Y-m-d")) {
@@ -91,7 +91,7 @@ if (!empty($_SESSION['claimID'])) {
                             unset($policyDetail[0]);
                         }
                     }
-                    if($_SESSION['userID'] == 10) {
+                    if($_SESSION['userID'] == 10 || $_SESSION['userID'] == 2) {
                         $brokerArray = array("Ageas", "Ageas - Grp", "Ageas Insurance", "Ageas KC", "Ageas KC Telematics", "Ageas Telematic", "Groupama", "GROUPAMA Insurance Company Limited", "Groupama KC", "Groupama Key Choice", "KGM @ Lloyds", "KGM Motor Policies at Lloyd's", "Sabre", "Sabre Insurance Company Limited", "Sabre Telemati", "Sabre Telematics - Soteria Drive");
                         if (in_array($policyDetail[0]['p_broker'], $brokerArray)) {
                             if ($policyDetail[0]['p_inception_date'] >= date("Y-m-d")) {
