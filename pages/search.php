@@ -94,7 +94,7 @@ if (!empty($_SESSION['claimID'])) {
                     if($_SESSION['userID'] == 10 || $_SESSION['userID'] == 2) {
                         $brokerArray = array("Ageas", "Ageas - Grp", "Ageas Insurance", "Ageas KC", "Ageas KC Telematics", "Ageas Telematic", "Groupama", "GROUPAMA Insurance Company Limited", "Groupama KC", "Groupama Key Choice", "KGM @ Lloyds", "KGM Motor Policies at Lloyd's", "Sabre", "Sabre Insurance Company Limited", "Sabre Telemati", "Sabre Telematics - Soteria Drive");
                         if (in_array($policyDetail[0]['p_broker'], $brokerArray)) {
-                            if ($policyDetail[0]['p_inception_date'] >= date("Y-m-d")) {
+                            if ($policyDetail[0]['p_renewal_date'] >= date("Y-m-d")) {
                                 echo "<h4 style=\"clear:both; color: #ccc;\">Please refer the claim to National Windscreens on 01827 338727</h4><div class=\"col-md-12 mb25\" style=\"height: 10px; background-color:#EBEBEB;\"></div>";
                                 $ignore = 1;
                             }
@@ -104,7 +104,7 @@ if (!empty($_SESSION['claimID'])) {
                     
                     $brokerArray = array("XSD");
                     if (in_array($policyDetail[0]['p_broker'], $brokerArray)) {
-                        if ($policyDetail[0]['p_inception_date'] >= date("Y-m-d")) {
+                        if ($policyDetail[0]['p_renewal_date'] >= date("Y-m-d")) {
                             echo "<h4 style=\"clear:both; color: #ccc;\">Please refer the claim to XSD on 03333 443 018</h4><div class=\"col-md-12 mb25\" style=\"height: 10px; background-color:#EBEBEB;\"></div>";
                             $ignore = 1;
                         }
