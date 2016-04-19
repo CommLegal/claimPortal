@@ -57,7 +57,7 @@ class mysqlwrapper_class {
 			}
 		}*/
 		$sql = "select fc_column, fc_datatype FROM field_cache where fc_table = '" . $table . "'";
-        $result = $foebis->query($sql);
+        $result = $cme->query($sql);
         if ($result->num_rows > 0) {
             $i = 0;
             while ($row = $result->fetch_assoc()) {
