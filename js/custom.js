@@ -122,7 +122,8 @@ $("#submit_form_assisted").click(function(e) {
 	   'pages/formUpload.php',
 		data,
 		function(data){
-		  $(".save-result").html(data);  
+		  $(".save-result").html(data); 
+		  window.location.replace("https://portal.commercial-legal.co.uk/?displayPage=success");
 		}
 	  );
 });
